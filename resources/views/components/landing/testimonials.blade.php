@@ -6,7 +6,7 @@
             <div class="testimonial-card h-100">
                 <p class="testimonial-text">"La escalabilidad de este software es incomparable. Implementamos la solución en tiempo récord."</p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">CM</div>
+                    <div class="author-avatar"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=CarlosMartinez&size=50" alt="Carlos Martinez"></div>
                     <div>
                         <div class="fw-bold">Carlos Martinez</div>
                         <div class="small text-muted">CTO, TechFlow</div>
@@ -18,7 +18,7 @@
             <div class="testimonial-card h-100">
                 <p class="testimonial-text">"La función offline nos salvó en varias ocasiones. Es el sistema más robusto que hemos probado."</p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">AL</div>
+                    <div class="author-avatar"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=AnaLopez&size=50" alt="Ana López"></div>
                     <div>
                         <div class="fw-bold">Ana López</div>
                         <div class="small text-muted">Gerente, Café Aroma</div>
@@ -30,7 +30,7 @@
             <div class="testimonial-card h-100">
                 <p class="testimonial-text">"Migrar nuestros datos fue cuestión de minutos con el sistema ELT. Muy recomendado."</p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">JR</div>
+                    <div class="author-avatar"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=JorgeRamirez&size=50" alt="Jorge Ramirez"></div>
                     <div>
                         <div class="fw-bold">Jorge Ramirez</div>
                         <div class="small text-muted">Director, Importadd</div>

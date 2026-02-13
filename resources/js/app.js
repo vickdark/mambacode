@@ -12,6 +12,3 @@ window.Swal = Swal;
 // Initialize
 Alpine.start();
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Basic initialization if needed
-});

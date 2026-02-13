@@ -42,6 +42,10 @@
     </div>
 </footer>
 
+<!-- WhatsApp Button -->
+<a href="https://wa.me/573123355193" class="whatsapp-button" target="_blank" title="Contactar por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
 <!-- Back to Top Button -->
 <a href="#inicio" class="back-to-top" id="backToTop" title="Volver arriba">
     <i class="fa-solid fa-arrow-up"></i>
