@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/css/app.css', 
                 'resources/js/app.js',
                 'resources/css/pages/landing/index.css', // Estilos de la landing page
+                'resources/css/pages/products/index.css', // Estilos de la products page
                 'resources/js/pages/landing/index.js' // Scripts de la landing page
             ],
             refresh: true,

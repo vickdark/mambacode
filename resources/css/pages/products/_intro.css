@@ -1,0 +1,8 @@
+.intro-subtitle {
+    max-width: 700px;
+}
+
+.carousel-image {
+    height: 400px;
+    object-fit: cover;
+}

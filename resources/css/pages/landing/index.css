@@ -11,9 +11,8 @@
 @import './_background.css';
 @import './_navbar.css';
 @import './_hero.css';
-@import './_features.css';
+@import "./_products.css";
 @import './_stats.css';
-@import './_pricing.css';
 @import './_testimonials.css';
 @import './_buttons.css';
 @import './_footer.css';

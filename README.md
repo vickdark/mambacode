@@ -206,8 +206,10 @@ Ensambla todos los componentes:
     <x-landing.navigation />
     <x-landing.hero />
     <x-landing.stats />
-    <x-landing.features />
-    <x-landing.pricing />
+    <x-landing.products />
+
+    {{-- <x-products.pricing /> --}}
+
     <x-landing.testimonials />
     <x-landing.cta />
     <x-landing.footer />
@@ -222,10 +224,15 @@ Cada sección de la landing page es un componente independiente y reutilizable:
 - **hero.blade.php** - Sección principal con título y CTA
 - **stats.blade.php** - Estadísticas y métricas
 - **features.blade.php** - Características del servicio
-- **pricing.blade.php** - Planes y precios
 - **testimonials.blade.php** - Testimonios de clientes
 - **cta.blade.php** - Call to action final
 - **footer.blade.php** - Pie de página con enlaces
+
+#### **Componentes** (`components/products/`)
+
+Componentes reutilizables para las páginas de productos:
+
+- **pricing.blade.php** - Planes y precios
 
 ### 🛠️ Compilación con Vite
 

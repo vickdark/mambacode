@@ -15,8 +15,8 @@
         <!-- Desktop Navigation (Hidden on mobile) -->
         <div class="nav-links d-none d-md-flex">
             <a href="#inicio" class="nav-link-item active" title="Volver al inicio">Inicio</a>
-            <a href="#caracteristicas" class="nav-link-item" title="Conoce nuestras características tecnológicas">Características</a>
-            <a href="#precios" class="nav-link-item" title="Ver planes y licencias">Precios</a>
+            <a href="#caracteristicas" class="nav-link-item" title="Conoce nuestros servicios">Servicios</a>
+            <a href="#productos" class="nav-link-item" title="Conoce nuestro portafolio">Portafolio</a>
             <a href="#testimonios" class="nav-link-item" title="Qué opinan nuestros clientes">Testimonios</a>
             <a href="#contacto" class="nav-link-item" title="Ponte en contacto con nuestro equipo técnico">Contacto</a>
             <a href="https://sistema-ventas.mambacode.dev/central/login" target="_blank" class="nav-link-item" title="Acceso Administrativo">
@@ -41,10 +41,10 @@
                 <i class="fa-solid fa-home me-2"></i> Inicio
             </a>
             <a href="#caracteristicas" class="nav-link-item mb-3">
-                <i class="fa-solid fa-star me-2"></i> Características
+                <i class="fa-solid fa-star me-2"></i> Servicios
             </a>
-            <a href="#precios" class="nav-link-item mb-3">
-                <i class="fa-solid fa-tag me-2"></i> Precios
+            <a href="#productos" class="nav-link-item mb-3">
+                <i class="fa-solid fa-briefcase me-2"></i> Portafolio
             </a>
             <a href="#testimonios" class="nav-link-item mb-3">
                 <i class="fa-solid fa-comments me-2"></i> Testimonios

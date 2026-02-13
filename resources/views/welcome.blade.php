@@ -9,7 +9,9 @@
 
     <x-landing.features />
 
-    <x-landing.pricing />
+    <x-landing.products />
+
+    {{-- <x-landing.pricing /> --}}
 
     <x-landing.testimonials />
 

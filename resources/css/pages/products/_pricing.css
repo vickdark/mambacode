@@ -64,6 +64,13 @@
     color: var(--mamba-secondary);
 }
 
+.feature-note {
+    font-size: 0.75rem;
+    margin-top: -0.5rem;
+    padding-left: 1.7rem;
+    margin-bottom: 0.5rem;
+}
+
 .badge-premium {
     position: absolute;
     top: 2rem;

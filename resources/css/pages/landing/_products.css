@@ -1,0 +1,203 @@
+/* Products Section */
+.products-section {
+    padding: 8rem 0;
+}
+
+.products-container {
+    padding: 0 5%;
+    display: grid;
+    /* Force 2 columns on medium screens and up */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* On smaller screens, fall back to single column */
+@media (max-width: 991px) {
+    .products-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Feature Card - Magic 3D Effect */
+.product-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+    transform: none;
+    transition: box-shadow 0.3s ease;
+    will-change: auto;
+    /* Ensure height matches in row */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Make the whole card clickable for links inside */
+    cursor: pointer; 
+}
+
+/* Magic Border Glow */
+.product-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 22px;
+    padding: 2px;
+    background: radial-gradient(
+        500px circle at var(--mouse-x) var(--mouse-y), 
+        var(--mamba-secondary), 
+        var(--mamba-primary), 
+        transparent 100%
+    );
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: var(--magic-opacity, 0);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Surface Spotlight */
+.product-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: radial-gradient(
+        400px circle at var(--mouse-x) var(--mouse-y), 
+        rgba(255, 255, 255, 0.25), 
+        transparent 80%
+    );
+    opacity: var(--magic-opacity, 0);
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.product-card:hover {
+     box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+     transform: translateY(-5px);
+}
+
+.product-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 4;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: linear-gradient(135deg, var(--mamba-primary), var(--mamba-secondary));
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.product-card:hover .product-icon {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.product-icon i {
+    font-size: 40px !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.product-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+    position: relative;
+    z-index: 4;
+}
+
+.product-desc {
+    color: var(--mamba-text-muted);
+    line-height: 1.6;
+    position: relative;
+    z-index: 4;
+    font-size: 1.1rem;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+/* Badge for 'Coming Soon' etc */
+.product-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 5;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 50rem;
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+/* Subtle Product Link */
+.product-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--mamba-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: auto;
+    width: fit-content;
+    z-index: 4;
+    transition: all 0.3s ease;
+}
+
+.product-link i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.product-link:hover {
+    color: #fff;
+}
+
+.product-link:hover i {
+    transform: translateX(5px);
+}
+
+/* Styles moved from inline in products.blade.php */
+.products-section-description {
+    max-width: 700px;
+    font-size: 1.1rem;
+}
+
+.product-card {
+    animation-delay: var(--product-animation-delay);
+}
+
+.product-card-coming-soon {
+    opacity: 0.8;
+}
+
+.product-link-disabled {
+    cursor: default;
+}
+

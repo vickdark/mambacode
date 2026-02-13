@@ -1,110 +1,77 @@
-<!-- Features -->
+<!-- Features (Now Services) -->
 <section class="features-section" id="caracteristicas">
     <div class="container mb-5 text-center">
-        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-3">Soluciones</span>
-        <h2 class="hero-title fs-1 mb-3">Características Tecnológicas</h2>
-        <p class="text-muted mx-auto" style="max-width: 700px; font-size: 1.1rem;">
-            Analizamos tu lógica de negocio para ofrecerte herramientas que realmente impulsen tu productividad.
+        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-3">Nuestra Esencia</span>
+        <h2 class="hero-title fs-1 mb-3">Soluciones Empresariales</h2>
+        <p class="text-muted mx-auto" style="max-width: 800px; font-size: 1.1rem;">
+            Analizamos la lógica de tu negocio para transformarla en soluciones digitales a medida. Diseñamos plataformas inteligentes para automatizar tus procesos y escalar tu infraestructura.
         </p>
     </div>
 
     <div class="features-container">
-        <!-- Feature 1: POS -->
+        <!-- Service 1: Business Logic Analysis -->
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
             <div class="feature-icon">
-                <i class="fa-solid fa-cash-register"></i>
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
             </div>
-            <h3 class="feature-title">Punto de Venta Ágil</h3>
+            <h3 class="feature-title">Análisis de Negocio</h3>
             <p class="feature-desc">
-                Registra ventas en segundos. Interfaz diseñada para la velocidad y facilidad de uso en el mostrador.
+                Desglosamos la lógica de tu operación para identificar cuellos de botella y oportunidades de digitalización efectivas.
             </p>
         </div>
 
-        <!-- Feature 2: Inventory -->
+        <!-- Service 2: Custom Development -->
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
             <div class="feature-icon">
-                <i class="fa-solid fa-boxes-stacked"></i>
+                <i class="fa-solid fa-laptop-code"></i>
             </div>
-            <h3 class="feature-title">Control de Inventario</h3>
+            <h3 class="feature-title">Desarrollo a Medida</h3>
             <p class="feature-desc">
-                Monitorea existencias en tiempo real, gestiona alertas de bajo stock y optimiza tus pedidos.
+                Creamos software exclusivo que se adapta a tus reglas de negocio, y no al revés. Tu visión, nuestro código.
             </p>
         </div>
 
-        <!-- Feature 3: Reports -->
+        <!-- Service 3: Smart Platforms -->
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
             <div class="feature-icon">
-                <i class="fa-solid fa-chart-pie"></i>
+                <i class="fa-solid fa-brain"></i>
             </div>
-            <h3 class="feature-title">Reportes y Finanzas</h3>
+            <h3 class="feature-title">Plataformas Inteligentes</h3>
             <p class="feature-desc">
-                Visualiza ganancias, gastos y flujo de caja en reportes claros para tomar mejores decisiones.
+                Implementamos sistemas capaces de procesar datos complejos para brindarte insights accionables en tiempo real.
             </p>
         </div>
         
-         <!-- Feature 4: Clients -->
+         <!-- Service 4: Process Automation -->
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
             <div class="feature-icon">
-                <i class="fa-solid fa-users"></i>
+                <i class="fa-solid fa-robot"></i>
             </div>
-            <h3 class="feature-title">Gestión de Clientes</h3>
+            <h3 class="feature-title">Automatización de Procesos</h3>
             <p class="feature-desc">
-                Administra cuentas corrientes y créditos. Mantén un historial detallado de tus mejores clientes.
+                Eliminamos tareas repetitivas mediante flujos de trabajo automatizados, liberando a tu equipo para lo estratégico.
             </p>
         </div>
 
-        <!-- Feature 5: ELT System -->
+        <!-- Service 5: Infrastructure Scaling -->
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
             <div class="feature-icon">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <i class="fa-solid fa-server"></i>
             </div>
-            <h3 class="feature-title">Sistema ELT Integrado</h3>
+            <h3 class="feature-title">Infraestructura Escalable</h3>
             <p class="feature-desc">
-                Migración masiva inteligente. Importa productos, clientes y proveedores desde Excel con validación automática.
+                Arquitecturas cloud robustas diseñadas para crecer contigo, garantizando rendimiento y disponibilidad global.
             </p>
         </div>
 
-        <!-- Feature 6: Cash Close -->
+        <!-- Service 6: Digital Strategy -->
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
             <div class="feature-icon">
-                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <i class="fa-solid fa-rocket"></i>
             </div>
-            <h3 class="feature-title">Cortes de Caja</h3>
+            <h3 class="feature-title">Estrategia Digital</h3>
             <p class="feature-desc">
-                Cuadre diario de efectivo sin estrés. Reportes detallados por turno y cajero.
-            </p>
-        </div>
-
-        <!-- Feature 7: Suppliers -->
-        <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.7s;">
-            <div class="feature-icon">
-                <i class="fa-solid fa-truck-field"></i>
-            </div>
-            <h3 class="feature-title">Proveedores</h3>
-            <p class="feature-desc">
-                Gestión completa de abastecimiento. Registra compras y actualiza tu inventario automaticamente.
-            </p>
-        </div>
-
-        <!-- Feature 8: Offline & Licensing -->
-        <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
-            <div class="feature-icon">
-                <i class="fa-solid fa-wifi"></i>
-            </div>
-            <h3 class="feature-title">Modo Offline y Licencias</h3>
-            <p class="feature-desc">
-                Sigue vendiendo sin internet. Elige entre pago único de licencia de por vida o suscripción mensual flexible.
-            </p>
-        </div>
-
-        <!-- Feature 9: Security -->
-        <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.9s;">
-            <div class="feature-icon">
-                <i class="fa-solid fa-lock"></i>
-            </div>
-            <h3 class="feature-title">Seguridad Total</h3>
-            <p class="feature-desc">
-                Respaldos automáticos, cierre de cajas programado y protección de datos avanzada.
+                Te acompañamos en la transformación digital, asegurando que cada implementación tecnológica tenga un retorno real.
             </p>
         </div>
     </div>

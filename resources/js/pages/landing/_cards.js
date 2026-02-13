@@ -37,5 +37,5 @@ export const initCards = () => {
         card.style.setProperty('--magic-opacity', '0');
     };
 
-    document.querySelectorAll('.feature-card, .pricing-card, .hero-feature-card').forEach(setupMagicGlow);
+    document.querySelectorAll('.feature-card, .pricing-card, .hero-feature-card, .product-card').forEach(setupMagicGlow);
 };

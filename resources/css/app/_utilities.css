@@ -7,3 +7,7 @@
 .swal2-container {
     z-index: 3000 !important;
 }
+
+.pricing-card {
+    animation-delay: var(--card-animation-delay);
+}
