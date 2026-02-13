@@ -57,9 +57,22 @@ La carpeta `resources/` contiene todo el código fuente del frontend antes de se
 ```
 resources/
 ├── css/                    # Estilos CSS
-│   ├── app.css            # Archivo principal (imports y estilos globales)
+│   ├── app.css            # Archivo global (imports módulos)
+│   ├── app/               # 🆕 Módulos de la aplicación principal
+│   │   ├── _variables.css
+│   │   ├── _base.css
+│   │   ├── _footer.css
+│   │   └── _utilities.css
 │   └── pages/
-│       └── landing.css    # Estilos específicos de la landing page
+│       └── landing/       # 🆕 Arquitectura modular para landing
+│           ├── index.css           # Punto de entrada (imports)
+│           ├── _variables.css
+│           ├── _scrollbar.css
+│           ├── _background.css
+│           ├── _navbar.css
+│           ├── _hero.css
+│           ├── _features.css
+│           └── ... (otros módulos)
 ├── js/                     # JavaScript
 │   ├── app.js             # Archivo principal (inicialización de librerías)
 │   ├── bootstrap.js       # Configuración de Axios y otros
@@ -73,48 +86,101 @@ resources/
     │       ├── navigation.blade.php
     │       ├── hero.blade.php
     │       ├── stats.blade.php
-    │       ├── features.blade.php
-    │       ├── pricing.blade.php
-    │       ├── testimonials.blade.php
-    │       ├── cta.blade.php
-    │       └── footer.blade.php
     └── welcome.blade.php          # Página principal
 ```
 
-### 🎨 CSS (`resources/css/app.css`)
+### 🎨 CSS Modular
 
-El archivo principal importa todas las dependencias y define variables globales:
+
+#### **Arquitectura de Estilos**
+
+Tanto la aplicación principal como la landing page utilizan una **arquitectura modular** donde los estilos se dividen en archivos pequeños y enfocados.
+
+#### **1. Landing Page (`resources/css/pages/landing/`)**
+
+**`index.css`** - Punto de entrada que importa los módulos:
 
 ```css
-@import "bootstrap/dist/css/bootstrap.min.css";
-@import "@fortawesome/fontawesome-free/css/all.min.css";
-@import "animate.css/animate.min.css";
-@import "@fontsource/inter/index.css";
+/* Base & Variables */
+@import './_variables.css';
 
-:root {
-    --brand: #c05a1e;
-    --content-bg: #f5f7fb;
-    --border-color: #e2e8f0;
-}
+/* Components */
+@import './_navbar.css';
+@import './_hero.css';
+/* ... otros módulos */
 ```
 
-### ⚙️ JavaScript (`resources/js/app.js`)
+| Archivo | Propósito |
+|---------|-----------|
+| `_variables.css` | Variables CSS base (colores, fuentes) |
+| `_background.css` | Fondo animado con gradientes |
+| `_navbar.css` | Navegación responsive |
+| `_hero.css` | Sección principal con animaciones |
+| `_features.css` | Cards con efectos 3D |
+| ... | Otros componentes específicos |
 
-Inicializa y configura todas las librerías JavaScript:
+#### **2. Aplicación Global (`resources/css/app/`)**
+
+**`app.css`** - Archivo principal que integra librerías y módulos globales:
+
+```css
+/* Libraries */
+@import "bootstrap/dist/css/bootstrap.min.css";
+/* ... otras librerías */
+
+/* App Modules */
+@import "./app/_variables.css";
+@import "./app/_base.css";
+@import "./app/_footer.css";
+@import "./app/_utilities.css";
+```
+
+| Archivo | Propósito |
+|---------|-----------|
+| `_variables.css` | Variables globales de la app |
+| `_base.css` | Estilos base para html y body |
+| `_footer.css` | Estilos del pie de página global |
+| `_utilities.css` | Clases de utilidad y overrides |
+
+**Ventajas de la Arquitectura Modular:**
+- ✅ **Separación de responsabilidades**: Cada módulo maneja una sección específica
+- ✅ **Fácil mantenimiento**: Encuentra y edita estilos rápidamente
+- ✅ **Escalabilidad**: Agrega nuevos módulos sin tocar código existente
+- ✅ **Colaboración**: Múltiples desarrolladores pueden trabajar sin conflictos
+- ✅ **Reutilización**: Importa solo los módulos que necesites
+
+### ⚙️ JavaScript Modular
+
+#### **1. Aplicación Principal (`resources/js/app.js`)**
+
+Inicializa las librerías base (Alpine.js, Bootstrap, SweetAlert2):
 
 ```javascript
 import './bootstrap';
 import * as bootstrap from 'bootstrap';
 import Alpine from 'alpinejs';
-import Swal from 'sweetalert2';
-
-// Hacer disponibles globalmente
-window.Alpine = Alpine;
-window.Swal = Swal;
-
-// Inicializar Alpine.js
-Alpine.start();
+// ... configuración global
 ```
+
+#### **2. Landing Page (`resources/js/pages/landing/`)**
+
+El script de la landing page también sigue una arquitectura modular. El archivo `index.js` inicializa funcionalidades específicas:
+
+```javascript
+import { initNavbar } from './navbar';
+import { initHero } from './hero';
+// ... imports
+```
+
+| Módulo | Funcionalidad |
+|--------|---------------|
+| `index.js` | Punto de entrada que inicializa todos los módulos |
+| `_utils.js` | Utilidades generales (ej. restauración de scroll) |
+| `_navbar.js` | Lógica de la barra de navegación (scroll, active links) |
+| `_stats.js` | Animación de contadores numéricos y observer |
+| `_cards.js` | Efectos de hover "magic glow" en tarjetas |
+| `_features.js` | Generación de gradientes aleatorios para iconos |
+| `_back-to-top.js` | Control del botón de volver arriba |
 
 ### 🖼️ Blade Components
 
@@ -200,10 +266,71 @@ Página completa en el navegador
 
 ### ✨ Ventajas de esta Arquitectura
 
-- **Modular**: Cada sección es un componente independiente
-- **Reutilizable**: Los componentes se pueden usar en múltiples páginas
-- **Mantenible**: Fácil encontrar y editar código específico
-- **SEO Optimizado**: Meta tags, Open Graph y Schema.org
-- **Performance**: Vite optimiza automáticamente
-- **DX (Developer Experience)**: Hot Module Replacement durante desarrollo
+#### **Modularidad Completa**
+- **Blade Components**: Cada sección de la página es un componente reutilizable
+- **CSS Modular**: Estilos organizados en archivos independientes por funcionalidad
+- **JavaScript Organizado**: Scripts separados por página y funcionalidad
+
+#### **Mantenibilidad**
+- **Fácil localización**: Encuentra código específico rápidamente
+- **Edición sin conflictos**: Múltiples desarrolladores pueden trabajar simultáneamente
+- **Debugging simplificado**: Errores aislados en módulos específicos
+
+#### **Escalabilidad**
+- **Agregar features**: Crea nuevos módulos sin tocar código existente
+- **Reutilización**: Importa solo los componentes/estilos que necesites
+- **Crecimiento sostenible**: La arquitectura soporta expansión sin refactorización
+
+#### **Performance**
+- **Vite optimiza automáticamente**: Minificación y tree-shaking
+- **Code splitting**: Carga solo lo necesario
+- **Hot Module Replacement**: Desarrollo rápido sin recargas completas
+
+#### **SEO & Accesibilidad**
+- **Meta tags completos**: Open Graph, Twitter Cards, Schema.org
+- **HTML semántico**: Estructura clara para crawlers
+- **Performance optimizado**: Core Web Vitals mejorados
+
+
+#### **Developer Experience (DX)**
+- **Estructura clara**: Convenciones fáciles de seguir
+- **Documentación integrada**: Comentarios y organización lógica
+- **Desarrollo rápido**: HMR y arquitectura predecible
+
+## Comandos de Desarrollo
+
+### Desarrollo
+
+```bash
+# Iniciar servidor de desarrollo con HMR
+npm run dev
+
+# Servidor Laravel (si usas Artisan Serve)
+php artisan serve
+```
+
+### Producción
+
+```bash
+# Compilar assets para producción
+npm run build
+
+# Limpiar caché de Laravel
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
+```
+
+### Instalación
+
+```bash
+# Instalar dependencias PHP
+composer install
+
+# Instalar dependencias Node.js
+npm install
+
+# Generar key de aplicación
+php artisan key:generate
+```
 

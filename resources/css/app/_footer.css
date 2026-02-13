@@ -1,0 +1,10 @@
+/* Page Footer */
+.app-footer {
+    background: #ffffff;
+    border-top: 1px solid var(--border-color);
+    padding: 16px 24px;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+}

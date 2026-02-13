@@ -7,8 +7,8 @@ export default defineConfig({
             input: [
                 'resources/css/app.css', 
                 'resources/js/app.js',
-                'resources/css/pages/landing.css',
-                'resources/js/pages/landing.js'
+                'resources/css/pages/landing/index.css', // Estilos de la landing page
+                'resources/js/pages/landing/index.js' // Scripts de la landing page
             ],
             refresh: true,
         }),

@@ -1,0 +1,19 @@
+/* Background Animation */
+.landing-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(130, 87, 229, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 0, 92, 0.15) 0%, transparent 40%);
+    filter: blur(60px);
+    animation: bgPulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes bgPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.1); opacity: 1; }
+}

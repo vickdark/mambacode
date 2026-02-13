@@ -1,0 +1,33 @@
+/* Landing Page Variables */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+    --mamba-bg: #0a0a0c;
+    --mamba-primary: #8257e5; /* Purple */
+    --mamba-secondary: #3b82f6; /* Mamba Blue */
+    --mamba-accent: #ff005c; /* Hot Pink */
+    --mamba-text: #f0f0f5;
+    --mamba-text-muted: #a0a0b0;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-highlight: rgba(255, 255, 255, 0.15);
+}
+
+body.landing-page {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--mamba-bg);
+    color: var(--mamba-text);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    padding-top: 80px; /* Espacio para el navbar fijo */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scroll Margin for sections due to fixed navbar */
+header[id], section[id], footer[id], div[id] {
+    scroll-margin-top: 100px;
+}

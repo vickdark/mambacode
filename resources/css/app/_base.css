@@ -1,0 +1,9 @@
+html {
+    font-size: 14px;
+}
+
+body {
+    font-family: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
+    background: var(--content-bg);
+    margin: 0;
+}

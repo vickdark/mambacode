@@ -1,0 +1,9 @@
+/* Utilities */
+
+.shadow-soft { box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+.dropdown-toggle-nocaret::after { display: none !important; }
+
+/* Fix para que SweetAlert2 siempre esté por encima de todo */
+.swal2-container {
+    z-index: 3000 !important;
+}

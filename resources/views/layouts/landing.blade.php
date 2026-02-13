@@ -78,7 +78,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <!-- Scripts & Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/pages/landing.css', 'resources/js/pages/landing.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/pages/landing/index.css', 'resources/js/pages/landing/index.js'])
 </head>
 <body class="landing-page text-white">
     <!-- Background Animation -->

@@ -1,0 +1,19 @@
+/* Landing Page Styles - Mamba Code
+ * Modular Architecture
+ * Each section is organized in its own file for better maintainability
+ */
+
+/* Base & Variables */
+@import './_variables.css';
+
+/* Components */
+@import './_scrollbar.css';
+@import './_background.css';
+@import './_navbar.css';
+@import './_hero.css';
+@import './_features.css';
+@import './_stats.css';
+@import './_pricing.css';
+@import './_testimonials.css';
+@import './_buttons.css';
+@import './_footer.css';

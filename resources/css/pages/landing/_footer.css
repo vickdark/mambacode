@@ -1,0 +1,10 @@
+/* Footer */
+.landing-footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--glass-border);
+    color: var(--mamba-text-muted);
+    font-size: 0.9rem;
+    background: rgba(0,0,0,0.3);
+}

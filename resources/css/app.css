@@ -1,3 +1,8 @@
+/* Main Application Styles
+ * Modular Architecture
+ */
+
+/* Libraries */
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 @import "animate.css/animate.min.css";
@@ -8,48 +13,8 @@
 @import "@fontsource/inter/700.css";
 @import "@fontsource/inter/800.css";
 
-
-
-:root {
-    --brand: #c05a1e;
-    --content-bg: #f5f7fb;
-    --border-color: #e2e8f0;
-}
-
-html {
-    font-size: 14px;
-}
-
-body {
-    font-family: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
-    background: var(--content-bg);
-    margin: 0;
-}
-
-
-
-/* Page Footer */
-.app-footer {
-    background: #ffffff;
-    border-top: 1px solid var(--border-color);
-    padding: 16px 24px;
-    color: #64748b;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.85rem;
-}
-
-
-
-/* Utilities */
-
-.shadow-soft { box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-.dropdown-toggle-nocaret::after { display: none !important; }
-
-
-
-/* Fix para que SweetAlert2 siempre esté por encima de todo, incluyendo el sidebar mobile */
-.swal2-container {
-    z-index: 3000 !important;
-}
-
+/* App Modules */
+@import "./app/_variables.css";
+@import "./app/_base.css";
+@import "./app/_footer.css";
+@import "./app/_utilities.css";
