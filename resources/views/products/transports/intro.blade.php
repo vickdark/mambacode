@@ -1,19 +1,19 @@
 @php
     $carouselImages = [
         [
-            'src' => 'https://placehold.co/1200x675/1e1e2e/7e22ce?text=Dashboard+Administrativo',
+            'src' => 'https://picsum.photos/1200/675?random=7',
             'alt' => 'Dashboard',
             'caption_title' => 'Monitoreo en Tiempo Real',
             'caption_text' => 'Visualiza la ubicación y estado de cada unidad al instante.'
         ],
         [
-            'src' => 'https://placehold.co/1200x675/1e1e2e/3b82f6?text=Gestion+de+Conductores',
+            'src' => 'https://picsum.photos/1200/675?random=8',
             'alt' => 'Conductores',
             'caption_title' => 'Gestión de Conductores',
             'caption_text' => 'Expedientes digitales, control de documentos y asignación de vehículos.'
         ],
         [
-            'src' => 'https://placehold.co/1200x675/1e1e2e/10b981?text=App+Movil',
+            'src' => 'https://picsum.photos/1200/675?random=9',
             'alt' => 'App Móvil',
             'caption_title' => 'Aplicación Móvil',
             'caption_text' => 'Herramientas para conductores y pasajeros en Android y iOS.'

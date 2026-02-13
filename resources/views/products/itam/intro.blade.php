@@ -1,19 +1,19 @@
 @php
     $carouselImages = [
         [
-            'src' => 'https://placehold.co/1200x675/1e1e2e/7e22ce?text=Tablero+de+Activos',
+            'src' => 'https://picsum.photos/1200/675?random=4',
             'alt' => 'Dashboard ITAM',
             'caption_title' => 'Visibilidad Central',
             'caption_text' => 'Conoce exactamente qué tienes, quién lo usa y dónde está.'
         ],
         [
-            'src' => 'https://placehold.co/1200x675/1e1e2e/3b82f6?text=Mapa+de+Red',
+            'src' => 'https://picsum.photos/1200/675?random=5',
             'alt' => 'Topología',
             'caption_title' => 'Mapeo de Red',
             'caption_text' => 'Visualiza conexiones y dependencias críticas entre servidores.'
         ],
         [
-            'src' => 'https://placehold.co/1200x675/1e1e2e/10b981?text=Reportes+de+Compliance',
+            'src' => 'https://picsum.photos/1200/675?random=6',
             'alt' => 'Auditoría',
             'caption_title' => 'Auditorías sin Estrés',
             'caption_text' => 'Genera evidencias de cumplimiento en minutos.'

@@ -1,19 +1,19 @@
 @php
     $carouselImages = [
         [
-            'src' => 'https://placehold.co/1200x675/1e1e2e/7e22ce?text=Tablero+de+Ventas',
+            'src' => 'https://picsum.photos/1200/675?random=10',
             'alt' => 'Dashboard Sales',
             'caption_title' => 'Visión General',
             'caption_text' => 'Control total de ingresos y rendimiento de productos en tiempo real.'
         ],
         [
-            'src' => 'https://placehold.co/1200x675/1e1e2e/3b82f6?text=Punto+de+Venta',
+            'src' => 'https://picsum.photos/1200/675?random=11',
             'alt' => 'POS',
             'caption_title' => 'Interfaz POS',
             'caption_text' => 'Punto de venta intuitivo para transacciones rápidas y sin errores.'
         ],
         [
-            'src' => 'https://placehold.co/1200x675/1e1e2e/10b981?text=Gestion+de+Inventarios',
+            'src' => 'https://picsum.photos/1200/675?random=12',
             'alt' => 'Inventario',
             'caption_title' => 'Inventario Inteligente',
             'caption_text' => 'Seguimiento preciso de existencias y actualizaciones automáticas.'

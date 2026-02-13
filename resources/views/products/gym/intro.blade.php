@@ -1,19 +1,19 @@
 @php
     $carouselImages = [
         [
-            'src' => 'https://placehold.co/1200x675/1e1e2e/7e22ce?text=Tablero+de+Socios',
+            'src' => 'https://picsum.photos/1200/675?random=1',
             'alt' => 'Dashboard Gym',
             'caption_title' => 'Gestión de Membresías',
             'caption_text' => 'Control de pagos, vencimientos y renovaciones en un vistazo.'
         ],
         [
-            'src' => 'https://placehold.co/1200x675/1e1e2e/3b82f6?text=Acceso+Biometrico',
+            'src' => 'https://picsum.photos/1200/675?random=2',
             'alt' => 'Acceso',
             'caption_title' => 'Seguridad Biométrica',
             'caption_text' => 'Entrada segura y sin tarjetas clonadas para tus socios.'
         ],
         [
-            'src' => 'https://placehold.co/1200x675/1e1e2e/10b981?text=App+Entrenador',
+            'src' => 'https://picsum.photos/1200/675?random=3',
             'alt' => 'Rutinas',
             'caption_title' => 'Planes Digitales',
             'caption_text' => 'Asigna rutinas y dietas directamente al móvil del cliente.'

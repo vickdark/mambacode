@@ -6,3 +6,36 @@
     height: 400px;
     object-fit: cover;
 }
+
+.product-carousel-custom {
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+}
+
+.carousel-caption-custom {
+    background: var(--glass-bg);
+    color: var(--mamba-text);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.carousel-caption-custom h5 {
+    color: var(--mamba-text);
+}
+
+.carousel-caption-custom p {
+    color: var(--mamba-text-muted);
+}
+
+.carousel-indicators button {
+    background-color: var(--mamba-text-muted);
+}
+
+.carousel-indicators button.active {
+    background-color: var(--mamba-primary);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1) grayscale(100%) brightness(200%); /* Makes icons white */
+}

@@ -16,7 +16,7 @@
         <div class="row align-items-center g-5">
             <!-- Carousel Column -->
             <div class="col-lg-7">
-                <div id="productCarousel" class="carousel slide shadow-lg rounded-4 overflow-hidden border border-white border-opacity-10" data-bs-ride="carousel">
+                <div id="productCarousel" class="carousel slide rounded-4 overflow-hidden product-carousel-custom" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         @foreach ($carouselImages as $index => $image)
                             <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}" aria-current="{{ $index === 0 ? 'true' : 'false' }}" aria-label="Slide {{ $index + 1 }}"></button>
@@ -26,7 +26,7 @@
                         @foreach ($carouselImages as $index => $image)
                             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                                 <img src="{{ $image['src'] }}" class="d-block w-100 carousel-image" alt="{{ $image['alt'] }}">
-                                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 py-2">
+                                <div class="carousel-caption d-none d-md-block carousel-caption-custom">
                                     <h5>{{ $image['caption_title'] }}</h5>
                                     <p>{{ $image['caption_text'] }}</p>
                                 </div>
