@@ -124,6 +124,29 @@
     max-width: 280px;
 }
 
+/* Dropdown Menu Styles */
+.dropdown-menu-dark {
+    background: rgba(10, 10, 12, 0.9);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown-menu-dark .dropdown-item {
+    color: var(--mamba-text);
+    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.dropdown-menu-dark .dropdown-item:hover {
+    background: rgba(130, 87, 229, 0.15);
+    color: #fff;
+}
+
 .mobile-sidebar .nav-link-item {
     display: flex;
     align-items: center;
@@ -145,8 +168,42 @@
     width: 20px;
 }
 
+.mobile-sidebar .nav-link {
+    color: var(--mamba-text);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.mobile-sidebar .nav-link:hover {
+    background: rgba(130, 87, 229, 0.1);
+    color: #fff;
+    padding-left: 1.5rem;
+}
+
 @media (max-width: 768px) {
     .landing-nav {
         padding: 1rem 0;
     }
+}
+
+/* Estilos específicos para el submenú de Portafolio en el offcanvas móvil */
+.mobile-sidebar #portfolioMobileCollapse ul {
+    width: 100%;
+    padding-left: 0;
+}
+
+.mobile-sidebar #portfolioMobileCollapse ul .nav-item {
+    width: 100%;
+    padding-left: 1rem; /* Indentación para el elemento de la lista */
+}
+
+.mobile-sidebar #portfolioMobileCollapse ul .nav-link {
+    text-align: left;
+    padding-left: 1.5rem; /* Indentación adicional para el contenido del enlace */
+    display: flex; /* Para alinear el icono y el texto */
+    align-items: center;
+}
+
+.mobile-sidebar .collapse {
+    width: 100%;
 }

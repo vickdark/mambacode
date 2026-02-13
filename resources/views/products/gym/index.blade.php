@@ -7,6 +7,8 @@
     
     @include('products.gym.features')
 
+    @include('products.gym.pricing')
+
 
     <x-landing.cta />
 

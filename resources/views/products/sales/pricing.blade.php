@@ -1,14 +1,14 @@
 @php
     $products = [
         [
-            'title' => 'Plan Básico de Ventas',
+            'title' => 'Plan Básico POS',
             'price' => '$49',
             'price_period' => '/mes',
-            'description' => 'Ideal para equipos pequeños que buscan optimizar su proceso de ventas.',
+            'description' => 'Ideal para pequeños comercios que inician con un sistema de punto de venta.',
             'features' => [
-                ['icon' => 'fa-solid fa-chart-line', 'text' => 'Gestión de Leads'],
-                ['icon' => 'fa-solid fa-users', 'text' => 'CRM Básico'],
-                ['icon' => 'fa-solid fa-envelope', 'text' => 'Email Marketing Integrado'],
+                ['icon' => 'fa-solid fa-cash-register', 'text' => 'Terminal POS (1 usuario)'],
+                ['icon' => 'fa-solid fa-boxes-stacked', 'text' => 'Gestión de Inventario Básico'],
+                ['icon' => 'fa-solid fa-receipt', 'text' => 'Facturación Simple'],
                 ['icon' => 'fa-solid fa-headset', 'text' => 'Soporte Estándar'],
             ],
             'button_link' => '#contacto',
@@ -16,15 +16,15 @@
             'delay' => '0.1s',
         ],
         [
-            'title' => 'Plan Pro de Ventas',
+            'title' => 'Plan Pro POS',
             'price' => '$99',
             'price_period' => '/mes',
-            'description' => 'Solución completa para equipos de ventas en crecimiento con funciones avanzadas.',
+            'description' => 'Solución completa para comercios en crecimiento con múltiples funcionalidades.',
             'features' => [
-                ['icon' => 'fa-solid fa-rocket', 'text' => 'Automatización de Ventas'],
-                ['icon' => 'fa-solid fa-user-tie', 'text' => 'CRM Avanzado'],
-                ['icon' => 'fa-solid fa-chart-pie', 'text' => 'Análisis de Rendimiento'],
-                ['icon' => 'fa-solid fa-phone-volume', 'text' => 'Integración de Telefonía'],
+                ['icon' => 'fa-solid fa-cash-register', 'text' => 'Terminal POS (5 usuarios)'],
+                ['icon' => 'fa-solid fa-boxes-stacked', 'text' => 'Gestión de Inventario Avanzado'],
+                ['icon' => 'fa-solid fa-file-invoice-dollar', 'text' => 'Facturación Electrónica'],
+                ['icon' => 'fa-solid fa-chart-line', 'text' => 'Reportes de Ventas Detallados'],
                 ['icon' => 'fa-solid fa-shield-alt', 'text' => 'Soporte Prioritario'],
             ],
             'button_link' => '#contacto',
@@ -34,12 +34,12 @@
             'delay' => '0.2s',
         ],
         [
-            'title' => 'Plan Empresarial',
+            'title' => 'Plan Empresarial POS',
             'price' => 'Personalizado',
             'price_period' => '',
-            'description' => 'Diseñado para grandes empresas con necesidades específicas y escalabilidad ilimitada.',
+            'description' => 'Diseñado para grandes cadenas y franquicias con necesidades específicas y escalabilidad.',
             'features' => [
-                ['icon' => 'fa-solid fa-building', 'text' => 'Soluciones a Medida'],
+                ['icon' => 'fa-solid fa-building', 'text' => 'Soluciones Multi-Sucursal'],
                 ['icon' => 'fa-solid fa-handshake', 'text' => 'Gestor de Cuenta Dedicado'],
                 ['icon' => 'fa-solid fa-cogs', 'text' => 'Integraciones Personalizadas'],
                 ['icon' => 'fa-solid fa-lock', 'text' => 'Seguridad Empresarial'],

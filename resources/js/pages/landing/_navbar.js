@@ -4,6 +4,12 @@ export const initNavbar = () => {
         const anchor = e.target.closest('a[href^="#"]');
         if (!anchor) return;
 
+        // Si el ancla clicada es un disparador de colapso, no cerramos el offcanvas.
+        // Esto permite que los submenús se abran sin cerrar el menú principal.
+        if (anchor.hasAttribute('data-bs-toggle') && anchor.getAttribute('data-bs-toggle') === 'collapse') {
+            return;
+        }
+
         const targetId = anchor.getAttribute('href');
         if (targetId === '#' || targetId.length < 2) return;
 
@@ -44,7 +50,8 @@ export const initNavbar = () => {
 
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
+            const href = link.getAttribute('href');
+            if (href && href.includes(current)) {
                 link.classList.add('active');
             }
         });

@@ -2,7 +2,7 @@
 @props(['products'])
 
 <!-- Pricing Section -->
-<section class="pricing-section" id="precios">
+<section class="pricing-section" id="pricing">
     <h2 class="text-center hero-title fs-1 mb-2">Planes Flexibles</h2>
     <p class="text-center text-muted mb-5">Elige el modelo que mejor se adapte al despliegue de tu infraestructura.</p>
     

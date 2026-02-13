@@ -2,55 +2,55 @@
     $features = [
         [
             'title' => 'Gestión de Ventas a Crédito',
-            'description' => 'Administra cuentas por cobrar, límites de crédito y plazos de pago para tus clientes.',
-            'icon' => 'fa-solid fa-file-invoice'
+            'description' => 'Administra cuentas por cobrar y plazos de pago directamente desde el POS.',
+            'icon' => 'fa-solid fa-file-invoice-dollar'
         ],
         [
-            'title' => 'Multi-Almacén',
-            'description' => 'Controla inventarios en múltiples sucursales o depósitos desde una sola plataforma centralizada.',
+            'title' => 'Control Multi-Almacén',
+            'description' => 'Gestiona inventarios en diferentes sucursales o depósitos de forma centralizada.',
             'icon' => 'fa-solid fa-warehouse'
         ],
         [
-            'title' => 'Cotizaciones Express',
-            'description' => 'Genera y envía cotizaciones profesionales en segundos, con opción a convertirlas en venta.',
+            'title' => 'Cotizaciones y Pedidos',
+            'description' => 'Genera cotizaciones y conviértelas en ventas con un solo clic.',
             'icon' => 'fa-solid fa-calculator'
         ],
         [
-            'title' => 'Control de Caja Chica',
-            'description' => 'Registro detallado de gastos menores y movimientos de efectivo diarios.',
-            'icon' => 'fa-solid fa-coins'
+            'title' => 'Gestión de Caja y Turnos',
+            'description' => 'Controla aperturas, cierres y movimientos de efectivo por turno y usuario.',
+            'icon' => 'fa-solid fa-cash-register'
         ],
         [
-            'title' => 'Reportes de Utilidad',
-            'description' => 'Analiza la rentabilidad por producto, categoría o periodo con gráficos intuitivos.',
+            'title' => 'Reportes de Rentabilidad',
+            'description' => 'Accede a informes detallados de ventas, productos y utilidad en tiempo real.',
             'icon' => 'fa-solid fa-chart-line'
         ],
         [
-            'title' => 'Facturación Electrónica',
-            'description' => 'Emisión de comprobantes fiscales cumpliendo con la normativa vigente.',
-            'icon' => 'fa-solid fa-qrcode'
+            'title' => 'Facturación Electrónica Integrada',
+            'description' => 'Emite facturas electrónicas válidas y cumple con la normativa fiscal vigente.',
+            'icon' => 'fa-solid fa-receipt'
         ],
         [
-            'title' => 'Gestión de Devoluciones',
-            'description' => 'Proceso simplificado para cambios y devoluciones, ajustando inventario automáticamente.',
+            'title' => 'Devoluciones y Cambios',
+            'description' => 'Procesa devoluciones y cambios de forma rápida, actualizando el inventario automáticamente.',
             'icon' => 'fa-solid fa-rotate-left'
         ],
         [
-            'title' => 'Alertas de Stock',
-            'description' => 'Notificaciones automáticas cuando tus productos están por agotarse.',
+            'title' => 'Alertas de Stock Mínimo',
+            'description' => 'Recibe notificaciones automáticas cuando los productos alcanzan su stock mínimo.',
             'icon' => 'fa-solid fa-bell'
         ],
         [
-            'title' => 'Perfiles de Usuario',
-            'description' => 'Control de acceso granular para cajeros, vendedores, gerentes y administradores.',
+            'title' => 'Perfiles de Usuario Personalizables',
+            'description' => 'Define roles y permisos específicos para cada miembro de tu equipo.',
             'icon' => 'fa-solid fa-user-shield'
         ]
     ];
 @endphp
 
 <x-products.features
-    title="Potencia tu Comercio"
-    subtitle="Herramientas diseñadas para agilizar tu operación diaria y maximizar tus ganancias."
+    title="Funcionalidades Clave para tu POS"
+    subtitle="Herramientas esenciales para optimizar tu punto de venta y la gestión comercial."
     badge="Gestión Comercial"
     :features="$features"
 />

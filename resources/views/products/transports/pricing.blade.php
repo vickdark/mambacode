@@ -1,41 +1,55 @@
 @php
-        $products = [
-            [
-                'title' => 'Suscripción Flexible',
-                'price' => '$29',
-                'price_period' => '/30 días',
-                'description' => 'Planes adaptables de 30, 90 o 365 días según tus requerimientos de escalabilidad.',
-                'features' => [
-                    ['icon' => 'fa-solid fa-shield-halved', 'text' => 'Seguridad de la Información'],
-                    ['icon' => 'fa-solid fa-database', 'text' => 'Integridad de Datos y Backups'],
-                    ['icon' => 'fa-solid fa-bolt', 'text' => 'Alto Rendimiento Garantizado'],
-                    ['icon' => 'fa-solid fa-headset', 'text' => 'Soporte Técnico Especializado'],
-                ],
-                'button_link' => '#contacto',
-                'button_text' => 'Iniciar Despliegue',
-                'delay' => '0.1s',
+    $products = [
+        [
+            'title' => 'Plan Básico de Transporte',
+            'price' => '$79',
+            'price_period' => '/mes',
+            'description' => 'Ideal para pequeñas flotas que buscan optimizar sus operaciones diarias.',
+            'features' => [
+                ['icon' => 'fa-solid fa-route', 'text' => 'Planificación de Rutas Básica'],
+                ['icon' => 'fa-solid fa-car-side', 'text' => 'Seguimiento GPS (10 vehículos)'],
+                ['icon' => 'fa-solid fa-calendar-check', 'text' => 'Gestión de 50 Reservas/mes'],
+                ['icon' => 'fa-solid fa-headset', 'text' => 'Soporte Estándar'],
             ],
-            [
-                'title' => 'Licencia de Software',
-                'price' => '$499',
-                'price_period' => '/Pago único',
-                'description' => 'Adquiere el uso perpetuo del software con servicios de mantenimiento y evolutivos anuales.',
-                'features' => [
-                    ['icon' => 'fa-solid fa-check-double', 'text' => 'Pago único por Uso de Software'],
-                    ['icon' => 'fa-solid fa-gears', 'text' => 'Mantenimiento de Software*', 'note' => '*Requiere un pequeño pago anual'],
-                    ['icon' => 'fa-solid fa-headset', 'text' => 'Soporte Técnico Especializado'],
-                    ['icon' => 'fa-solid fa-chalkboard-user', 'text' => 'Capacitaciones Personalizadas'],
-                    ['icon' => 'fa-solid fa-code-branch', 'text' => 'Mejoras e Integraciones**', 'note' => '**Sujeto a presupuesto por desarrollo'],
-                    ['icon' => 'fa-solid fa-shield-halved', 'text' => 'Máxima Seguridad e Integridad'],
-                    ['icon' => 'fa-solid fa-server', 'text' => 'Infraestructura de Backups Incluida'],
-                ],
-                'button_link' => '#contacto',
-                'button_text' => 'Adquirir Licencia Vitalicia',
-                'featured' => true,
-                'badge' => 'Recomendado',
-                'delay' => '0.2s',
+            'button_link' => '#contacto',
+            'button_text' => 'Empezar Ahora',
+            'delay' => '0.1s',
+        ],
+        [
+            'title' => 'Plan Pro de Transporte',
+            'price' => '$149',
+            'price_period' => '/mes',
+            'description' => 'Solución completa para flotas en crecimiento con necesidades avanzadas de gestión.',
+            'features' => [
+                ['icon' => 'fa-solid fa-route', 'text' => 'Planificación de Rutas Avanzada'],
+                ['icon' => 'fa-solid fa-car-side', 'text' => 'Seguimiento GPS Ilimitado'],
+                ['icon' => 'fa-solid fa-calendar-check', 'text' => 'Gestión de Reservas Ilimitadas'],
+                ['icon' => 'fa-solid fa-screwdriver-wrench', 'text' => 'Gestión de Mantenimiento'],
+                ['icon' => 'fa-solid fa-shield-alt', 'text' => 'Soporte Prioritario'],
             ],
-        ];
-    @endphp
+            'button_link' => '#contacto',
+            'button_text' => 'Solicitar Demo',
+            'featured' => true,
+            'badge' => 'Más Popular',
+            'delay' => '0.2s',
+        ],
+        [
+            'title' => 'Plan Empresarial',
+            'price' => 'Personalizado',
+            'price_period' => '',
+            'description' => 'Diseñado para grandes operadores de transporte con requisitos específicos y escalabilidad.',
+            'features' => [
+                ['icon' => 'fa-solid fa-building', 'text' => 'Soluciones a Medida'],
+                ['icon' => 'fa-solid fa-handshake', 'text' => 'Gestor de Cuenta Dedicado'],
+                ['icon' => 'fa-solid fa-cogs', 'text' => 'Integraciones Personalizadas'],
+                ['icon' => 'fa-solid fa-lock', 'text' => 'Seguridad Empresarial'],
+                ['icon' => 'fa-solid fa-star', 'text' => 'Soporte 24/7'],
+            ],
+            'button_link' => '#contacto',
+            'button_text' => 'Contactar Ventas',
+            'delay' => '0.3s',
+        ],
+    ];
+@endphp
 
 <x-products.pricing :products="$products" />

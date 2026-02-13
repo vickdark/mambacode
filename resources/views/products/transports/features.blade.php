@@ -1,56 +1,56 @@
 @php
     $features = [
         [
-            'title' => 'Punto de Venta Ágil',
-            'description' => 'Registra ventas en segundos. Interfaz diseñada para la velocidad y facilidad de uso en el mostrador.',
-            'icon' => 'fa-solid fa-cash-register'
+            'title' => 'Gestión de Flota',
+            'description' => 'Controla y monitorea todos tus vehículos, su estado y disponibilidad en tiempo real.',
+            'icon' => 'fa-solid fa-truck-fast'
         ],
         [
-            'title' => 'Control de Inventario',
-            'description' => 'Monitorea existencias en tiempo real, gestiona alertas de bajo stock y optimiza tus pedidos.',
-            'icon' => 'fa-solid fa-boxes-stacked'
+            'title' => 'Optimización de Rutas',
+            'description' => 'Planifica las rutas más eficientes, considerando tráfico, distancias y puntos de entrega.',
+            'icon' => 'fa-solid fa-route'
         ],
         [
-            'title' => 'Reportes y Finanzas',
-            'description' => 'Visualiza ganancias, gastos y flujo de caja en reportes claros para tomar mejores decisiones.',
-            'icon' => 'fa-solid fa-chart-pie'
+            'title' => 'Asignación de Conductores',
+            'description' => 'Asigna viajes y conductores de forma inteligente, optimizando tiempos y recursos.',
+            'icon' => 'fa-solid fa-user-tie'
         ],
         [
-            'title' => 'Gestión de Clientes',
-            'description' => 'Administra cuentas corrientes y créditos. Mantén un historial detallado de tus mejores clientes.',
-            'icon' => 'fa-solid fa-users'
+            'title' => 'Seguimiento GPS en Vivo',
+            'description' => 'Visualiza la ubicación exacta de cada vehículo y su progreso en el mapa.',
+            'icon' => 'fa-solid fa-map-location-dot'
         ],
         [
-            'title' => 'Sistema ELT Integrado',
-            'description' => 'Migración masiva inteligente. Importa productos, clientes y proveedores desde Excel con validación automática.',
-            'icon' => 'fa-solid fa-cloud-arrow-up'
+            'title' => 'Gestión de Mantenimiento',
+            'description' => 'Programa y registra el mantenimiento de la flota para asegurar su operatividad.',
+            'icon' => 'fa-solid fa-screwdriver-wrench'
         ],
         [
-            'title' => 'Cortes de Caja',
-            'description' => 'Cuadre diario de efectivo sin estrés. Reportes detallados por turno y cajero.',
+            'title' => 'Reportes de Rendimiento',
+            'description' => 'Analiza el desempeño de la flota, consumo de combustible y eficiencia de rutas.',
+            'icon' => 'fa-solid fa-chart-line'
+        ],
+        [
+            'title' => 'Sistema de Reservas Integrado',
+            'description' => 'Permite a tus clientes reservar viajes fácilmente y gestiona las solicitudes.',
+            'icon' => 'fa-solid fa-calendar-check'
+        ],
+        [
+            'title' => 'Comunicación con Clientes',
+            'description' => 'Envía notificaciones automáticas sobre el estado del viaje y la llegada del vehículo.',
+            'icon' => 'fa-solid fa-bell'
+        ],
+        [
+            'title' => 'Facturación y Pagos',
+            'description' => 'Genera facturas por servicios de transporte y gestiona los pagos de forma eficiente.',
             'icon' => 'fa-solid fa-file-invoice-dollar'
-        ],
-        [
-            'title' => 'Proveedores',
-            'description' => 'Gestión completa de abastecimiento. Registra compras y actualiza tu inventario automaticamente.',
-            'icon' => 'fa-solid fa-truck-field'
-        ],
-        [
-            'title' => 'Modo Offline y Licencias',
-            'description' => 'Sigue vendiendo sin internet. Elige entre pago único de licencia de por vida o suscripción mensual flexible.',
-            'icon' => 'fa-solid fa-wifi'
-        ],
-        [
-            'title' => 'Seguridad Total',
-            'description' => 'Respaldos automáticos, cierre de cajas programado y protección de datos avanzada.',
-            'icon' => 'fa-solid fa-lock'
         ]
     ];
 @endphp
 
 <x-products.features
-    title="Características Tecnológicas"
-    subtitle="Analizamos tu lógica de negocio para ofrecerte herramientas que realmente impulsen tu productividad."
-    badge="Soluciones"
+    title="Control Total en Movimiento"
+    subtitle="Herramientas avanzadas para una gestión logística sin precedentes."
+    badge="Logística y Movilidad"
     :features="$features"
 />

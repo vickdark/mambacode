@@ -25,6 +25,7 @@
     transform: none;
     transition: box-shadow 0.3s ease;
     will-change: auto;
+    animation-delay: var(--animation-delay);
 }
 
 /* Magic Border Glow */

@@ -9,7 +9,6 @@
 
     @include('products.transports.pricing')
 
-
     <x-landing.cta />
 
     <x-landing.footer />

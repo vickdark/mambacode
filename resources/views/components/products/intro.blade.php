@@ -1,6 +1,6 @@
 @props(['title', 'subtitle', 'badge', 'features', 'carouselImages'])
 
-<section class="product-intro-section py-5 mt-5">
+<section class="product-intro-section py-5 mt-5" id="intro">
     <div class="container">
         <!-- Header -->
         <div class="row align-items-center mb-5">
