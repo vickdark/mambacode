@@ -1,6 +1,6 @@
 # Mamba Code
 
-Portafolio personal y sitio web profesional construido con Laravel.
+Portafolio empresarial y sitio web profesional construido con Laravel.
 
 ## Configuración
 
