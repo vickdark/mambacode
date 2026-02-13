@@ -19,7 +19,7 @@
             <a href="#precios" class="nav-link-item" title="Ver planes y licencias">Precios</a>
             <a href="#testimonios" class="nav-link-item" title="Qué opinan nuestros clientes">Testimonios</a>
             <a href="#contacto" class="nav-link-item" title="Ponte en contacto con nuestro equipo técnico">Contacto</a>
-            <a href="#" class="nav-link-item" title="Acceso Administrativo">
+            <a href="https://sistema-ventas.mambacode.dev/central/login" target="_blank" class="nav-link-item" title="Acceso Administrativo">
                 <i class="fa-solid fa-fingerprint"></i>
             </a>
         </div>
@@ -53,7 +53,7 @@
                 <i class="fa-solid fa-envelope me-2"></i> Contacto
             </a>
             <div class="dropdown-divider my-2 opacity-10"></div>
-            <a href="#" class="nav-link-item">
+            <a href="https://sistema-ventas.mambacode.dev/central/login" target="_blank" class="nav-link-item">
                 <i class="fa-solid fa-fingerprint me-2"></i> Acceso Admin
             </a>
         </div>
