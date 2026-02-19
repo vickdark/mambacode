@@ -13,13 +13,15 @@
             <div class="col-md-6 mb-4 mb-md-0">
                 <h5 class="fw-bold mb-3 text-white">Contacto</h5>
                 <ul class="list-unstyled text-white">
-                    <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> contacto@mambacode.com</li>
-                    <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +1 234 567 890</li>
-                    <li>
+                    <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i>lbarriosmunoz1012@gmail.com</li>
+                    <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i>victormanjarres3mayo@gmail.com</li>
+                    <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +57 323 505 9939</li>
+                    <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +57 312 335 5193</li>
+                    <!-- <li>
                         <a href="#" class="text-white me-3 fs-5"><i class="fa-brands fa-twitter"></i></a>
                         <a href="#" class="text-white me-3 fs-5"><i class="fa-brands fa-instagram"></i></a>
                         <a href="#" class="text-white fs-5"><i class="fa-brands fa-linkedin"></i></a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
 
@@ -43,7 +45,7 @@
 </footer>
 
 <!-- WhatsApp Button -->
-<a href="https://wa.me/573123355193" class="whatsapp-button" target="_blank" title="Contactar por WhatsApp">
+<a href="https://wa.me/573235059939" class="whatsapp-button" target="_blank" title="Contactar por WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
 <!-- Back to Top Button -->

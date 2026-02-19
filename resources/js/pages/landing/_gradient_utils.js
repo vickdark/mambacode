@@ -33,7 +33,7 @@ export const applyGradientsToElements = (selector) => {
     const shuffledGradients = shuffle([...gradients]);
 
     document.querySelectorAll(selector).forEach((container, index) => {
-        const icon = container.querySelector('i');
+        const icon = container.querySelector('i, svg');
         const randomGradient = shuffledGradients[index % shuffledGradients.length];
         
         container.style.background = randomGradient;

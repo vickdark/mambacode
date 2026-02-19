@@ -12,7 +12,7 @@
         <!-- Service 1: Business Logic Analysis -->
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
             <div class="feature-icon">
-                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <i class="fa-solid fa-magnifying-glass-chart fa-2x"></i>
             </div>
             <h3 class="feature-title">Análisis de Negocio</h3>
             <p class="feature-desc">
@@ -23,7 +23,7 @@
         <!-- Service 2: Custom Development -->
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
             <div class="feature-icon">
-                <i class="fa-solid fa-laptop-code"></i>
+                <i class="fa-solid fa-laptop-code fa-2x"></i>
             </div>
             <h3 class="feature-title">Desarrollo a Medida</h3>
             <p class="feature-desc">
@@ -34,7 +34,7 @@
         <!-- Service 3: Smart Platforms -->
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
             <div class="feature-icon">
-                <i class="fa-solid fa-brain"></i>
+                <i class="fa-solid fa-brain fa-2x"></i>
             </div>
             <h3 class="feature-title">Plataformas Inteligentes</h3>
             <p class="feature-desc">
@@ -45,7 +45,7 @@
          <!-- Service 4: Process Automation -->
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
             <div class="feature-icon">
-                <i class="fa-solid fa-robot"></i>
+                <i class="fa-solid fa-robot fa-2x"></i>
             </div>
             <h3 class="feature-title">Automatización de Procesos</h3>
             <p class="feature-desc">
@@ -56,7 +56,7 @@
         <!-- Service 5: Infrastructure Scaling -->
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
             <div class="feature-icon">
-                <i class="fa-solid fa-server"></i>
+                <i class="fa-solid fa-server fa-2x"></i>
             </div>
             <h3 class="feature-title">Infraestructura Escalable</h3>
             <p class="feature-desc">
@@ -67,7 +67,7 @@
         <!-- Service 6: Digital Strategy -->
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
             <div class="feature-icon">
-                <i class="fa-solid fa-rocket"></i>
+                <i class="fa-solid fa-rocket fa-2x"></i>
             </div>
             <h3 class="feature-title">Estrategia Digital</h3>
             <p class="feature-desc">

@@ -1,7 +1,8 @@
 import './bootstrap';
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
-import '@fortawesome/fontawesome-free/js/all.js';
+// Import FontAwesome JS to generate SVGs
+import '@fortawesome/fontawesome-free/js/all.js'; 
 import Alpine from 'alpinejs';
 import Swal from 'sweetalert2';
 

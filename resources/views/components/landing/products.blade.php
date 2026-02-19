@@ -13,8 +13,8 @@
         <!-- We make the whole card clickable by wrapping content or using JS, but strictly HTML we use an anchor tag as the card container or inside -->
         <!-- Here we will use an anchor wrapper for the card to follow best UX practices or keep the button subtle inside -->
         <div class="product-card animate__animated animate__fadeInUp" style="--product-animation-delay: 0.1s;" data-route="{{ route('products.transports') }}">
-            <div class="product-icon">
-                <i class="fa-solid fa-taxi"></i>
+            <div class="product-icon-custom">
+                <i class="fa-solid fa-taxi fa-2x"></i>
             </div>
             <h3 class="product-title">Transporte Privado</h3>
             <p class="product-desc">
@@ -27,8 +27,8 @@
 
         <!-- Product 2: Sales System -->
         <div class="product-card animate__animated animate__fadeInUp" style="--product-animation-delay: 0.2s;" data-route="{{ route('products.sales') }}">
-            <div class="product-icon">
-                <i class="fa-solid fa-cash-register"></i>
+            <div class="product-icon-custom">
+                <i class="fa-solid fa-cash-register fa-2x"></i>
             </div>
             <h3 class="product-title">Sistema de Ventas</h3>
             <p class="product-desc">
@@ -41,8 +41,8 @@
 
         <!-- Product 3: ITAM Management -->
         <div class="product-card animate__animated animate__fadeInUp" style="--product-animation-delay: 0.3s;" data-route="{{ route('products.itam') }}">
-            <div class="product-icon">
-                <i class="fa-solid fa-server"></i>
+            <div class="product-icon-custom">
+                <i class="fa-solid fa-server fa-2x"></i>
             </div>
             <h3 class="product-title">Gestión ITAM</h3>
             <p class="product-desc">
@@ -56,8 +56,8 @@
          <!-- Product 4: SysGym (Coming Soon) -->
         <div class="product-card animate__animated animate__fadeInUp product-card-coming-soon" style="--product-animation-delay: 0.4s;">
             <div class="product-badge">Próximamente</div>
-            <div class="product-icon">
-                <i class="fa-solid fa-dumbbell"></i>
+            <div class="product-icon-custom">
+                <i class="fa-solid fa-dumbbell fa-2x"></i>
             </div>
             <h3 class="product-title">SysGym</h3>
             <p class="product-desc">

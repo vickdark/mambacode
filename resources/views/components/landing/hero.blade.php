@@ -24,7 +24,7 @@
                         <div class="floating-wrapper">
                             <div class="feature-card hero-feature-card">
                                 <div class="feature-icon">
-                                    <i class="fa-solid fa-microchip"></i>
+                                    <i class="fa-solid fa-microchip fa-2x"></i>
                                 </div>
                                 <h3 class="feature-title fs-3">Análisis y Consultoría</h3>
                                 <p class="feature-desc fs-6 opacity-75 mb-0">
@@ -38,7 +38,7 @@
                         <div class="floating-wrapper second-float">
                             <div class="feature-card hero-feature-card">
                                 <div class="feature-icon">
-                                    <i class="fa-solid fa-headset"></i>
+                                    <i class="fa-solid fa-headset fa-2x"></i>
                                 </div>
                                 <h3 class="feature-title fs-3">Soporte y Disponibilidad</h3>
                                 <p class="feature-desc fs-6 opacity-75 mb-0">

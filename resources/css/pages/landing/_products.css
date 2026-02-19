@@ -90,9 +90,11 @@
      transform: translateY(-5px);
 }
 
-.product-icon {
-    width: 70px;
-    height: 70px;
+.product-icon-custom {
+    width: 80px !important;
+    height: 80px !important;
+    /* font-size removed to let FA classes work naturally */
+    flex-shrink: 0;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -105,20 +107,18 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-.product-card:hover .product-icon {
+.product-card:hover .product-icon-custom {
     transform: scale(1.1) rotate(10deg);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
 
-.product-icon i {
-    font-size: 40px !important;
+/* Minimal overrides only for color and positioning context */
+.product-icon-custom i,
+.product-icon-custom svg,
+.product-icon-custom .svg-inline--fa {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+    /* Removed all size forcing properties to respect fa-3x */
 }
 
 .product-title {

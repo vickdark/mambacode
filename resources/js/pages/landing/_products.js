@@ -18,7 +18,7 @@ export const initProducts = () => {
     });
 
     // Logic for product icon gradients
-    applyGradientsToElements('.product-icon');
+    applyGradientsToElements('.product-icon-custom');
 };
 
 
