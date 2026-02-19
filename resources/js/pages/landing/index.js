@@ -7,6 +7,7 @@ import { initBackToTop } from './_back-to-top';
 import { initFeatures } from '../products/_features';
 import { initProducts } from './_products';
 import { initWhatsappButton } from './_button_whastapp';
+import { initHeroAnimation } from './_hero';
 
 
 
@@ -19,4 +20,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initFeatures();
     initProducts(); // ¡Añadiendo esta línea para ejecutar la lógica de productos!
     initWhatsappButton(); // ¡Añadiendo esta línea para ejecutar la lógica de WhatsApp!
+    initHeroAnimation();
 });

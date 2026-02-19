@@ -18,5 +18,8 @@
         "sweetalert2": "^11.26.18",
         "swiper": "^11.2.10",
         "vite": "^7.0.7"
+    },
+    "dependencies": {
+        "three": "^0.183.0"
     }
 }
