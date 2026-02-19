@@ -39,6 +39,11 @@
             </a>
         </div>
     </div>
+    
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
 </nav>
 
 <!-- Mobile Navigation Sidebar (Bootstrap Offcanvas) -->

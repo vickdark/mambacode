@@ -25,15 +25,26 @@ export const initNavbar = () => {
         }
     });
 
-    // Navbar Scroll Effect
+    // Navbar Scroll Effect & Progress Bar
     const nav = document.querySelector('.landing-nav');
+    const progressBar = document.getElementById('scrollProgressBar');
+    
     if (!nav) return;
 
     window.addEventListener('scroll', () => {
+        // Scroll Class
         if (window.scrollY > 50) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
+        }
+        
+        // Progress Bar Calculation
+        if (progressBar) {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
         }
         
         // Active link handling

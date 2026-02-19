@@ -35,12 +35,12 @@
 }
 
 .hero-feature-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(15, 23, 42, 0.4); /* Darker, slightly more opaque background */
+    backdrop-filter: blur(20px); /* Stronger blur */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px; 
     padding: 2.5rem;
-    transition: box-shadow 0.3s ease; 
+    transition: all 0.3s ease; 
     position: relative;
     z-index: 10;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -111,11 +111,29 @@
     letter-spacing: -2px;
 }
 
+/* Hero Title Styling */
 .hero-title span {
-    background: linear-gradient(135deg, var(--mamba-primary) 0%, var(--mamba-secondary) 100%);
+    /* Gradient Text Effect - Matching Reference Image (Purple -> Blue -> Cyan) */
+    background: linear-gradient(90deg, #a855f7 0%, #3b82f6 50%, #0ea5e9 100%);
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    font-weight: 800;
+    
+    /* Animation Shine - Subtle flow */
+    background-size: 200% auto;
+    animation: textShine 6s linear infinite;
+}
+
+/* Note: Underline removed to match the clean gradient text in the reference image */
+
+@keyframes textShine {
+    to { background-position: 200% center; }
 }
 
 .hero-subtitle {
