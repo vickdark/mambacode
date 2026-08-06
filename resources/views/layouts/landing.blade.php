@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    @php
+        $seoTitle = trim($__env->yieldContent('title', 'Mamba Code | Desarrollo de Software y Soluciones Tecnológicas'));
+        $seoDescription = trim($__env->yieldContent('meta_description', 'Mamba Code es una empresa de desarrollo de software y consultoría tecnológica. Creamos soluciones a medida para digitalizar procesos, automatizar operaciones y hacer crecer tu negocio.'));
+        $seoKeywords = trim($__env->yieldContent('meta_keywords', 'Mamba Code, desarrollo de software, soluciones tecnológicas, consultoría tecnológica, software a medida, automatización de procesos, Colombia'));
+        $seoImage = trim($__env->yieldContent('meta_image', asset('img/mambacode.jpeg')));
+        $seoImageAlt = trim($__env->yieldContent('meta_image_alt', 'Mamba Code, soluciones tecnológicas a medida'));
+        $canonicalUrl = trim($__env->yieldContent('canonical_url', url()->current()));
+    @endphp
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Mamba Code - Soluciones Tecnológicas')</title>
-    <meta name="description" content="Mamba Code: Análisis de lógica de negocio y desarrollo de soluciones tecnológicas a medida. Evolucionamos tu software con infraestructura escalable, POS inteligente y consultoría experta.">
-    <meta name="keywords" content="Mamba Code, soluciones tecnológicas, desarrollo de software, POS, punto de venta, inventario, consultoría it, transformación digital, software a medida, lógica de negocio">
+    <title>{{ $seoTitle }}</title>
+    <meta name="description" content="{{ $seoDescription }}">
+    <meta name="keywords" content="{{ $seoKeywords }}">
     <meta name="author" content="Mamba Code">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="{{ url()->current() }}">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="image" content="{{ $seoImage }}">
+    <link rel="canonical" href="{{ $canonicalUrl }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ asset('img/mambacodelg-removebg.png') }}">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="Mamba Code - Soluciones Tecnológicas">
-    <meta property="og:description" content="Analizamos tu lógica de negocio para crear software de alto impacto. POS, inventarios y arquitectura escalable.">
-    <meta property="og:image" content="{{ asset('img/mambacode.jpeg') }}">
+    <meta property="og:site_name" content="Mamba Code">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:url" content="{{ $canonicalUrl }}">
+    <meta property="og:title" content="{{ $seoTitle }}">
+    <meta property="og:description" content="{{ $seoDescription }}">
+    <meta property="og:image" content="{{ $seoImage }}">
+    <meta property="og:image:alt" content="{{ $seoImageAlt }}">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta property="twitter:title" content="Mamba Code - Soluciones Tecnológicas">
-    <meta property="twitter:description" content="Analizamos tu lógica de negocio para crear software de alto impacto. POS, inventarios y arquitectura escalable.">
-    <meta property="twitter:image" content="{{ asset('img/mambacode.jpeg') }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ $canonicalUrl }}">
+    <meta name="twitter:title" content="{{ $seoTitle }}">
+    <meta name="twitter:description" content="{{ $seoDescription }}">
+    <meta name="twitter:image" content="{{ $seoImage }}">
+    <meta name="twitter:image:alt" content="{{ $seoImageAlt }}">
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -32,10 +49,13 @@
       "@type": "ProfessionalService",
       "name": "Mamba Code",
       "alternateName": "Mamba Code Soluciones Tecnológicas",
-      "description": "Expertos en análisis de lógica de negocio y desarrollo de software a medida. Ofrecemos sistemas POS, gestión de inventarios y consultoría tecnológica avanzada.",
+      "description": "@endverbatim{{ $seoDescription }}@verbatim",
       "url": "@endverbatim{{ url('/') }}@verbatim",
-      "logo": "@endverbatim{{ asset('img/mambacode.jpeg') }}@verbatim",
-      "image": "@endverbatim{{ asset('img/mambacode.jpeg') }}@verbatim",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "@endverbatim{{ asset('img/mambacodelg-removebg.png') }}@verbatim"
+      },
+      "image": "@endverbatim{{ $seoImage }}@verbatim",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "CO"
@@ -68,6 +88,18 @@
             }
         ]
       }
+    }
+    @endverbatim
+    </script>
+
+    <script type="application/ld+json">
+    @verbatim
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Mamba Code",
+      "url": "@endverbatim{{ url('/') }}@verbatim",
+      "image": "@endverbatim{{ $seoImage }}@verbatim"
     }
     @endverbatim
     </script>
