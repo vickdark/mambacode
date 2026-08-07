@@ -51,7 +51,7 @@
     <div class="offcanvas-header border-bottom">
         <div class="d-flex align-items-center gap-2" id="mobileSidebarLabel">
             <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code" style="height: 30px; border-radius: 4px;">
-            <span class="fw-bold">Mamba<span style="color: var(--mamba-secondary)">Code</span></span>
+            <span class="fw-bold text-white">Mamba<span style="color: var(--mamba-secondary)">Code</span></span>
         </div>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
