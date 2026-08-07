@@ -1,22 +1,70 @@
 @php
     $carouselImages = [
         [
-            'src' => 'https://picsum.photos/1200/675?random=16',
+            'src' => asset('img/products/sales/ventas_1.png'),
             'alt' => 'Dashboard Ventas',
             'caption_title' => 'Visión General de Ventas',
             'caption_text' => 'Panel de control intuitivo para monitorear tus ventas en tiempo real.'
         ],
         [
-            'src' => 'https://picsum.photos/1200/675?random=17',
+            'src' => asset('img/products/sales/ventas_2.png'),
             'alt' => 'Punto de Venta',
             'caption_title' => 'Punto de Venta Ágil',
             'caption_text' => 'Interfaz optimizada para transacciones rápidas y eficientes en tu comercio.'
         ],
         [
-            'src' => 'https://picsum.photos/1200/675?random=18',
+            'src' => asset('img/products/sales/ventas_3.png'),
             'alt' => 'Gestión de Inventario',
             'caption_title' => 'Control de Inventario Inteligente',
             'caption_text' => 'Automatiza el seguimiento de existencias y recibe alertas de bajo stock.'
+        ],
+        [
+            'src' => asset('img/products/sales/ventas_4.png'),
+            'alt' => 'Dashboard Ventas',
+            'caption_title' => 'Visión General de Ventas',
+            'caption_text' => 'Panel de control intuitivo para monitorear tus ventas en tiempo real.'
+        ],
+        [
+            'src' => asset('img/products/sales/ventas_5.png'),
+            'alt' => 'Punto de Venta',
+            'caption_title' => 'Punto de Venta Ágil',
+            'caption_text' => 'Interfaz optimizada para transacciones rápidas y eficientes en tu comercio.'
+        ],
+        [
+            'src' => asset('img/products/sales/ventas_6.png'),
+            'alt' => 'Gestión de Inventario',
+            'caption_title' => 'Control de Inventario Inteligente',
+            'caption_text' => 'Automatiza el seguimiento de existencias y recibe alertas de bajo stock.'
+        ],
+        [
+            'src' => asset('img/products/sales/ventas_7.png'),
+            'alt' => 'Punto de Venta',
+            'caption_title' => 'Punto de Venta Ágil',
+            'caption_text' => 'Interfaz optimizada para transacciones rápidas y eficientes en tu comercio.'
+        ],
+        [
+            'src' => asset('img/products/sales/ventas_8.png'),
+            'alt' => 'Gestión de Inventario',
+            'caption_title' => 'Control de Inventario Inteligente',
+            'caption_text' => 'Automatiza el seguimiento de existencias y recibe alertas de bajo stock.'
+        ],
+        [
+            'src' => asset('img/products/sales/ventas_9.png'),
+            'alt' => 'Punto de Venta',
+            'caption_title' => 'Punto de Venta Ágil',
+            'caption_text' => 'Interfaz optimizada para transacciones rápidas y eficientes en tu comercio.'
+        ],
+        [
+            'src' => asset('img/products/sales/ventas_10.png'),
+            'alt' => 'Gestión de Inventario',
+            'caption_title' => 'Control de Inventario Inteligente',
+            'caption_text' => 'Automatiza el seguimiento de existencias y recibe alertas de bajo stock.'
+        ],
+        [
+            'src' => asset('img/products/sales/ventas_11.png'),
+            'alt' => 'Punto de Venta',
+            'caption_title' => 'Punto de Venta Ágil',
+            'caption_text' => 'Interfaz optimizada para transacciones rápidas y eficientes en tu comercio.'
         ]
     ];
 

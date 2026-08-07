@@ -1,0 +1,73 @@
+/* Contact form - Dark corporate + minimal spacing styles */
+.contact-form .card {
+    background: linear-gradient(180deg, rgba(15,23,42,0.95), rgba(10,14,28,0.95));
+    color: #e6eef8;
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+.contact-form .card-title {
+    color: var(--mamba-primary);
+}
+
+.contact-form .input-group-text {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.04);
+    color: var(--mamba-secondary);
+}
+
+.contact-form .form-control,
+.contact-form .form-select,
+.contact-form textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #e6eef8;
+}
+
+.contact-form .form-select {
+    appearance: none;
+    background-image: none;
+}
+
+.contact-form .form-control::placeholder,
+.contact-form .form-select option {
+    color: rgba(230,238,248,0.6);
+}
+
+.contact-form .form-select option {
+    background: rgba(15,23,42,0.98);
+}
+
+.contact-form .form-select:focus,
+.contact-form .form-control:focus,
+.contact-form textarea:focus {
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: none;
+    background: rgba(255,255,255,0.04);
+}
+
+.contact-form .card-body { padding: 2.25rem; }
+
+/* Minimal spacious layout */
+.contact-form .row.gy-3 > [class*="col-"] { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+
+.contact-form .input-group { box-shadow: none; }
+
+/* CTA and privacy */
+.contact-form .btn-primary {
+    background: var(--mamba-primary);
+    border-color: var(--mamba-primary);
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+}
+
+.contact-form .btn-primary:hover { filter:brightness(1.05); }
+
+.contact-form small.text-muted { color: rgba(230,238,248,0.6); }
+
+/* Wizard steps are no longer used */
+
+/* Responsive tweaks */
+@media (max-width: 767px) {
+    .contact-form .card-body { padding: 1.25rem; }
+    .contact-form .btn-primary { width:100%; }
+}

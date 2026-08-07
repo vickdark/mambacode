@@ -9,6 +9,21 @@
     </div>
 
     <div class="products-container">
+        <!-- Product 0: Tu Producto (Personalizado) -->
+        <div class="product-card product-card-highlight animate__animated animate__fadeInUp" style="--product-animation-delay: 0.05s;" data-route="{{ route('products.custom') }}">
+            <span class="product-card-highlight-badge">Propuesta Estelar</span>
+            <div class="product-icon-custom">
+                <i class="fa-solid fa-briefcase fa-2x"></i>
+            </div>
+            <h3 class="product-title">Tu Producto</h3>
+            <p class="product-desc">
+                Desarrollamos a la medida soluciones personalizadas que se adaptan 100% a los procesos y objetivos de tu empresa o negocio.
+            </p>
+            <a href="{{ route('products.custom') }}" class="product-link">
+                Contáctanos <i class="fa-solid fa-arrow-right-long"></i>
+            </a>
+        </div>
+
         <!-- Product 1: Private Transport -->
         <!-- We make the whole card clickable by wrapping content or using JS, but strictly HTML we use an anchor tag as the card container or inside -->
         <!-- Here we will use an anchor wrapper for the card to follow best UX practices or keep the button subtle inside -->
@@ -53,7 +68,7 @@
             </a>
         </div>
         
-         <!-- Product 4: SysGym (Coming Soon) -->
+        <!-- Product 4: SysGym (Coming Soon) -->
         <div class="product-card animate__animated animate__fadeInUp product-card-coming-soon" style="--product-animation-delay: 0.4s;">
             <div class="product-badge">Próximamente</div>
             <div class="product-icon-custom">
@@ -62,6 +77,36 @@
             <h3 class="product-title">SysGym</h3>
             <p class="product-desc">
                 La solución definitiva para la administración de gimnasios. Gestión de membresías, control de accesos biométrico y seguimiento de progreso de clientes.
+            </p>
+            <span class="product-link text-muted product-link-disabled">
+                En Desarrollo <i class="fa-solid fa-hammer"></i>
+            </span>
+        </div>
+
+        <!-- Product 5: Turnos y Reservas (Coming Soon) -->
+        <div class="product-card animate__animated animate__fadeInUp product-card-coming-soon" style="--product-animation-delay: 0.45s;">
+            <div class="product-badge">Próximamente</div>
+            <div class="product-icon-custom">
+                <i class="fa-solid fa-calendar-days fa-2x"></i>
+            </div>
+            <h3 class="product-title">Turnos y Reservas</h3>
+            <p class="product-desc">
+                Sistema para gestionar turnos, reservas y agendas con notificaciones y asignación automática.
+            </p>
+            <span class="product-link text-muted product-link-disabled">
+                En Desarrollo <i class="fa-solid fa-hammer"></i>
+            </span>
+        </div>
+
+        <!-- Product 6: Gestión Inmobiliaria (En Desarrollo) -->
+        <div class="product-card animate__animated animate__fadeInUp product-card-coming-soon" style="--product-animation-delay: 0.5s;">
+            <div class="product-badge">En Desarrollo</div>
+            <div class="product-icon-custom">
+                <i class="fa-solid fa-house-building fa-2x"></i>
+            </div>
+            <h3 class="product-title">Gestión Inmobiliaria</h3>
+            <p class="product-desc">
+                Plataforma de gestión inmobiliaria para propiedades, contratos y operaciones, diseñada para crecer con tu cartera.
             </p>
             <span class="product-link text-muted product-link-disabled">
                 En Desarrollo <i class="fa-solid fa-hammer"></i>

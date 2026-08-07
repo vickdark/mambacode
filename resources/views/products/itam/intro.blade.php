@@ -1,19 +1,91 @@
 @php
     $carouselImages = [
         [
-            'src' => 'https://picsum.photos/1200/675?random=4',
+            'src' => asset('img/products/itam/itam_1.png'),
             'alt' => 'Dashboard ITAM',
             'caption_title' => 'Visibilidad Central',
             'caption_text' => 'Conoce exactamente qué tienes, quién lo usa y dónde está.'
         ],
         [
-            'src' => 'https://picsum.photos/1200/675?random=5',
+            'src' => asset('img/products/itam/itam_2.png'),
             'alt' => 'Topología',
             'caption_title' => 'Mapeo de Red',
             'caption_text' => 'Visualiza conexiones y dependencias críticas entre servidores.'
         ],
         [
-            'src' => 'https://picsum.photos/1200/675?random=6',
+            'src' => asset('img/products/itam/itam_3.png'),
+            'alt' => 'Auditoría',
+            'caption_title' => 'Auditorías sin Estrés',
+            'caption_text' => 'Genera evidencias de cumplimiento en minutos.'
+        ],
+        [
+            'src' => asset('img/products/itam/itam_4.png'),
+            'alt' => 'Topología',
+            'caption_title' => 'Mapeo de Red',
+            'caption_text' => 'Visualiza conexiones y dependencias críticas entre servidores.'
+        ],
+        [
+            'src' => asset('img/products/itam/itam_5.png'),
+            'alt' => 'Auditoría',
+            'caption_title' => 'Auditorías sin Estrés',
+            'caption_text' => 'Genera evidencias de cumplimiento en minutos.'
+        ],
+        [
+            'src' => asset('img/products/itam/itam_6.png'),
+            'alt' => 'Topología',
+            'caption_title' => 'Mapeo de Red',
+            'caption_text' => 'Visualiza conexiones y dependencias críticas entre servidores.'
+        ],
+        [
+            'src' => asset('img/products/itam/itam_7.png'),
+            'alt' => 'Auditoría',
+            'caption_title' => 'Auditorías sin Estrés',
+            'caption_text' => 'Genera evidencias de cumplimiento en minutos.'
+        ],
+        [
+            'src' => asset('img/products/itam/itam_8.png'),
+            'alt' => 'Topología',
+            'caption_title' => 'Mapeo de Red',
+            'caption_text' => 'Visualiza conexiones y dependencias críticas entre servidores.'
+        ],
+        [
+            'src' => asset('img/products/itam/itam_9.png'),
+            'alt' => 'Auditoría',
+            'caption_title' => 'Auditorías sin Estrés',
+            'caption_text' => 'Genera evidencias de cumplimiento en minutos.'
+        ],
+        [
+            'src' => asset('img/products/itam/itam_10.png'),
+            'alt' => 'Topología',
+            'caption_title' => 'Mapeo de Red',
+            'caption_text' => 'Visualiza conexiones y dependencias críticas entre servidores.'
+        ],
+        [
+            'src' => asset('img/products/itam/itam_11.png'),
+            'alt' => 'Auditoría',
+            'caption_title' => 'Auditorías sin Estrés',
+            'caption_text' => 'Genera evidencias de cumplimiento en minutos.'
+        ],
+        [
+            'src' => asset('img/products/itam/itam_12.png'),
+            'alt' => 'Topología',
+            'caption_title' => 'Mapeo de Red',
+            'caption_text' => 'Visualiza conexiones y dependencias críticas entre servidores.'
+        ],
+        [
+            'src' => asset('img/products/itam/itam_13.png'),
+            'alt' => 'Auditoría',
+            'caption_title' => 'Auditorías sin Estrés',
+            'caption_text' => 'Genera evidencias de cumplimiento en minutos.'
+        ],
+        [
+            'src' => asset('img/products/itam/itam_14.png'),
+            'alt' => 'Topología',
+            'caption_title' => 'Mapeo de Red',
+            'caption_text' => 'Visualiza conexiones y dependencias críticas entre servidores.'
+        ],
+        [
+            'src' => asset('img/products/itam/itam_15.png'),
             'alt' => 'Auditoría',
             'caption_title' => 'Auditorías sin Estrés',
             'caption_text' => 'Genera evidencias de cumplimiento en minutos.'

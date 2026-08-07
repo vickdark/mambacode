@@ -31,14 +31,55 @@
     overflow: visible;
     z-index: 1;
     transform: none;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
     will-change: auto;
     /* Ensure height matches in row */
     height: 100%;
     display: flex;
     flex-direction: column;
     /* Make the whole card clickable for links inside */
-    cursor: pointer; 
+    cursor: pointer;
+}
+
+.product-card-highlight {
+    grid-column: 1 / -1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    background: linear-gradient(135deg, rgba(18, 28, 45, 0.95), rgba(27, 38, 61, 0.98));
+}
+
+.product-card-highlight-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.55rem 1rem;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.18), rgba(249, 115, 22, 0.15));
+    color: #ffdd7a;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.product-card-highlight .product-title {
+    font-size: 2rem;
+}
+
+.product-card-highlight .product-desc {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+}
+
+.product-card-highlight .product-icon-custom {
+    width: 90px !important;
+    height: 90px !important;
+    margin-bottom: 2rem;
 }
 
 /* Magic Border Glow */

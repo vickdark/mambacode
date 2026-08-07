@@ -23,7 +23,7 @@
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="portfolioDropdown">
                     <li><a class="dropdown-item" href="{{ route('products.sales') }}">Sistema de Ventas POS</a></li>
                     <li><a class="dropdown-item" href="{{ route('products.itam') }}">Gestión de Activos ITAM</a></li>
-                    <li><a class="dropdown-item" href="{{ route('products.gym') }}">SysGym - Software Fitness</a></li>
+                    <!-- <li><a class="dropdown-item" href="{{ route('products.gym') }}">SysGym - Software Fitness</a></li> -->
                     <li><a class="dropdown-item" href="{{ route('products.transports') }}">Sistema de Transporte Privado</a></li>
                 </ul>
             </div>
@@ -71,7 +71,7 @@
                         <ul class="nav flex-column">
                             <li class="nav-item"><a class="nav-link text-white py-1" href="{{ route('products.sales') }}"><i class="fa-regular fa-circle me-2"></i> Sistema de Ventas POS</a></li>
                             <li class="nav-item"><a class="nav-link text-white py-1" href="{{ route('products.itam') }}"><i class="fa-regular fa-circle me-2"></i> Gestión de Activos ITAM</a></li>
-                            <li class="nav-item"><a class="nav-link text-white py-1" href="{{ route('products.gym') }}"><i class="fa-regular fa-circle me-2"></i> SysGym - Software Fitness</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link text-white py-1" href="{{ route('products.gym') }}"><i class="fa-regular fa-circle me-2"></i> SysGym - Software Fitness</a></li> -->
                             <li class="nav-item"><a class="nav-link text-white py-1" href="{{ route('products.transports') }}"><i class="fa-regular fa-circle me-2"></i> Sistema de Transporte Privado</a></li>
                         </ul>
                     </div>

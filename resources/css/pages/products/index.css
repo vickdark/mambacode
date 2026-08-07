@@ -6,4 +6,5 @@
 
 /* Components */
 @import './_features.css';
+@import './_intro.css';
 @import './_pricing.css';

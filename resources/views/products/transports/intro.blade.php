@@ -1,19 +1,79 @@
 @php
     $carouselImages = [
         [
-            'src' => 'https://picsum.photos/1200/675?random=13',
+            'src' => asset('img/products/transports/trans_1.png'),
             'alt' => 'Dashboard Transportes',
             'caption_title' => 'Gestión de Flota',
             'caption_text' => 'Control y monitoreo en tiempo real de todos tus vehículos.'
         ],
         [
-            'src' => 'https://picsum.photos/1200/675?random=14',
+            'src' => asset('img/products/transports/trans_2.png'),
             'alt' => 'Rutas Optimizadas',
             'caption_title' => 'Optimización de Rutas',
             'caption_text' => 'Planificación eficiente para reducir tiempos y costos.'
         ],
         [
-            'src' => 'https://picsum.photos/1200/675?random=15',
+            'src' => asset('img/products/transports/trans_3.png'),
+            'alt' => 'Reservas',
+            'caption_title' => 'Sistema de Reservas',
+            'caption_text' => 'Gestión sencilla de viajes y asignación de conductores.'
+        ],
+        [
+            'src' => asset('img/products/transports/trans_4.png'),
+            'alt' => 'Rutas Optimizadas',
+            'caption_title' => 'Optimización de Rutas',
+            'caption_text' => 'Planificación eficiente para reducir tiempos y costos.'
+        ],
+        [
+            'src' => asset('img/products/transports/trans_5.png'),
+            'alt' => 'Reservas',
+            'caption_title' => 'Sistema de Reservas',
+            'caption_text' => 'Gestión sencilla de viajes y asignación de conductores.'
+        ],
+        [
+            'src' => asset('img/products/transports/trans_6.png'),
+            'alt' => 'Rutas Optimizadas',
+            'caption_title' => 'Optimización de Rutas',
+            'caption_text' => 'Planificación eficiente para reducir tiempos y costos.'
+        ],
+        [
+            'src' => asset('img/products/transports/trans_7.png'),
+            'alt' => 'Reservas',
+            'caption_title' => 'Sistema de Reservas',
+            'caption_text' => 'Gestión sencilla de viajes y asignación de conductores.'
+        ],
+        [
+            'src' => asset('img/products/transports/trans_8.png'),
+            'alt' => 'Rutas Optimizadas',
+            'caption_title' => 'Optimización de Rutas',
+            'caption_text' => 'Planificación eficiente para reducir tiempos y costos.'
+        ],
+        [
+            'src' => asset('img/products/transports/trans_9.png'),
+            'alt' => 'Reservas',
+            'caption_title' => 'Sistema de Reservas',
+            'caption_text' => 'Gestión sencilla de viajes y asignación de conductores.'
+        ],
+        [
+            'src' => asset('img/products/transports/trans_10.png'),
+            'alt' => 'Rutas Optimizadas',
+            'caption_title' => 'Optimización de Rutas',
+            'caption_text' => 'Planificación eficiente para reducir tiempos y costos.'
+        ],
+        [
+            'src' => asset('img/products/transports/trans_11.png'),
+            'alt' => 'Reservas',
+            'caption_title' => 'Sistema de Reservas',
+            'caption_text' => 'Gestión sencilla de viajes y asignación de conductores.'
+        ],
+        [
+            'src' => asset('img/products/transports/trans_12.png'),
+            'alt' => 'Rutas Optimizadas',
+            'caption_title' => 'Optimización de Rutas',
+            'caption_text' => 'Planificación eficiente para reducir tiempos y costos.'
+        ],
+        [
+            'src' => asset('img/products/transports/trans_13.png'),
             'alt' => 'Reservas',
             'caption_title' => 'Sistema de Reservas',
             'caption_text' => 'Gestión sencilla de viajes y asignación de conductores.'
