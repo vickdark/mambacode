@@ -45,63 +45,69 @@
     <meta name="twitter:image" content="{{ $seoImage }}">
     <meta name="twitter:image:alt" content="{{ $seoImageAlt }}">
 
+    @php
+        $professionalService = [
+            '@context' => 'https://schema.org',
+            '@type' => 'ProfessionalService',
+            'name' => 'Mamba Code',
+            'alternateName' => 'Mamba Code Soluciones Tecnológicas',
+            'description' => $seoDescription,
+            'url' => url('/'),
+            'logo' => [
+                '@type' => 'ImageObject',
+                'url' => asset('img/mambacodelg-removebg.png'),
+            ],
+            'image' => $seoImage,
+            'address' => [
+                '@type' => 'PostalAddress',
+                'addressCountry' => 'CO',
+            ],
+            'priceRange' => '$$',
+            'hasOfferCatalog' => [
+                '@type' => 'OfferCatalog',
+                'name' => 'Servicios Tecnológicos',
+                'itemListElement' => [
+                    [
+                        '@type' => 'Offer',
+                        'itemOffered' => [
+                            '@type' => 'Service',
+                            'name' => 'Análisis de Lógica de Negocio',
+                        ],
+                    ],
+                    [
+                        '@type' => 'Offer',
+                        'itemOffered' => [
+                            '@type' => 'Service',
+                            'name' => 'Desarrollo de Software a Medida',
+                        ],
+                    ],
+                    [
+                        '@type' => 'Offer',
+                        'itemOffered' => [
+                            '@type' => 'Service',
+                            'name' => 'Sistema POS Inteligente',
+                        ],
+                    ],
+                ],
+            ],
+        ];
+
+        $websiteSchema = [
+            '@context' => 'https://schema.org',
+            '@type' => 'WebSite',
+            'name' => 'Mamba Code',
+            'url' => url('/'),
+            'image' => $seoImage,
+        ];
+    @endphp
+
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Mamba Code",
-      "alternateName": "Mamba Code Soluciones Tecnológicas",
-      "description": {!! json_encode($seoDescription, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!},
-      "url": {!! json_encode(url('/'), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!},
-      "logo": {
-        "@type": "ImageObject",
-        "url": {!! json_encode(asset('img/mambacodelg-removebg.png'), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-      },
-      "image": {!! json_encode($seoImage, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!},
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "CO"
-      },
-      "priceRange": "$$",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Servicios Tecnológicos",
-        "itemListElement": [
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                "@type": "Service",
-                "name": "Análisis de Lógica de Negocio"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                "@type": "Service",
-                "name": "Desarrollo de Software a Medida"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                "@type": "Service",
-                "name": "Sistema POS Inteligente"
-                }
-            }
-        ]
-      }
-    }
+        {!! json_encode($professionalService, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
     </script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Mamba Code",
-      "url": {!! json_encode(url('/'), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!},
-      "image": {!! json_encode($seoImage, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-    }
+        {!! json_encode($websiteSchema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
     </script>
     
     <!-- Fonts -->
