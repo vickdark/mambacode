@@ -40,8 +40,32 @@
 
 .landing-logo {
     height: 40px;
+    width: auto;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border-radius: 6px;
     box-shadow: 0 0 15px rgba(130, 87, 229, 0.2);
+    display: block;
+    flex-shrink: 0;
+}
+
+.landing-logo-mobile {
+    height: 30px;
+    width: auto;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    flex-shrink: 0;
+}
+
+.offcanvas-header .landing-logo-mobile {
+    height: 30px !important;
+    width: 30px !important;
+    object-fit: cover;
+    border-radius: 4px;
 }
 
 /* Mobile Menu Toggle */
@@ -56,6 +80,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .mobile-menu-toggle:hover {
@@ -63,35 +88,55 @@
     transform: scale(1.1);
 }
 
-/* Navbar Logo Container - Responsive Order */
+/* Navbar Layout - Responsive */
+.landing-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.navbar-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
+    justify-content: flex-end;
+}
+
+.navbar-logo-container .landing-logo {
+    flex-shrink: 0;
+}
+
+.navbar-logo-container span {
+    white-space: nowrap;
+}
+
 @media (max-width: 768px) {
     .navbar-logo-container {
+        justify-content: flex-end;
         order: 2;
+        flex: 1;
     }
-    
+
     .mobile-menu-toggle {
         order: 1;
     }
-    
-    .nav-links-container {
-        order: 3;
+
+    .landing-logo {
+        height: 36px;
     }
 }
 
 @media (min-width: 769px) {
     .navbar-logo-container {
-        order: 1;
-    }
-    
-    .nav-links-container {
+        justify-content: flex-end;
         order: 2;
     }
-}
 
-/* Navigation Links Container - Responsive */
-.nav-links-container {
-    display: flex;
-    align-items: center;
+    .nav-links {
+        order: 1;
+    }
 }
 
 /* Desktop Navigation */
@@ -136,11 +181,33 @@
 
 /* Mobile Offcanvas Style */
 .mobile-sidebar {
+    --bs-offcanvas-width: min(88vw, 340px);
     background: rgba(10, 10, 12, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-right: 1px solid var(--glass-border);
-    max-width: 280px;
+    box-sizing: border-box;
+}
+
+.mobile-sidebar .offcanvas-header,
+.mobile-sidebar .offcanvas-body {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.mobile-sidebar .offcanvas-header .d-flex {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.mobile-sidebar .offcanvas-header .d-flex img {
+    flex-shrink: 0;
+}
+
+.mobile-sidebar .offcanvas-header .d-flex span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Dropdown Menu Styles */
@@ -202,6 +269,14 @@
 @media (max-width: 768px) {
     .landing-nav {
         padding: 1rem 0;
+    }
+
+    .landing-logo {
+        height: 44px;
+    }
+
+    .landing-logo-mobile {
+        height: 38px;
     }
 }
 

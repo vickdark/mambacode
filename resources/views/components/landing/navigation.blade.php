@@ -50,7 +50,7 @@
 <div class="offcanvas offcanvas-start mobile-sidebar d-md-none" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
     <div class="offcanvas-header border-bottom">
         <div class="d-flex align-items-center gap-2" id="mobileSidebarLabel">
-            <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code" width="1280" height="1280" loading="lazy" decoding="async" style="height: 30px; border-radius: 4px;">
+            <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code" loading="lazy" decoding="async" class="landing-logo-mobile">
             <span class="fw-bold text-white">Mamba<span style="color: var(--mamba-secondary)">Code</span></span>
         </div>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
