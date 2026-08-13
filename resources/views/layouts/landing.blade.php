@@ -47,19 +47,18 @@
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
-    @verbatim
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "Mamba Code",
       "alternateName": "Mamba Code Soluciones Tecnológicas",
-      "description": "@endverbatim{{ $seoDescription }}@verbatim",
-      "url": "@endverbatim{{ url('/') }}@verbatim",
+      "description": {!! json_encode($seoDescription, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!},
+      "url": {!! json_encode(url('/'), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!},
       "logo": {
         "@type": "ImageObject",
-        "url": "@endverbatim{{ asset('img/mambacodelg-removebg.png') }}@verbatim"
+        "url": {!! json_encode(asset('img/mambacodelg-removebg.png'), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
       },
-      "image": "@endverbatim{{ $seoImage }}@verbatim",
+      "image": {!! json_encode($seoImage, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!},
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "CO"
@@ -93,19 +92,16 @@
         ]
       }
     }
-    @endverbatim
     </script>
 
     <script type="application/ld+json">
-    @verbatim
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Mamba Code",
-      "url": "@endverbatim{{ url('/') }}@verbatim",
-      "image": "@endverbatim{{ $seoImage }}@verbatim"
+      "url": {!! json_encode(url('/'), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!},
+      "image": {!! json_encode($seoImage, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
     }
-    @endverbatim
     </script>
     
     <!-- Fonts -->
