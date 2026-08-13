@@ -1,6 +1,8 @@
 @extends('layouts.landing')
 
 @section('title', 'Contacto | Mamba Code')
+@section('meta_description', 'Contáctanos y nuestro equipo de Mamba Code te responderá pronto. Solicita una consultoría, una demo en vivo o cuéntanos tu proyecto de software a medida.')
+@section('meta_keywords', 'contacto Mamba Code, cotizar software, consultoría tecnológica, desarrollo a medida, Colombia')
 
 @section('content')
     <x-landing.navigation />

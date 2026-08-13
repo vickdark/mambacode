@@ -7,6 +7,8 @@
         $seoKeywords = trim($__env->yieldContent('meta_keywords', 'Mamba Code, desarrollo de software, soluciones tecnológicas, consultoría tecnológica, software a medida, automatización de procesos, Colombia'));
         $seoImage = trim($__env->yieldContent('meta_image', asset('img/mambacode.jpeg')));
         $seoImageAlt = trim($__env->yieldContent('meta_image_alt', 'Mamba Code, soluciones tecnológicas a medida'));
+        $seoImageWidth = trim($__env->yieldContent('meta_image_width', '1280'));
+        $seoImageHeight = trim($__env->yieldContent('meta_image_height', '1280'));
         $canonicalUrl = trim($__env->yieldContent('canonical_url', url()->current()));
     @endphp
 
@@ -32,6 +34,8 @@
     <meta property="og:description" content="{{ $seoDescription }}">
     <meta property="og:image" content="{{ $seoImage }}">
     <meta property="og:image:alt" content="{{ $seoImageAlt }}">
+    <meta property="og:image:width" content="{{ $seoImageWidth }}">
+    <meta property="og:image:height" content="{{ $seoImageHeight }}">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">

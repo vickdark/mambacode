@@ -4,7 +4,7 @@
         <div class="row text-center justify-content-center">
             <div class="col-md-3 mb-4 mb-md-0">
                 <div class="d-flex align-items-center gap-2 mb-3 justify-content-center">
-                    <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code Icon" style="height: 30px; border-radius: 4px;">
+                    <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code Icon" width="1280" height="1280" loading="lazy" decoding="async" style="height: 30px; border-radius: 4px;">
                     <span class="fw-bold">Mamba<span style="color: var(--mamba-secondary)">Code</span></span>
                 </div>
                 <p class="text-white text-justify">Soluciones tecnológicas de alto nivel para empresas modernas.</p>

@@ -11,7 +11,7 @@
             <div class="col-lg-6 text-center text-lg-start mb-5 mb-lg-0 position-relative">
                 
                 <div class="hero-brand-mark mb-4 animate__animated animate__fadeInDown">
-                    <img src="{{ asset('img/mambacode-complete-removebg-preview.png') }}" alt="Mamba Code Logo" class="hero-logo-img">
+                    <img src="{{ asset('img/mambacode-complete-removebg-preview.png') }}" alt="Mamba Code Logo" width="500" height="500" class="hero-logo-img">
                 </div>
                 <h1 class="hero-title mb-4">
                     Soluciones Tecnológicas <br>

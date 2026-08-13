@@ -30,7 +30,7 @@
                         @foreach ($carouselImages as $index => $image)
                             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                                 <button type="button" class="carousel-image-button d-block w-100 p-0 border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#productImageModal" data-bs-carousel-id="{{ $carouselId }}" data-bs-index="{{ $index }}" data-bs-image="{{ $image['src'] }}" data-bs-alt="{{ $image['alt'] }}" data-bs-title="{{ $image['caption_title'] }}" data-bs-text="{{ $image['caption_text'] }}">
-                                    <img src="{{ $image['src'] }}" class="d-block w-100 carousel-image" alt="{{ $image['alt'] }}">
+                                    <img src="{{ $image['src'] }}" class="d-block w-100 carousel-image" alt="{{ $image['alt'] }}" loading="lazy" decoding="async">
                                 </button>
                                 <div class="carousel-caption d-none d-md-block carousel-caption-custom">
                                     <h5>{{ $image['caption_title'] }}</h5>

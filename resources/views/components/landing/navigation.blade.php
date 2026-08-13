@@ -8,7 +8,7 @@
 
         <!-- Logo -->
         <a href="{{ route('home') }}#inicio" class="d-flex align-items-center gap-3 navbar-logo-container text-decoration-none">
-            <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code Logo - Consultoría y Software" class="landing-logo">
+            <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code Logo - Consultoría y Software" width="1280" height="1280" class="landing-logo">
             <span class="fs-4 fw-bold d-none d-md-block text-white">Mamba<span style="color: var(--mamba-secondary)">Code</span></span>
         </a>
         
@@ -50,7 +50,7 @@
 <div class="offcanvas offcanvas-start mobile-sidebar d-md-none" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
     <div class="offcanvas-header border-bottom">
         <div class="d-flex align-items-center gap-2" id="mobileSidebarLabel">
-            <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code" style="height: 30px; border-radius: 4px;">
+            <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code" width="1280" height="1280" loading="lazy" decoding="async" style="height: 30px; border-radius: 4px;">
             <span class="fw-bold text-white">Mamba<span style="color: var(--mamba-secondary)">Code</span></span>
         </div>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
