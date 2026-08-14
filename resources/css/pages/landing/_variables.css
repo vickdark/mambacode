@@ -1,6 +1,4 @@
 /* Landing Page Variables */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
-
 :root {
     --mamba-bg: #0a0a0c;
     --mamba-primary: #8257e5; /* Purple */
@@ -14,7 +12,7 @@
 }
 
 body.landing-page {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
     background-color: var(--mamba-bg);
     color: var(--mamba-text);
     overflow-x: hidden;

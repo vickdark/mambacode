@@ -33,7 +33,7 @@
                                     <img src="{{ $image['src'] }}" class="d-block w-100 carousel-image" alt="{{ $image['alt'] }}" loading="lazy" decoding="async">
                                 </button>
                                 <div class="carousel-caption d-none d-md-block carousel-caption-custom">
-                                    <h5>{{ $image['caption_title'] }}</h5>
+                                    <p class="h5">{{ $image['caption_title'] }}</p>
                                     <p>{{ $image['caption_text'] }}</p>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                         <div class="modal-content bg-dark text-white border-0">
                             <div class="modal-header border-0 align-items-center">
                                 <div>
-                                    <h5 class="modal-title" id="productImageModalLabel"></h5>
+                                    <h2 class="modal-title h5" id="productImageModalLabel"></h2>
                                     <p class="mb-0 text-muted small modal-image-caption-text"></p>
                                 </div>
                                 <div class="ms-auto d-flex align-items-center gap-2 modal-control-group">

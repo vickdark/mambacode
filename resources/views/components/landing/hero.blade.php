@@ -14,11 +14,11 @@
                     <img src="{{ asset('img/mambacode-complete-removebg-preview.png') }}" alt="Mamba Code Logo" width="500" height="500" class="hero-logo-img">
                 </div>
                 <h1 class="hero-title mb-4">
-                    Soluciones Tecnológicas <br>
-                    <span>Evolucionamos tu Software</span>
+                    Desarrollo de Software a Medida,<br>
+                    <span>Análisis de Negocio y Automatización de Procesos</span>
                 </h1>
                 <p class="hero-subtitle mb-4" style="opacity: 1 !important; color: #fff;">
-                    Analizamos la lógica de tu negocio para transformarla en soluciones digitales a medida. Diseñamos plataformas inteligentes para automatizar tus procesos y escalar tu infraestructura.
+                    Analizamos tu lógica de negocio, automatizamos procesos y escalamos infraestructura. Soluciones digitales con soporte 24/7 garantizado.
                 </p>
                 <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
                     <a href="#caracteristicas" class="btn btn-cyber px-4 py-3">Explorar Soluciones</a>
@@ -59,4 +59,3 @@
         </div>
     </div>
 </header>
-

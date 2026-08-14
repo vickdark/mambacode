@@ -2,7 +2,7 @@
     @csrf
     <div class="card shadow-sm border-0">
         <div class="card-body p-4">
-            <h5 class="card-title mb-2">Envíanos un mensaje</h5>
+            <h2 class="card-title h5 mb-2">Envíanos un mensaje</h2>
             <p class="text-muted small mb-4">Completa el formulario y nuestro equipo se pondrá en contacto contigo.</p>
 
             <div class="row gy-3">

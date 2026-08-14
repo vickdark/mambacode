@@ -110,13 +110,8 @@
         {!! json_encode($websiteSchema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
     </script>
     
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
     <!-- Scripts & Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/pages/landing/index.css', 'resources/css/pages/products/index.css', 'resources/js/pages/landing/index.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/pages/landing/index.js'])
 </head>
 <body class="landing-page text-white">
     <!-- Background Animation -->

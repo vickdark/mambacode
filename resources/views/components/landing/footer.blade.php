@@ -11,7 +11,7 @@
             </div>
 
             <div class="col-md-6 mb-4 mb-md-0">
-                <h5 class="fw-bold mb-3 text-white">Contacto</h5>
+                <h2 class="h5 fw-bold mb-3 text-white">Contacto</h2>
                 <ul class="list-unstyled text-white">
                     <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i>lbarriosmunoz1012@gmail.com</li>
                     <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i>victormanjarres3mayo@gmail.com</li>
