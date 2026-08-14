@@ -12,15 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         // Add cache headers for static assets and security headers
-        $middleware->web([
-            \Illuminate\Http\Middleware\EncryptCookies::class,
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class,
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \App\Http\Middleware\SetCacheHeaders::class,
-        ]);
+        $middleware->append(\App\Http\Middleware\SetCacheHeaders::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
