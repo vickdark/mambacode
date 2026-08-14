@@ -56,6 +56,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Admin Login URL
+    |--------------------------------------------------------------------------
+    |
+    | External administrative login URL used in public navigation links.
+    | Keep this value in the environment file as `ADMIN_LOGIN_URL`.
+    |
+    */
+
+    'admin_login_url' => env('ADMIN_LOGIN_URL', ''),
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |
