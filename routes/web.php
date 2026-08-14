@@ -31,3 +31,6 @@ Route::get('/robots.txt', function () {
         ->header('Content-Type', 'text/plain');
 })->name('robots');
 
+// Política de tratamiento de datos
+Route::view('/politica-tratamiento-datos', 'privacy')->name('privacy.policy');
+

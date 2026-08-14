@@ -17,6 +17,7 @@
                     <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i>victormanjarres3mayo@gmail.com</li>
                     <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +57 323 505 9939</li>
                     <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +57 312 335 5193</li>
+                    <li class="mb-2"><i class="fa-solid fa-file-contract me-2"></i><a href="{{ route('privacy.policy') }}" class="text-white text-decoration-none" target="_blank" rel="noopener">Política de Tratamiento de Datos</a></li>
                     <!-- <li>
                         <a href="#" class="text-white me-3 fs-5"><i class="fa-brands fa-twitter"></i></a>
                         <a href="#" class="text-white me-3 fs-5"><i class="fa-brands fa-instagram"></i></a>

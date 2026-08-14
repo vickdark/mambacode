@@ -66,10 +66,28 @@
                     <textarea id="contact_message" name="message" rows="6" class="form-control" required placeholder="Cuéntanos tu proyecto o problema">{{ old('message') }}</textarea>
                 </div>
 
-                <div class="col-12 d-flex flex-column flex-md-row align-items-center gap-3 justify-content-between">
-                    <small class="text-muted">Al enviar aceptas que revisemos tu mensaje. Respondemos en 24-48 horas hábiles.</small>
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-primary px-4" type="submit">Enviar mensaje</button>
+                <div class="col-12 d-flex flex-column align-items-start gap-3 justify-content-between mt-4">
+                    <div class="w-100">
+                        <div class="form-check">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                name="data_consent"
+                                id="data_consent"
+                                value="1"
+                                required
+                            >
+                            <label class="form-check-label small" for="data_consent">
+                                Autorizo a Mambacode para recolectar y tratar mis datos personales con el fin de gestionar y responder mi solicitud, de acuerdo con su
+                                <a href="{{ route('privacy.policy') }}" target="_blank" rel="noopener noreferrer">Política de Tratamiento de Datos Personales</a>.
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column align-items-start gap-2 w-100">
+                        <small class="text-muted">Respondemos en 24-48 horas hábiles.</small>
+                        <div>
+                            <button class="btn btn-primary px-4" type="submit">Enviar mensaje</button>
+                        </div>
                     </div>
                 </div>
             </div>
