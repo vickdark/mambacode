@@ -13,8 +13,8 @@
 }
 
 .pricing-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--glass-border);
+    background: var(--pricing-bg);
+    border: 1px solid var(--pricing-border);
     border-radius: 24px;
     padding: 3rem;
     text-align: center;
@@ -24,8 +24,8 @@
 }
 
 .pricing-card.featured {
-    background: rgba(130, 87, 229, 0.05);
-    border-color: var(--mamba-primary);
+    background: var(--pricing-popular-bg);
+    border-color: var(--pricing-popular-border);
     transform: scale(1.05);
 }
 
@@ -39,7 +39,7 @@
     font-weight: 800;
     margin: 1.5rem 0;
     display: block;
-    background: linear-gradient(to right, #fff, #b0b0b0);
+    background: linear-gradient(to right, var(--mamba-text), var(--mamba-text-muted));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -76,7 +76,7 @@
     top: 2rem;
     right: -3rem;
     background: var(--mamba-secondary);
-    color: #000;
+    color: var(--mamba-text-inverse);
     padding: 0.5rem 4rem;
     transform: rotate(45deg);
     font-size: 0.8rem;

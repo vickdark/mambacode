@@ -2,4 +2,5 @@ body {
     font-family: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
     background: var(--content-bg);
     margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }

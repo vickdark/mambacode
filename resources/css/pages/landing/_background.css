@@ -6,16 +6,18 @@
     width: 100vw;
     height: 100vh;
     z-index: -1;
-    background: #0f0f13; /* Fallback dark background */
+    background: var(--mamba-bg);
     overflow: hidden;
+    pointer-events: none;
+    transition: background 0.3s ease;
 }
 
 .landing-bg::before,
 .landing-bg::after {
     content: '';
     position: absolute;
-    filter: blur(90px); /* Más blur para suavizar */
-    opacity: 0.25; /* Bajamos intensidad de 0.6 a 0.25 */
+    filter: blur(90px);
+    opacity: 0.25;
     border-radius: 50%;
     animation: bgFloat 15s ease-in-out infinite alternate;
 }
@@ -30,7 +32,7 @@
 }
 
 .landing-bg::after {
-    background: radial-gradient(circle, var(--mamba-accent), transparent 60%); /* Restaurado el Pink (accent) */
+    background: radial-gradient(circle, var(--mamba-accent), transparent 60%);
     width: 50vw;
     height: 50vw;
     bottom: -10%;

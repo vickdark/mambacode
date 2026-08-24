@@ -1,8 +1,9 @@
-/* Contact form - Dark corporate + minimal spacing styles */
+/* Contact form - Theme-aware corporate styles */
 .contact-form .card {
-    background: linear-gradient(180deg, rgba(15,23,42,0.95), rgba(10,14,28,0.95));
-    color: #e6eef8;
-    border: 1px solid rgba(255,255,255,0.04);
+    background: var(--contact-form-bg);
+    color: var(--mamba-text);
+    border: 1px solid var(--contact-form-border);
+    backdrop-filter: blur(20px);
 }
 
 .contact-form .card-title {
@@ -10,17 +11,18 @@
 }
 
 .contact-form .input-group-text {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.04);
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
     color: var(--mamba-secondary);
 }
 
 .contact-form .form-control,
 .contact-form .form-select,
 .contact-form textarea {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    color: #e6eef8;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--mamba-text);
+    transition: all 0.3s ease;
 }
 
 .contact-form .form-select {
@@ -28,21 +30,22 @@
     background-image: none;
 }
 
-.contact-form .form-control::placeholder,
-.contact-form .form-select option {
-    color: rgba(230,238,248,0.6);
+.contact-form .form-control::placeholder {
+    color: var(--mamba-text-muted);
 }
 
 .contact-form .form-select option {
-    background: rgba(15,23,42,0.98);
+    background: var(--mamba-surface);
+    color: var(--mamba-text);
 }
 
 .contact-form .form-select:focus,
 .contact-form .form-control:focus,
 .contact-form textarea:focus {
-    border-color: rgba(255,255,255,0.08);
-    box-shadow: none;
-    background: rgba(255,255,255,0.04);
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    background: var(--mamba-surface);
+    color: var(--mamba-text);
 }
 
 .contact-form .card-body { padding: 2.25rem; }
@@ -56,18 +59,20 @@
 .contact-form .btn-primary {
     background: var(--mamba-primary);
     border-color: var(--mamba-primary);
+    color: var(--btn-primary-text);
     padding: 0.6rem 1.2rem;
     font-weight: 600;
 }
 
-.contact-form .btn-primary:hover { filter:brightness(1.05); }
+.contact-form .btn-primary:hover { 
+    filter: brightness(1.05);
+    color: var(--btn-primary-text);
+}
 
-.contact-form small.text-muted { color: rgba(230,238,248,0.6); }
-
-/* Wizard steps are no longer used */
+.contact-form small.text-muted { color: var(--mamba-text-muted); }
 
 /* Responsive tweaks */
 @media (max-width: 767px) {
     .contact-form .card-body { padding: 1.25rem; }
-    .contact-form .btn-primary { width:100%; }
+    .contact-form .btn-primary { width: 100%; }
 }

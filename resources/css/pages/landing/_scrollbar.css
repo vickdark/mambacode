@@ -4,13 +4,13 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--mamba-bg);
+    background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom, var(--mamba-primary), var(--mamba-secondary));
     border-radius: 5px;
-    border: 2px solid var(--mamba-bg);
+    border: 2px solid var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb:hover {

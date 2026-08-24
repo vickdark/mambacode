@@ -46,9 +46,9 @@
     :carouselImages="$carouselImages"
     :features="$features"
 >
-    <h3 class="fw-bold mb-4 text-white">Entrena tu negocio</h3>
+    <h3 class="fw-bold mb-4" style="color: var(--mamba-text);">Entrena tu negocio</h3>
     
-    <p class="text-muted mb-4" style="line-height: 1.8;">
+    <p class="mb-4" style="color: var(--mamba-text-muted); line-height: 1.8;">
         SysGym es la plataforma que transformará tu centro deportivo. Olvídate del papeleo y las hojas de asistencia manuales. Centraliza acceso, cobros y rutinas en una sola app moderna y fácil de usar.
     </p>
 </x-products.intro>

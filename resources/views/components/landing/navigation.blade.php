@@ -9,35 +9,40 @@
         <!-- Logo -->
         <a href="{{ route('home') }}#inicio" class="d-flex align-items-center gap-3 navbar-logo-container text-decoration-none">
             <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code Logo - Consultoría y Software" width="1280" height="1280" class="landing-logo">
-            <span class="fs-4 fw-bold d-none d-md-block text-white">Mamba<span style="color: var(--mamba-secondary)">Code</span></span>
+            <span class="fs-4 fw-bold d-none d-md-block" style="color: var(--mamba-text);">Mamba<span style="color: var(--mamba-secondary)">Code</span></span>
         </a>
         
-        <!-- Desktop Navigation (Hidden on mobile) -->
-        <div class="nav-links d-none d-md-flex">
-            <a href="{{ route('home') }}#inicio" class="nav-link-item active" title="Volver al inicio">Inicio</a>
-            <a href="{{ request()->routeIs('home') ? route('home') . '#caracteristicas' : '#features' }}" class="nav-link-item" title="{{ request()->routeIs('home') ? 'Conoce nuestros servicios' : 'Conoce nuestras funcionalidades' }}">{{ request()->routeIs('home') ? 'Servicios' : 'Funcionalidades' }}</a>
-            <div class="dropdown">
-                <a class="nav-link-item dropdown-toggle" href="#" role="button" id="portfolioDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Conoce nuestro portafolio">
-                    Portafolio
+<!-- Desktop Navigation (Hidden on mobile) -->
+            <div class="nav-links d-none d-md-flex">
+                <a href="{{ route('home') }}#inicio" class="nav-link-item active" title="Volver al inicio">Inicio</a>
+                <a href="{{ request()->routeIs('home') ? route('home') . '#caracteristicas' : '#features' }}" class="nav-link-item" title="{{ request()->routeIs('home') ? 'Conoce nuestros servicios' : 'Conoce nuestras funcionalidades' }}">{{ request()->routeIs('home') ? 'Servicios' : 'Funcionalidades' }}</a>
+                <div class="dropdown">
+                    <a class="nav-link-item dropdown-toggle" href="#" role="button" id="portfolioDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Conoce nuestro portafolio">
+                        Portafolio
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="portfolioDropdown">
+                        <li><a class="dropdown-item" href="{{ route('products.sales') }}">Sistema de Ventas POS</a></li>
+                        <li><a class="dropdown-item" href="{{ route('products.itam') }}">Gestión de Activos ITAM</a></li>
+                        <!-- <li><a class="dropdown-item" href="{{ route('products.gym') }}">SysGym - Software Fitness</a></li> -->
+                        <li><a class="dropdown-item" href="{{ route('products.transports') }}">Sistema de Transporte Privado</a></li>
+                    </ul>
+                </div>
+                @if (request()->routeIs('products.*'))
+                    <a href="#pricing" class="nav-link-item" title="Conoce nuestros precios">Precios</a>
+                @endif
+                @if (!request()->routeIs('products.*'))
+                    <a href="{{ route('home') }}#testimonios" class="nav-link-item" title="Qué opinan nuestros clientes">Testimonios</a>
+                @endif
+                <a href="{{ request()->routeIs('home') ? route('home') : '' }}#contacto" class="nav-link-item" title="Ponte en contacto con nuestro equipo técnico">Contacto</a>
+                <a href="{{ config('app.admin_login_url') ?: '#' }}" target="_blank" class="nav-link-item" title="Acceso Administrativo">
+                    <i class="fa-solid fa-fingerprint"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="portfolioDropdown">
-                    <li><a class="dropdown-item" href="{{ route('products.sales') }}">Sistema de Ventas POS</a></li>
-                    <li><a class="dropdown-item" href="{{ route('products.itam') }}">Gestión de Activos ITAM</a></li>
-                    <!-- <li><a class="dropdown-item" href="{{ route('products.gym') }}">SysGym - Software Fitness</a></li> -->
-                    <li><a class="dropdown-item" href="{{ route('products.transports') }}">Sistema de Transporte Privado</a></li>
-                </ul>
+                <!-- Theme Toggle -->
+                <button class="nav-link-item theme-toggle" id="themeToggle" type="button" aria-label="Cambiar tema" title="Cambiar tema">
+                    <i class="fa-solid fa-sun theme-icon-light" style="display: none;"></i>
+                    <i class="fa-solid fa-moon theme-icon-dark"></i>
+                </button>
             </div>
-            @if (request()->routeIs('products.*'))
-                <a href="#pricing" class="nav-link-item" title="Conoce nuestros precios">Precios</a>
-            @endif
-            @if (!request()->routeIs('products.*'))
-                <a href="{{ route('home') }}#testimonios" class="nav-link-item" title="Qué opinan nuestros clientes">Testimonios</a>
-            @endif
-            <a href="{{ request()->routeIs('home') ? route('home') : '' }}#contacto" class="nav-link-item" title="Ponte en contacto con nuestro equipo técnico">Contacto</a>
-            <a href="{{ config('app.admin_login_url') ?: '#' }}" target="_blank" class="nav-link-item" title="Acceso Administrativo">
-                <i class="fa-solid fa-fingerprint"></i>
-            </a>
-        </div>
     </div>
     
     <!-- Scroll Progress Bar -->
@@ -51,7 +56,7 @@
     <div class="offcanvas-header border-bottom">
         <div class="d-flex align-items-center gap-2" id="mobileSidebarLabel">
             <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code" loading="lazy" decoding="async" class="landing-logo-mobile">
-            <span class="fw-bold text-white">Mamba<span style="color: var(--mamba-secondary)">Code</span></span>
+            <span class="fw-bold" style="color: var(--mamba-text);">Mamba<span style="color: var(--mamba-secondary)">Code</span></span>
         </div>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
@@ -64,14 +69,14 @@
                 <i class="fa-solid fa-star me-2"></i> {{ request()->routeIs('home') ? 'Servicios' : 'Funcionalidades' }}
             </a>
             <li class="nav-item mb-3">
-                    <a class="nav-link-item d-flex align-items-center text-decoration-none text-white" data-bs-toggle="collapse" href="#portfolioMobileCollapse" role="button" aria-expanded="false" aria-controls="portfolioMobileCollapse">
+                    <a class="nav-link-item d-flex align-items-center text-decoration-none" style="color: var(--mamba-text);" data-bs-toggle="collapse" href="#portfolioMobileCollapse" role="button" aria-expanded="false" aria-controls="portfolioMobileCollapse">
                         <i class="fa-solid fa-briefcase me-2"></i> Portafolio <i class="fa-solid fa-chevron-down ms-auto"></i>
                     </a>
                     <div class="collapse mt-2" id="portfolioMobileCollapse">
                         <ul class="nav flex-column">
-                            <li class="nav-item"><a class="nav-link text-white py-1" href="{{ route('products.sales') }}"><i class="fa-regular fa-circle me-2"></i> Sistema de Ventas POS</a></li>
-                            <li class="nav-item"><a class="nav-link text-white py-1" href="{{ route('products.itam') }}"><i class="fa-regular fa-circle me-2"></i> Gestión de Activos ITAM</a></li>
-                            <!-- <li class="nav-item"><a class="nav-link text-white py-1" href="{{ route('products.gym') }}"><i class="fa-regular fa-circle me-2"></i> SysGym - Software Fitness</a></li> -->
+                            <li class="nav-item"><a class="nav-link py-1" style="color: var(--mamba-text);" href="{{ route('products.sales') }}"><i class="fa-regular fa-circle me-2"></i> Sistema de Ventas POS</a></li>
+                            <li class="nav-item"><a class="nav-link py-1" style="color: var(--mamba-text);" href="{{ route('products.itam') }}"><i class="fa-regular fa-circle me-2"></i> Gestión de Activos ITAM</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link py-1" style="color: var(--mamba-text);" href="{{ route('products.gym') }}"><i class="fa-regular fa-circle me-2"></i> SysGym - Software Fitness</a></li> -->
                             <li class="nav-item"><a class="nav-link text-white py-1" href="{{ route('products.transports') }}"><i class="fa-regular fa-circle me-2"></i> Sistema de Transporte Privado</a></li>
                         </ul>
                     </div>
@@ -93,6 +98,14 @@
             <a href="{{ config('app.admin_login_url') ?: '#' }}" target="_blank" class="nav-link-item">
                 <i class="fa-solid fa-fingerprint me-2"></i> Acceso Admin
             </a>
+            <!-- Theme Toggle Mobile -->
+            <button class="nav-link-item theme-toggle d-flex align-items-center justify-content-between" id="themeToggleMobile" type="button" aria-label="Cambiar tema">
+                <span><i class="fa-solid fa-moon me-2"></i> Tema</span>
+                <span class="theme-icon-mobile">
+                    <i class="fa-solid fa-sun theme-icon-light" style="display: none;"></i>
+                    <i class="fa-solid fa-moon theme-icon-dark"></i>
+                </span>
+            </button>
         </div>
     </div>
 </div>

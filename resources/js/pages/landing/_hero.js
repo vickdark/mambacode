@@ -5,12 +5,23 @@ export function initHeroAnimation() {
     
     if (!container) return; // Guard clause if element doesn't exist
 
+    // Theme-aware colors
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const brandColors = isLight
+        ? [
+            new THREE.Color(0x2563eb), // Blue (mamba-secondary light)
+            new THREE.Color(0x7c3aed), // Purple (mamba-primary light)
+            new THREE.Color(0xe11d48)  // Rose (mamba-accent light)
+        ]
+        : [
+            new THREE.Color(0x0ea5e9), // Cyan
+            new THREE.Color(0xa855f7), // Purple
+            new THREE.Color(0xff005c)  // Pink
+        ];
+
     // Scene Setup
     const scene = new THREE.Scene();
-    // Match Vanta's background color logic (transparent in Three.js, handled by CSS or separate div)
-    // But Vanta.js usually handles background. Here we let the CSS background-color of the container or parent handle it.
-    // The container has opacity 0.4, so we want the canvas to be transparent or match the dark theme.
-    scene.background = null; // Let CSS handle background color
+    scene.background = null;
 
     const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
     camera.position.z = 20;
@@ -23,11 +34,6 @@ export function initHeroAnimation() {
     // Configuration
     const particleCount = 60;
     const connectionDistance = 6.5;
-    const brandColors = [
-        new THREE.Color(0x0ea5e9), // Cyan
-        new THREE.Color(0xa855f7), // Purple
-        new THREE.Color(0xff005c)  // Pink
-    ];
 
     // Particles
     const particlesGeometry = new THREE.BufferGeometry();

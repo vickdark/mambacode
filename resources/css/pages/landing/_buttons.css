@@ -4,7 +4,7 @@
     padding: 1rem 2.5rem;
     font-size: 1.1rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--btn-primary-text);
     background: transparent;
     border: none;
     cursor: pointer;
@@ -13,7 +13,7 @@
     transition: all 0.3s ease;
     z-index: 1;
     display: inline-block;
-    border-radius: 50px; /* Pill shape */
+    border-radius: 50px;
 }
 
 .btn-cyber::before {
@@ -23,36 +23,43 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /* Gradient Border Effect */
-    background: linear-gradient(90deg, #a855f7, #3b82f6);
+    background: var(--btn-primary-bg);
     z-index: -1;
-    border-radius: 50px; /* Match button radius */
+    border-radius: 50px;
     transition: all 0.3s ease;
 }
 
 .btn-cyber::after {
     content: '';
     position: absolute;
-    inset: 2px; /* Border thickness */
-    background: var(--mamba-bg); /* Dark interior */
-    border-radius: 48px; /* Slightly smaller for interior */
+    inset: 2px;
+    background: var(--mamba-surface);
+    border-radius: 48px;
     z-index: -1;
     transition: all 0.3s ease;
 }
 
+[data-theme="light"] .btn-cyber::after {
+    background: transparent;
+}
+
 .btn-cyber:hover::after {
-    background: rgba(255, 255, 255, 0.05); /* Slight light up */
+    background: var(--mamba-surface-elevated);
+}
+
+[data-theme="light"] .btn-cyber:hover::after {
+    background: rgba(124, 58, 237, 0.1);
 }
 
 .btn-cyber:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(130, 87, 229, 0.6); /* Stronger glow */
-    letter-spacing: 0.5px; /* Slight text expansion */
+    box-shadow: 0 10px 30px rgba(130, 87, 229, 0.4);
+    letter-spacing: 0.5px;
 }
 
 .btn-cyber:active {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(130, 87, 229, 0.4);
+    box-shadow: 0 5px 15px rgba(130, 87, 229, 0.3);
 }
 
 /* Shimmer animation on hover via pseudo-element trick not needed if we use strong glow */
@@ -64,12 +71,12 @@
     right: 20px;
     width: 55px;
     height: 55px;
-    background: rgba(130, 87, 229, 0.2);
+    background: var(--btn-secondary-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid var(--btn-secondary-border);
     border-radius: 18px;
-    color: white;
+    color: var(--btn-secondary-text);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,7 +87,7 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(30px) scale(0.8);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 40px var(--shadow-color);
 }
 
 .back-to-top.visible {
@@ -92,9 +99,9 @@
 .back-to-top:hover {
     background: var(--mamba-primary);
     transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 15px 45px rgba(130, 87, 229, 0.5);
-    color: white;
-    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 45px rgba(130, 87, 229, 0.4);
+    color: var(--btn-primary-text);
+    border-color: var(--glass-highlight);
 }
 
 .back-to-top i {
@@ -134,4 +141,65 @@
     font-size: 32px;
     bottom: 20px;
     right: 20px;
+}
+
+/* Secondary Outline Button (Hero CTA) */
+.btn-outline-secondary-hero {
+    background: transparent;
+    border: 2px solid var(--mamba-secondary);
+    color: var(--mamba-secondary);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary-hero:hover {
+    background: var(--mamba-secondary);
+    color: var(--btn-primary-text);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Modal Navigation Buttons */
+.modal-image-prev,
+.modal-image-next {
+    background: transparent;
+    border: 1px solid var(--mamba-secondary);
+    color: var(--mamba-secondary);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.modal-image-prev:hover,
+.modal-image-next:hover {
+    background: var(--mamba-secondary);
+    color: var(--btn-primary-text);
+}
+
+/* Theme-aware Bootstrap btn-primary override */
+.btn-primary {
+    background: var(--mamba-primary) !important;
+    border-color: var(--mamba-primary) !important;
+    color: var(--btn-primary-text) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: var(--mamba-primary) !important;
+    border-color: var(--mamba-primary) !important;
+    color: var(--btn-primary-text) !important;
+    filter: brightness(1.05);
+}
+
+/* Theme-aware Bootstrap btn-secondary override */
+.btn-secondary {
+    background: var(--btn-secondary-bg) !important;
+    border-color: var(--btn-secondary-border) !important;
+    color: var(--btn-secondary-text) !important;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background: var(--btn-secondary-hover-bg) !important;
+    border-color: var(--mamba-secondary) !important;
+    color: var(--mamba-secondary) !important;
 }

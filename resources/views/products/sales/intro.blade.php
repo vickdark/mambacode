@@ -94,9 +94,9 @@
     :carouselImages="$carouselImages"
     :features="$features"
 >
-    <h3 class="fw-bold mb-4 text-white">Vende más, gestiona mejor</h3>
+    <h3 class="fw-bold mb-4" style="color: var(--mamba-text);">Vende más, gestiona mejor</h3>
     
-    <p class="text-muted mb-4" style="line-height: 1.8;">
+    <p class="mb-4" style="color: var(--mamba-text-muted); line-height: 1.8;">
         Optimiza cada aspecto de tu operación comercial, desde la gestión de inventario hasta la facturación electrónica y el análisis de ventas, todo en una plataforma robusta y fácil de usar.
     </p>
 </x-products.intro>

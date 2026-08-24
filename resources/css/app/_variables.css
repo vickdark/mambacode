@@ -1,5 +1,13 @@
 :root {
+    /* Dark theme (default) */
     --brand: #c05a1e;
     --content-bg: #f5f7fb;
+    --border-color: #e2e8f0;
+}
+
+/* Light theme overrides - uses landing page variables when on landing pages */
+[data-theme="light"] {
+    --brand: #c05a1e;
+    --content-bg: #f8fafc;
     --border-color: #e2e8f0;
 }

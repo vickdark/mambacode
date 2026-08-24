@@ -1,15 +1,15 @@
 /* Stats Section */
 .stats-section {
     padding: 4rem 0;
-    border-top: 1px solid var(--glass-border);
-    border-bottom: 1px solid var(--glass-border);
-    background: rgba(0,0,0,0.2);
+    border-top: 1px solid var(--stats-border);
+    border-bottom: 1px solid var(--stats-border);
+    background: var(--stats-bg);
 }
 
 .stat-number {
     font-size: 3rem;
     font-weight: 800;
-    background: linear-gradient(to right, #fff, var(--mamba-text-muted));
+    background: linear-gradient(to right, var(--mamba-text), var(--mamba-text-muted));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

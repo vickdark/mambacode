@@ -55,23 +55,23 @@
                     </span>
                 </div>
 
-                @once
+@once
                 <div class="modal fade" id="productImageModal" tabindex="-1" aria-labelledby="productImageModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-xl">
-                        <div class="modal-content bg-dark text-white border-0">
-                            <div class="modal-header border-0 align-items-center">
+                        <div class="modal-content" style="background: var(--mamba-surface); color: var(--mamba-text); border: 1px solid var(--mamba-border);">
+                            <div class="modal-header border-0 align-items-center" style="border-color: var(--mamba-border);">
                                 <div>
-                                    <h2 class="modal-title h5" id="productImageModalLabel"></h2>
-                                    <p class="mb-0 text-muted small modal-image-caption-text"></p>
+                                    <h2 class="modal-title h5" id="productImageModalLabel" style="color: var(--mamba-text);"></h2>
+                                    <p class="mb-0 small modal-image-caption-text" style="color: var(--mamba-text-muted);"></p>
                                 </div>
                                 <div class="ms-auto d-flex align-items-center gap-2 modal-control-group">
-                                    <button type="button" class="btn btn-sm btn-outline-light modal-image-prev" aria-label="Anterior imagen">
+                                    <button type="button" class="btn btn-sm modal-image-prev" style="border-color: var(--mamba-secondary); color: var(--mamba-secondary);" aria-label="Anterior imagen">
                                         <i class="fa-solid fa-chevron-left"></i>
                                     </button>
-                                    <button type="button" class="btn btn-sm btn-outline-light modal-image-next" aria-label="Siguiente imagen">
+                                    <button type="button" class="btn btn-sm modal-image-next" style="border-color: var(--mamba-secondary); color: var(--mamba-secondary);" aria-label="Siguiente imagen">
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </button>
-                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                    <button type="button" class="btn-close" style="filter: invert(1);" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                                 </div>
                             </div>
                             <div class="modal-body p-0 d-flex justify-content-center align-items-center">
@@ -153,12 +153,12 @@
                     <div class="d-flex flex-column gap-3 mb-5">
                         @foreach ($features as $feature)
                         <div class="d-flex align-items-center gap-3">
-                            <div class="bg-primary bg-opacity-25 p-2 rounded-circle text-primary">
+                            <div class="p-2 rounded-circle" style="background: var(--feature-bg); border: 1px solid var(--feature-border); color: var(--mamba-primary);">
                                 <i class="{{ $feature['icon'] }} fa-lg"></i>
                             </div>
                             <div>
-                                <h6 class="mb-0 fw-bold text-white">{{ $feature['title'] }}</h6>
-                                <small class="text-muted">{{ $feature['description'] }}</small>
+                                <h6 class="mb-0 fw-bold" style="color: var(--mamba-text);">{{ $feature['title'] }}</h6>
+                                <small style="color: var(--mamba-text-muted);">{{ $feature['description'] }}</small>
                             </div>
                         </div>
                         @endforeach

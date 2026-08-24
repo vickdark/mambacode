@@ -1,14 +1,120 @@
 /* Landing Page Variables */
 :root {
+    /* Dark theme (default) */
     --mamba-bg: #0a0a0c;
-    --mamba-primary: #8257e5; /* Purple */
-    --mamba-secondary: #3b82f6; /* Mamba Blue */
-    --mamba-accent: #ff005c; /* Hot Pink */
+    --mamba-surface: #111113;
+    --mamba-surface-elevated: #1a1a1d;
+    --mamba-primary: #8257e5;
+    --mamba-secondary: #3b82f6;
+    --mamba-accent: #ff005c;
     --mamba-text: #f0f0f5;
     --mamba-text-muted: #a0a0b0;
+    --mamba-text-inverse: #0a0a0c;
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
     --glass-highlight: rgba(255, 255, 255, 0.15);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --input-bg: rgba(255, 255, 255, 0.02);
+    --input-border: rgba(255, 255, 255, 0.1);
+    --input-focus-border: var(--mamba-secondary);
+    --card-bg: rgba(15, 23, 42, 0.4);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(10, 10, 12, 0.6);
+    --nav-bg-scrolled: rgba(10, 10, 12, 0.85);
+    --nav-border: var(--glass-border);
+    --nav-border-scrolled: rgba(255, 255, 255, 0.05);
+    --offcanvas-bg: rgba(10, 10, 12, 0.98);
+    --offcanvas-border: var(--glass-border);
+    --dropdown-bg: rgba(10, 10, 12, 0.9);
+    --dropdown-border: var(--glass-border);
+    --dropdown-hover: rgba(130, 87, 229, 0.15);
+    --btn-primary-bg: linear-gradient(135deg, var(--mamba-primary), var(--mamba-secondary));
+    --btn-primary-text: #fff;
+    --btn-secondary-bg: rgba(255, 255, 255, 0.05);
+    --btn-secondary-border: rgba(255, 255, 255, 0.1);
+    --btn-secondary-text: var(--mamba-text);
+    --btn-secondary-hover-bg: rgba(130, 87, 229, 0.1);
+    --hero-card-bg: rgba(15, 23, 42, 0.4);
+    --hero-card-border: rgba(255, 255, 255, 0.1);
+    --hero-card-shadow: rgba(0, 0, 0, 0.5);
+    --stats-bg: rgba(15, 23, 42, 0.3);
+    --stats-border: rgba(255, 255, 255, 0.08);
+    --testimonial-bg: rgba(15, 23, 42, 0.4);
+    --testimonial-border: rgba(255, 255, 255, 0.1);
+    --pricing-bg: rgba(15, 23, 42, 0.4);
+    --pricing-border: rgba(255, 255, 255, 0.1);
+    --pricing-popular-bg: linear-gradient(135deg, rgba(130, 87, 229, 0.2), rgba(59, 130, 246, 0.2));
+    --pricing-popular-border: var(--mamba-secondary);
+    --feature-bg: rgba(15, 23, 42, 0.3);
+    --feature-border: rgba(255, 255, 255, 0.05);
+    --feature-hover-bg: rgba(130, 87, 229, 0.1);
+    --footer-bg: #0a0a0c;
+    --footer-border: rgba(255, 255, 255, 0.05);
+    --contact-form-bg: rgba(15, 23, 42, 0.4);
+    --contact-form-border: rgba(255, 255, 255, 0.1);
+    --scrollbar-track: #0a0a0c;
+    --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+    --scrollbar-thumb-hover: rgba(255, 255, 255, 0.3);
+}
+
+/* Light theme */
+[data-theme="light"] {
+    --mamba-bg: #f8fafc;
+    --mamba-surface: #ffffff;
+    --mamba-surface-elevated: #f1f5f9;
+    --mamba-primary: #7c3aed;
+    --mamba-secondary: #2563eb;
+    --mamba-accent: #e11d48;
+    --mamba-text: #0f172a;
+    --mamba-text-muted: #475569;
+    --mamba-text-inverse: #f8fafc;
+    --glass-bg: rgba(15, 23, 42, 0.03);
+    --glass-border: rgba(15, 23, 42, 0.08);
+    --glass-highlight: rgba(15, 23, 42, 0.15);
+    --shadow-color: rgba(15, 23, 42, 0.1);
+    --border-subtle: rgba(15, 23, 42, 0.05);
+    --input-bg: #ffffff;
+    --input-border: rgba(15, 23, 42, 0.15);
+    --input-focus-border: var(--mamba-secondary);
+    --card-bg: #ffffff;
+    --card-border: rgba(15, 23, 42, 0.08);
+    --nav-bg: rgba(248, 250, 252, 0.8);
+    --nav-bg-scrolled: rgba(248, 250, 252, 0.95);
+    --nav-border: rgba(15, 23, 42, 0.08);
+    --nav-border-scrolled: rgba(15, 23, 42, 0.1);
+    --offcanvas-bg: rgba(248, 250, 252, 0.98);
+    --offcanvas-border: rgba(15, 23, 42, 0.08);
+    --dropdown-bg: rgba(248, 250, 252, 0.95);
+    --dropdown-border: rgba(15, 23, 42, 0.1);
+    --dropdown-hover: rgba(124, 58, 237, 0.1);
+    --btn-primary-bg: linear-gradient(135deg, var(--mamba-primary), var(--mamba-secondary));
+    --btn-primary-text: #fff;
+    --btn-secondary-bg: #f1f5f9;
+    --btn-secondary-border: rgba(15, 23, 42, 0.1);
+    --btn-secondary-text: var(--mamba-text);
+    --btn-secondary-hover-bg: rgba(124, 58, 237, 0.1);
+    --hero-card-bg: rgba(255, 255, 255, 0.7);
+    --hero-card-border: rgba(15, 23, 42, 0.06);
+    --hero-card-shadow: rgba(15, 23, 42, 0.06);
+    --stats-bg: #ffffff;
+    --stats-border: rgba(15, 23, 42, 0.08);
+    --testimonial-bg: #ffffff;
+    --testimonial-border: rgba(15, 23, 42, 0.08);
+    --pricing-bg: #ffffff;
+    --pricing-border: rgba(15, 23, 42, 0.08);
+    --pricing-popular-bg: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(37, 99, 235, 0.1));
+    --pricing-popular-border: var(--mamba-secondary);
+    --feature-bg: #f8fafc;
+    --feature-border: rgba(15, 23, 42, 0.05);
+    --feature-hover-bg: rgba(124, 58, 237, 0.08);
+    --footer-bg: #f1f5f9;
+    --footer-border: rgba(15, 23, 42, 0.1);
+    --contact-form-bg: #ffffff;
+    --contact-form-border: rgba(15, 23, 42, 0.08);
+    --scrollbar-track: #f1f5f9;
+    --scrollbar-thumb: rgba(15, 23, 42, 0.2);
+    --scrollbar-thumb-hover: rgba(15, 23, 42, 0.3);
 }
 
 body.landing-page {
@@ -18,7 +124,8 @@ body.landing-page {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    padding-top: 80px; /* Espacio para el navbar fijo */
+    padding-top: 80px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html {

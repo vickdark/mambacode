@@ -106,9 +106,9 @@
     :carouselImages="$carouselImages"
     :features="$features"
 >
-    <h3 class="fw-bold mb-4 text-white">Moviliza tu negocio con eficiencia</h3>
+    <h3 class="fw-bold mb-4" style="color: var(--mamba-text);">Moviliza tu negocio con eficiencia</h3>
     
-    <p class="text-muted mb-4" style="line-height: 1.8;">
+    <p class="mb-4" style="color: var(--mamba-text-muted); line-height: 1.8;">
         Desde la planificación de rutas hasta el seguimiento en tiempo real y la gestión de conductores, nuestro sistema te brinda las herramientas para operar con máxima eficiencia y ofrecer un servicio excepcional.
     </p>
 </x-products.intro>

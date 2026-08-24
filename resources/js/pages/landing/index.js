@@ -8,9 +8,11 @@ import { initFeatures } from '../products/_features';
 import { initProducts } from './_products';
 import { initWhatsappButton } from './_button_whastapp';
 import { initHeroAnimation } from './_hero';
+import { initTheme } from './_theme';
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     initScrollRestoration();
     initStats();
     initNavbar();
