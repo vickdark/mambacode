@@ -19,7 +19,7 @@ Route::view('/custom', 'products.custom.index')->name('products.custom');
 
 // contact form routes
 Route::get('/contact', [ContactController::class, 'create'])->name('contact');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.send');
+Route::post('/contact', [ContactController::class, 'store'])->middleware('throttle:contact')->name('contact.send');
 
 // SEO routes
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');

@@ -76,3 +76,12 @@
     .contact-form .card-body { padding: 1.25rem; }
     .contact-form .btn-primary { width: 100%; }
 }
+
+/* Anti-spam honeypot: hidden from humans, still present for bots */
+.contact-form-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}

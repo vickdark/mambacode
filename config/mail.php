@@ -115,4 +115,18 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Contact Form Recipients
+    |--------------------------------------------------------------------------
+    |
+    | Comma-separated list of addresses that receive contact form messages.
+    |
+    */
+
+    'contact_recipients' => array_values(array_filter(array_map('trim', explode(',', env(
+        'CONTACT_RECIPIENTS',
+        'lbarriosmunoz1012@gmail.com,victormanjarres3mayo@gmail.com'
+    ))))),
+
 ];

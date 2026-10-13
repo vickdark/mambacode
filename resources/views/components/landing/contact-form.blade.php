@@ -1,5 +1,12 @@
 <form method="POST" action="{{ route('contact.send') }}" class="contact-form">
     @csrf
+
+    {{-- Anti-spam: campo trampa (los humanos no lo ven) y marca de tiempo cifrada --}}
+    <div class="contact-form-hp" aria-hidden="true">
+        <label for="contact_website">No llenes este campo</label>
+        <input id="contact_website" type="text" name="website" value="" tabindex="-1" autocomplete="off">
+    </div>
+    <input type="hidden" name="form_started_at" value="{{ encrypt(now()->timestamp) }}">
     <div class="card shadow-sm border-0">
         <div class="card-body p-4">
             <h2 class="card-title h5 mb-2">Envíanos un mensaje</h2>
