@@ -22,20 +22,21 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="portfolioDropdown">
                         <li><a class="dropdown-item" href="{{ route('products.sales') }}">Sistema de Ventas POS</a></li>
+                        <li><a class="dropdown-item" href="{{ route('products.hospitality') }}">POS Cafeterías y Bares</a></li>
                         <li><a class="dropdown-item" href="{{ route('products.itam') }}">Gestión de Activos ITAM</a></li>
                         <!-- <li><a class="dropdown-item" href="{{ route('products.gym') }}">SysGym - Software Fitness</a></li> -->
                         <li><a class="dropdown-item" href="{{ route('products.transports') }}">Sistema de Transporte Privado</a></li>
                     </ul>
                 </div>
                 @if (request()->routeIs('products.*'))
-                    <a href="#pricing" class="nav-link-item" title="Conoce nuestros precios">Precios</a>
+                    <a href="#pricing" class="nav-link-item" title="{{ request()->routeIs('products.hospitality') ? 'Solicita una cotización' : 'Conoce nuestros precios' }}">{{ request()->routeIs('products.hospitality') ? 'Cotización' : 'Precios' }}</a>
                 @endif
                 @if (!request()->routeIs('products.*'))
                     <a href="{{ route('home') }}#testimonios" class="nav-link-item" title="Qué opinan nuestros clientes">Testimonios</a>
                 @endif
                 <a href="{{ request()->routeIs('home') ? route('home') : '' }}#contacto" class="nav-link-item" title="Ponte en contacto con nuestro equipo técnico">Contacto</a>
-                <a href="{{ config('app.admin_login_url') ?: '#' }}" target="_blank" class="nav-link-item" title="Acceso Administrativo">
-                    <i class="fa-solid fa-fingerprint"></i>
+                <a href="{{ route('access.index') }}" class="nav-link-item" title="Portal de accesos" aria-label="Acceso Admin: portal de productos">
+                    <i class="fa-solid fa-fingerprint" aria-hidden="true"></i>
                 </a>
                 <!-- Theme Toggle -->
                 <button class="nav-link-item theme-toggle" id="themeToggle" type="button" aria-label="Cambiar tema" title="Cambiar tema">
@@ -75,6 +76,7 @@
                     <div class="collapse mt-2" id="portfolioMobileCollapse">
                         <ul class="nav flex-column">
                             <li class="nav-item"><a class="nav-link py-1" style="color: var(--mamba-text);" href="{{ route('products.sales') }}"><i class="fa-regular fa-circle me-2"></i> Sistema de Ventas POS</a></li>
+                            <li class="nav-item"><a class="nav-link py-1" style="color: var(--mamba-text);" href="{{ route('products.hospitality') }}"><i class="fa-regular fa-circle me-2"></i> POS Cafeterías y Bares</a></li>
                             <li class="nav-item"><a class="nav-link py-1" style="color: var(--mamba-text);" href="{{ route('products.itam') }}"><i class="fa-regular fa-circle me-2"></i> Gestión de Activos ITAM</a></li>
                             <!-- <li class="nav-item"><a class="nav-link py-1" style="color: var(--mamba-text);" href="{{ route('products.gym') }}"><i class="fa-regular fa-circle me-2"></i> SysGym - Software Fitness</a></li> -->
                             <li class="nav-item"><a class="nav-link text-white py-1" href="{{ route('products.transports') }}"><i class="fa-regular fa-circle me-2"></i> Sistema de Transporte Privado</a></li>
@@ -83,7 +85,7 @@
                 </li>
             @if (request()->routeIs('products.*'))
                 <a href="#pricing" class="nav-link-item mb-3">
-                    <i class="fa-solid fa-tag me-2"></i> Precios
+                    <i class="fa-solid fa-tag me-2"></i> {{ request()->routeIs('products.hospitality') ? 'Cotización' : 'Precios' }}
                 </a>
             @endif
             @if (!request()->routeIs('products.*'))
@@ -95,7 +97,7 @@
                 <i class="fa-solid fa-envelope me-2"></i> Contacto
             </a>
             <div class="dropdown-divider my-2 opacity-10"></div>
-            <a href="{{ config('app.admin_login_url') ?: '#' }}" target="_blank" class="nav-link-item">
+            <a href="{{ route('access.index') }}" class="nav-link-item">
                 <i class="fa-solid fa-fingerprint me-2"></i> Acceso Admin
             </a>
             <!-- Theme Toggle Mobile -->

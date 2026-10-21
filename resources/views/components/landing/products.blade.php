@@ -54,6 +54,47 @@
             </a>
         </div>
 
+        <div class="product-card animate__animated animate__fadeInUp" style="--product-animation-delay: 0.25s;" data-route="{{ route('products.hospitality') }}">
+            <div class="product-icon-custom">
+                <i class="fa-solid fa-mug-saucer fa-2x" aria-hidden="true"></i>
+            </div>
+            <h3 class="product-title">POS Cafeterías y Bares</h3>
+            <p class="product-desc">
+                Punto de venta para cafeterías, bares, licoreras y negocios relacionados. Una solución para acompañar la operación comercial de tu negocio.
+            </p>
+            <a href="{{ route('products.hospitality') }}" class="product-link">
+                Conocer Más <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div class="product-card animate__animated animate__fadeInUp" style="--product-animation-delay: 0.28s;" data-route="{{ route('products.aloja360') }}">
+            <div class="product-badge">En migración</div>
+            <div class="product-icon-custom">
+                <i class="fa-solid fa-hotel fa-2x" aria-hidden="true"></i>
+            </div>
+            <h3 class="product-title">Aloja360</h3>
+            <p class="product-desc">
+                Administra alojamientos turísticos con herramientas para disponibilidad, tarifas, huéspedes, reservas y operación diaria.
+            </p>
+            <a href="{{ route('products.aloja360') }}" class="product-link">
+                Conocer Aloja360 <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div class="product-card animate__animated animate__fadeInUp" style="--product-animation-delay: 0.3s;" data-route="{{ route('products.medicos') }}">
+            <div class="product-badge">En migración</div>
+            <div class="product-icon-custom">
+                <i class="fa-solid fa-heart-pulse fa-2x" aria-hidden="true"></i>
+            </div>
+            <h3 class="product-title">Médicos Integrados</h3>
+            <p class="product-desc">
+                Conecta pacientes y profesionales de la salud con herramientas para citas, historia clínica, diagnósticos, recetas y pagos.
+            </p>
+            <a href="{{ route('products.medicos') }}" class="product-link">
+                Conocer el sistema <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </a>
+        </div>
+
         <!-- Product 3: ITAM Management -->
         <div class="product-card animate__animated animate__fadeInUp" style="--product-animation-delay: 0.3s;" data-route="{{ route('products.itam') }}">
             <div class="product-icon-custom">

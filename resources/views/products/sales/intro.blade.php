@@ -93,6 +93,7 @@
     badge="Gestión Comercial"
     :carouselImages="$carouselImages"
     :features="$features"
+    :access-url="config('products.sales.url')"
 >
     <h3 class="fw-bold mb-4" style="color: var(--mamba-text);">Vende más, gestiona mejor</h3>
     

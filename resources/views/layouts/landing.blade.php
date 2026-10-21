@@ -18,7 +18,7 @@
     <meta name="description" content="{{ $seoDescription }}">
     <meta name="keywords" content="{{ $seoKeywords }}">
     <meta name="author" content="Mamba Code">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="@yield('meta_robots', 'index, follow')">
     <meta name="theme-color" content="#0f172a">
     <meta name="image" content="{{ $seoImage }}">
     <link rel="canonical" href="{{ $canonicalUrl }}">
@@ -117,15 +117,13 @@
             var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
             var theme = stored || (prefersLight ? 'light' : 'dark');
             document.documentElement.setAttribute('data-theme', theme);
-            document.body.classList.toggle('theme-light', theme === 'light');
-            document.body.classList.toggle('theme-dark', theme === 'dark');
         })();
     </script>
     
     <!-- Scripts & Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/pages/landing/index.js'])
 </head>
-<body class="landing-page">
+<body class="landing-page @yield('body_class')">
     <!-- Background Animation -->
     <div class="landing-bg"></div>
 

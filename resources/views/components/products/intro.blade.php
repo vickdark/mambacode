@@ -1,4 +1,4 @@
-@props(['title', 'subtitle', 'badge', 'features', 'carouselImages'])
+@props(['title', 'subtitle', 'badge', 'features', 'carouselImages', 'accessUrl' => null])
 
 @php
     $carouselId = 'productCarousel' . uniqid();
@@ -167,6 +167,12 @@
                     <a href="{{ route('contact') }}" class="btn-cyber w-100 text-center">
                         <i class="fa-solid fa-laptop-code me-2"></i> Solicitar Demo en Vivo
                     </a>
+                    @if ($accessUrl)
+                        <a href="{{ $accessUrl }}" class="product-link mt-3" target="_blank" rel="noopener noreferrer">
+                            Ingresar al sistema <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            <span class="visually-hidden">(se abre en una pestaña nueva)</span>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>

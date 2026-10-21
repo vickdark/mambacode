@@ -1,0 +1,413 @@
+.hospitality-page {
+    color: var(--mamba-text);
+}
+
+.hospitality-hero {
+    padding: 2.5rem 0 5.5rem;
+}
+
+.hospitality-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 3rem;
+    color: var(--mamba-text-muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.hospitality-back:hover {
+    color: var(--mamba-secondary);
+}
+
+.hospitality-hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    gap: 3rem;
+}
+
+.hospitality-hero-copy {
+    min-width: 0;
+}
+
+.hospitality-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--mamba-secondary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.hospitality-hero h1 {
+    margin: 1.25rem 0 1.5rem;
+    font-size: clamp(2.6rem, 4.6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.055em;
+    line-height: 1.08;
+}
+
+.hospitality-hero h1 span {
+    color: var(--mamba-primary);
+}
+
+.hospitality-lead {
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.hospitality-description {
+    max-width: 35rem;
+    color: var(--mamba-text-muted);
+    font-size: 1rem;
+    line-height: 1.85;
+}
+
+.hospitality-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.hospitality-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    min-height: 3.2rem;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid transparent;
+    border-radius: 0.8rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.hospitality-button-primary {
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+}
+
+.hospitality-button-primary:hover {
+    color: var(--btn-primary-text);
+    box-shadow: 0 6px 24px rgba(130, 87, 229, 0.3);
+}
+
+.hospitality-button-secondary {
+    background: var(--btn-secondary-bg);
+    border-color: var(--btn-secondary-border);
+    color: var(--mamba-text);
+}
+
+.hospitality-button-secondary:hover {
+    border-color: var(--mamba-secondary);
+    color: var(--mamba-secondary);
+}
+
+.hospitality-page a:focus-visible {
+    outline: 3px solid var(--mamba-secondary);
+    outline-offset: 5px;
+}
+
+.hospitality-visual {
+    position: relative;
+    min-width: 0;
+    padding: 2rem;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 40%, rgba(130, 87, 229, 0.14), transparent 65%), var(--mamba-surface);
+    border: 1px solid var(--card-border);
+    border-radius: 2rem;
+    box-shadow: 0 24px 70px var(--hero-card-shadow);
+}
+
+.hospitality-visual-heading,
+.hospitality-visual-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.hospitality-visual-heading {
+    color: var(--mamba-text-muted);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.hospitality-visual-heading span:first-child {
+    color: var(--mamba-text);
+}
+
+.hospitality-visual-center {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.15;
+    margin: 1.5rem auto;
+}
+
+.hospitality-orbit,
+.hospitality-main-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hospitality-orbit {
+    aspect-ratio: 1;
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+}
+
+.hospitality-orbit-outer {
+    width: 94%;
+    border-style: dashed;
+}
+
+.hospitality-orbit-inner {
+    width: 65%;
+}
+
+.hospitality-main-icon {
+    display: grid;
+    place-items: center;
+    width: 36%;
+    aspect-ratio: 1;
+    color: #fff;
+    background: linear-gradient(145deg, #8257e5, #3b82f6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 26%;
+    box-shadow: 0 18px 50px rgba(130, 87, 229, 0.25);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.hospitality-orbit-icon {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 20%;
+    aspect-ratio: 1;
+    background: var(--mamba-surface-elevated);
+    border: 1px solid var(--glass-highlight);
+    border-radius: 25%;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+}
+
+.hospitality-coffee {
+    top: 7%;
+    left: 10%;
+    color: var(--mamba-primary);
+    transform: rotate(-8deg);
+}
+
+.hospitality-drink {
+    top: 22%;
+    right: 0;
+    color: var(--mamba-secondary);
+    transform: rotate(8deg);
+}
+
+.hospitality-wine {
+    bottom: 0;
+    left: 22%;
+    color: var(--mamba-accent);
+    transform: rotate(-5deg);
+}
+
+.hospitality-visual-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--glass-border);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.hospitality-visual-footer span:last-child {
+    color: var(--mamba-text-muted);
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.hospitality-sectors {
+    padding: 4.5rem 0;
+    background: var(--feature-bg);
+    border-top: 1px solid var(--feature-border);
+    border-bottom: 1px solid var(--feature-border);
+}
+
+.hospitality-section-heading {
+    max-width: 43rem;
+    margin-bottom: 2.5rem;
+}
+
+.hospitality-section-heading h2,
+.hospitality-contact-panel h2 {
+    margin: 0.8rem 0 1rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.2;
+}
+
+.hospitality-section-heading p,
+.hospitality-contact-panel p {
+    margin: 0;
+    color: var(--mamba-text-muted);
+    line-height: 1.8;
+}
+
+.hospitality-sector-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.hospitality-sector-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border: 1px solid var(--card-border);
+    border-radius: 1.25rem;
+    background: var(--card-bg);
+}
+
+.hospitality-sector-icon {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-bottom: 1.8rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    background: var(--feature-hover-bg);
+    color: var(--mamba-primary);
+    font-size: 1.4rem;
+}
+
+.hospitality-sector-card h3 {
+    margin: 0 0 0.9rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.hospitality-sector-card p {
+    flex: 1;
+    margin-bottom: 1.5rem;
+    color: var(--mamba-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.hospitality-sector-detail {
+    padding-top: 1rem;
+    border-top: 1px solid var(--glass-border);
+    color: var(--mamba-text-muted);
+    font-size: 0.75rem;
+    line-height: 1.7;
+}
+
+.hospitality-contact {
+    padding: 5rem 0;
+}
+
+.hospitality-contact-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    padding: 3rem;
+    background: var(--pricing-popular-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 1.5rem;
+}
+
+.hospitality-contact-panel > div {
+    max-width: 39rem;
+}
+
+.hospitality-contact-panel > a {
+    flex-shrink: 0;
+}
+
+@media (max-width: 991px) {
+    .hospitality-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hospitality-hero-copy {
+        max-width: 42rem;
+    }
+
+    .hospitality-visual {
+        width: min(100%, 30rem);
+        justify-self: center;
+    }
+
+    .hospitality-sector-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hospitality-sector-card {
+        padding: 1.75rem;
+    }
+
+    .hospitality-contact-panel {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 575px) {
+    .hospitality-hero {
+        padding-top: 1.75rem;
+        padding-bottom: 3rem;
+    }
+
+    .hospitality-back {
+        margin-bottom: 2rem;
+    }
+
+    .hospitality-hero h1 {
+        font-size: clamp(2.2rem, 10.8vw, 3.3rem);
+    }
+
+    .hospitality-actions {
+        flex-direction: column;
+    }
+
+    .hospitality-visual {
+        padding: 1.5rem;
+        border-radius: 1.5rem;
+    }
+
+    .hospitality-sectors,
+    .hospitality-contact {
+        padding: 3rem 0;
+    }
+
+    .hospitality-contact-panel {
+        padding: 1.75rem;
+        gap: 1.5rem;
+    }
+
+    .hospitality-contact-panel > a {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hospitality-button {
+        transition: none;
+    }
+}

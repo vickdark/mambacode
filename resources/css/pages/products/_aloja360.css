@@ -1,0 +1,209 @@
+.aloja360 {
+    color: var(--mamba-text);
+}
+
+.aloja360-hero {
+    padding: 2.5rem 0 5rem;
+}
+
+.aloja360-back {
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
+    margin-bottom: 2.5rem;
+    color: var(--mamba-text-muted);
+    font-size: .875rem;
+    text-decoration: none;
+}
+
+.aloja360-back:hover { color: var(--mamba-secondary); }
+
+.aloja360-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+}
+
+.aloja360-copy { min-width: 0; }
+
+.aloja360-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    color: var(--mamba-secondary);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.aloja360-copy h1 {
+    margin: 1.2rem 0 1.4rem;
+    font-size: clamp(2.6rem, 4.5vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -.055em;
+    line-height: 1.08;
+}
+
+.aloja360-copy h1 span { color: var(--mamba-primary); }
+
+.aloja360-lead {
+    margin-bottom: .75rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.aloja360-description,
+.aloja360-section-heading > p,
+.aloja360-card p,
+.aloja360-footer-cta p {
+    color: var(--mamba-text-muted);
+    line-height: 1.8;
+}
+
+.aloja360-description { max-width: 38rem; }
+
+.aloja360-migration {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin: .8rem 0 0;
+    color: var(--mamba-secondary);
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+.aloja360-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 1.75rem;
+}
+
+.aloja360-button {
+    display: inline-flex;
+    min-height: 3.1rem;
+    align-items: center;
+    justify-content: center;
+    gap: .7rem;
+    padding: .85rem 1.1rem;
+    border: 1px solid transparent;
+    border-radius: .8rem;
+    font-size: .875rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.aloja360-button-primary {
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+}
+
+.aloja360-button-primary:hover {
+    color: var(--btn-primary-text);
+    box-shadow: 0 6px 24px var(--shadow-color);
+}
+
+.aloja360-button-secondary {
+    background: var(--btn-secondary-bg);
+    border-color: var(--btn-secondary-border);
+    color: var(--mamba-text);
+}
+
+.aloja360-button-secondary:hover {
+    border-color: var(--mamba-secondary);
+    color: var(--mamba-secondary);
+}
+
+.aloja360-visual {
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    border-radius: 1.5rem;
+    background: var(--mamba-surface);
+    box-shadow: 0 24px 70px var(--hero-card-shadow);
+}
+
+.aloja360-visual img { display: block; width: 100%; height: auto; }
+
+.aloja360-capabilities { padding: 1rem 0 5rem; }
+
+.aloja360-section-heading {
+    max-width: 45rem;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+.aloja360-section-heading h2,
+.aloja360-footer-cta h2 {
+    margin: .75rem 0;
+    color: var(--mamba-text);
+    font-size: clamp(1.65rem, 3vw, 2.5rem);
+    font-weight: 750;
+    letter-spacing: -.035em;
+}
+
+.aloja360-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.aloja360-card {
+    padding: 1.5rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 1.1rem;
+    background: var(--mamba-surface);
+}
+
+.aloja360-card-icon {
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    place-items: center;
+    margin-bottom: 1.2rem;
+    border-radius: .9rem;
+    background: var(--pricing-popular-bg);
+    color: var(--mamba-primary);
+    font-size: 1.2rem;
+}
+
+.aloja360-card h3 {
+    color: var(--mamba-text);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.aloja360-card p { margin: 0; font-size: .875rem; }
+
+.aloja360-footer-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding: 2rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 1.25rem;
+    background: var(--mamba-surface);
+}
+
+.aloja360-footer-cta h2 { margin-top: 0; font-size: 1.5rem; }
+.aloja360-footer-cta p { margin: 0; }
+.aloja360 a:focus-visible { outline: 3px solid var(--mamba-secondary); outline-offset: 5px; }
+
+@media (max-width: 991px) {
+    .aloja360-hero-grid { grid-template-columns: 1fr; }
+    .aloja360-visual { max-width: 44rem; }
+    .aloja360-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 575px) {
+    .aloja360-hero { padding-top: 1.5rem; }
+    .aloja360-grid { grid-template-columns: 1fr; }
+    .aloja360-footer-cta { align-items: flex-start; flex-direction: column; padding: 1.5rem; }
+    .aloja360-button { width: 100%; }
+}
