@@ -20,15 +20,19 @@
 @section('content')
     <x-landing.navigation />
 
-    <section class="bg-dot-grid border-b border-glass" id="formulario">
+    <section class="bg-dot-grid overflow-hidden border-b border-glass" id="formulario">
         <div class="container-page grid gap-10 py-14 sm:py-20 lg:grid-cols-12 lg:gap-14">
             {{-- Direct channels --}}
             <div class="animate-fade-up lg:col-span-5">
-                <span class="eyebrow">/ contacto</span>
-                <h1 class="mt-4 mb-5 text-[clamp(2.3rem,4.4vw,3.6rem)] leading-[1.04] font-bold tracking-[-0.04em] text-fg">
-                    Hablemos de tu <span class="text-primary">proyecto.</span>
-                </h1>
-                <p class="mb-8 max-w-md text-lg leading-relaxed text-muted">Cuéntanos qué necesitas: una consultoría, una demo en vivo o un desarrollo a medida. Te respondemos en 24-48 horas hábiles.</p>
+                {{-- Faint Laravel code behind the heading only; it fades out before the channels and the form --}}
+                <div class="relative isolate">
+                    <x-code-rain class="code-rain-soft -z-10" />
+                    <span class="eyebrow">/ contacto</span>
+                    <h1 class="mt-4 mb-5 text-[clamp(2.3rem,4.4vw,3.6rem)] leading-[1.04] font-bold tracking-[-0.04em] text-fg">
+                        Hablemos de tu <span class="text-primary">proyecto.</span>
+                    </h1>
+                    <p class="mb-8 max-w-md text-lg leading-relaxed text-muted">Cuéntanos qué necesitas: una consultoría, una demo en vivo o un desarrollo a medida. Te respondemos en 24-48 horas hábiles.</p>
+                </div>
 
                 <a href="https://wa.me/573235059939" target="_blank" rel="noopener noreferrer" class="group mb-4 flex items-center gap-4 rounded-[1.1rem] border border-glass bg-surface p-5 transition-colors hover:border-[#25D366]">
                     <span class="grid size-12 shrink-0 place-items-center rounded-xl bg-[#25D366] text-white">

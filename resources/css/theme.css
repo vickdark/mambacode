@@ -41,7 +41,13 @@
     --status-warn: #fbbf24;
     --badge-text: #fbbf24;
     --hero-ribbons-opacity: 0.35;
-    --hero-code-opacity: 0.35;
+    --code-rain-opacity: 0.35;
+
+    /* Logo tones for icons, lightened to read on dark surfaces */
+    --tone-magenta: #e47cbf;
+    --tone-sky: #7cc0ee;
+    --tone-purple: #c48ae0;
+    --tone-indigo: #9aa0f0;
 }
 
 [data-theme="light"] {
@@ -83,5 +89,11 @@
     --status-warn: #92400e;
     --badge-text: #92400e;
     --hero-ribbons-opacity: 0.25;
-    --hero-code-opacity: 0.4;
+    --code-rain-opacity: 0.4;
+
+    /* Logo tones for icons, deepened to read on light surfaces */
+    --tone-magenta: #b0347f;
+    --tone-sky: #1f78b8;
+    --tone-purple: #8a3a9a;
+    --tone-indigo: #4c52b8;
 }
