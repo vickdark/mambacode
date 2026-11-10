@@ -129,4 +129,19 @@ return [
         'lbarriosmunoz1012@gmail.com,victormanjarres3mayo@gmail.com'
     ))))),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Public Contact Emails
+    |--------------------------------------------------------------------------
+    |
+    | Comma-separated list of addresses shown in the footer and contact page.
+    | Falls back to the contact form recipients when not set.
+    |
+    */
+
+    'contact_emails' => array_values(array_filter(array_map('trim', explode(',', env(
+        'CONTACT_EMAILS',
+        env('CONTACT_RECIPIENTS', 'lbarriosmunoz1012@gmail.com,victormanjarres3mayo@gmail.com')
+    ))))),
+
 ];
