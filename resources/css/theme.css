@@ -1,0 +1,76 @@
+/* Design tokens. Dark is the default; [data-theme="light"] overrides them.
+ * Tailwind utilities read these through the @theme mapping in app.css. */
+:root {
+    --mamba-bg: #0a0a0c;
+    --mamba-surface: #111113;
+    --mamba-surface-elevated: #1a1a1d;
+    --mamba-primary: #8257e5;
+    --mamba-secondary: #3b82f6;
+    --mamba-accent: #ff005c;
+    --mamba-text: #f0f0f5;
+    --mamba-text-muted: #a0a0b0;
+    --mamba-text-inverse: #0a0a0c;
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-highlight: rgba(255, 255, 255, 0.15);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --input-bg: rgba(255, 255, 255, 0.02);
+    --input-border: rgba(255, 255, 255, 0.1);
+    --card-bg: rgba(15, 23, 42, 0.4);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(10, 10, 12, 0.6);
+    --nav-bg-scrolled: rgba(10, 10, 12, 0.85);
+    --offcanvas-bg: rgba(10, 10, 12, 0.98);
+    --dropdown-bg: rgba(10, 10, 12, 0.9);
+    --btn-primary-bg: linear-gradient(135deg, var(--mamba-primary), var(--mamba-secondary));
+    --btn-secondary-bg: rgba(255, 255, 255, 0.05);
+    --btn-secondary-border: rgba(255, 255, 255, 0.1);
+    --hover-bg: rgba(130, 87, 229, 0.1);
+    --hero-card-bg: rgba(15, 23, 42, 0.4);
+    --hero-card-shadow: rgba(0, 0, 0, 0.5);
+    --stats-bg: rgba(15, 23, 42, 0.3);
+    --popular-bg: linear-gradient(135deg, rgba(130, 87, 229, 0.2), rgba(59, 130, 246, 0.2));
+    --feature-bg: rgba(15, 23, 42, 0.3);
+    --feature-border: rgba(255, 255, 255, 0.05);
+    --footer-bg: #0a0a0c;
+    --scrollbar-track: #0a0a0c;
+    --badge-text: #ffdd57;
+    --hero-net-opacity: 0.4;
+}
+
+[data-theme="light"] {
+    --mamba-bg: #f8fafc;
+    --mamba-surface: #ffffff;
+    --mamba-surface-elevated: #f1f5f9;
+    --mamba-primary: #7c3aed;
+    --mamba-secondary: #2563eb;
+    --mamba-accent: #e11d48;
+    --mamba-text: #0f172a;
+    --mamba-text-muted: #475569;
+    --mamba-text-inverse: #f8fafc;
+    --glass-border: rgba(15, 23, 42, 0.08);
+    --glass-highlight: rgba(15, 23, 42, 0.15);
+    --shadow-color: rgba(15, 23, 42, 0.1);
+    --border-subtle: rgba(15, 23, 42, 0.05);
+    --input-bg: #ffffff;
+    --input-border: rgba(15, 23, 42, 0.15);
+    --card-bg: #ffffff;
+    --card-border: rgba(15, 23, 42, 0.08);
+    --nav-bg: rgba(248, 250, 252, 0.8);
+    --nav-bg-scrolled: rgba(248, 250, 252, 0.95);
+    --offcanvas-bg: rgba(248, 250, 252, 0.98);
+    --dropdown-bg: rgba(248, 250, 252, 0.95);
+    --btn-secondary-bg: #f1f5f9;
+    --btn-secondary-border: rgba(15, 23, 42, 0.1);
+    --hover-bg: rgba(124, 58, 237, 0.08);
+    --hero-card-bg: rgba(255, 255, 255, 0.7);
+    --hero-card-shadow: rgba(15, 23, 42, 0.06);
+    --stats-bg: #ffffff;
+    --popular-bg: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(37, 99, 235, 0.1));
+    --feature-bg: #f8fafc;
+    --feature-border: rgba(15, 23, 42, 0.05);
+    --footer-bg: #f1f5f9;
+    --scrollbar-track: #f1f5f9;
+    --badge-text: #e65100;
+    --hero-net-opacity: 0.15;
+}

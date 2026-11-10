@@ -1,179 +1,140 @@
 @props(['title', 'subtitle', 'badge', 'features', 'carouselImages', 'accessUrl' => null])
 
-@php
-    $carouselId = 'productCarousel' . uniqid();
-@endphp
-
-<section class="product-intro-section py-5 mt-5" id="intro">
-    <div class="container">
-        <!-- Header -->
-        <div class="row align-items-center mb-5">
-            <div class="col-lg-12 text-center">
-                <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-3">{{ $badge }}</span>
-                <h1 class="hero-title display-4 fw-bold mb-3">{{ $title }}</h1>
-                <p class="lead text-muted mx-auto intro-subtitle">
-                    {{ $subtitle }}
-                </p>
-            </div>
+<section class="mt-8 py-12 lg:mt-12" id="intro">
+    <div class="container-page">
+        <div class="mb-10 text-center lg:mb-14">
+            <span class="mb-3 inline-block rounded-full bg-primary/10 px-3 py-2 text-sm font-semibold text-primary">{{ $badge }}</span>
+            <h1 class="text-gradient mb-4 text-4xl font-extrabold tracking-tight sm:text-5xl xl:text-6xl">{{ $title }}</h1>
+            <p class="mx-auto max-w-2xl text-lg text-muted sm:text-xl">{{ $subtitle }}</p>
         </div>
 
-        <div class="row align-items-center g-5">
-            <!-- Carousel Column -->
-            <div class="col-lg-7">
-                <div id="{{ $carouselId }}" class="carousel slide rounded-4 overflow-hidden product-carousel-custom" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        @foreach ($carouselImages as $index => $image)
-                            <button type="button" data-bs-target="#{{ $carouselId }}" data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}" aria-current="{{ $index === 0 ? 'true' : 'false' }}" aria-label="Slide {{ $index + 1 }}"></button>
-                        @endforeach
-                    </div>
-                    <div class="carousel-inner">
-                        @foreach ($carouselImages as $index => $image)
-                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                <button type="button" class="carousel-image-button d-block w-100 p-0 border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#productImageModal" data-bs-carousel-id="{{ $carouselId }}" data-bs-index="{{ $index }}" data-bs-image="{{ $image['src'] }}" data-bs-alt="{{ $image['alt'] }}" data-bs-title="{{ $image['caption_title'] }}" data-bs-text="{{ $image['caption_text'] }}">
-                                    <img src="{{ $image['src'] }}" class="d-block w-100 carousel-image" alt="{{ $image['alt'] }}" loading="lazy" decoding="async">
+        <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+            {{-- Screenshot carousel --}}
+            <div
+                class="lg:col-span-7"
+                x-data="carousel(@js($carouselImages))"
+                @mouseenter="pause()"
+                @mouseleave="lightbox || play()"
+            >
+                <div
+                    class="relative overflow-hidden rounded-2xl border border-card-border bg-card"
+                    @touchstart.passive="touchStart($event)"
+                    @touchend="touchEnd($event)"
+                    role="region"
+                    aria-roledescription="carrusel"
+                    aria-label="Capturas de {{ $title }}"
+                >
+                    <div class="flex transition-transform duration-500 ease-out" :style="`transform: translateX(-${index * 100}%)`">
+                        @foreach ($carouselImages as $image)
+                            <figure class="relative w-full shrink-0" aria-roledescription="diapositiva" aria-label="{{ $loop->iteration }} de {{ $loop->count }}">
+                                <button type="button" class="block w-full cursor-zoom-in" @click="open({{ $loop->index }})" aria-label="Ampliar: {{ $image['alt'] }}">
+                                    <img src="{{ $image['src'] }}" alt="{{ $image['alt'] }}" class="h-56 w-full object-cover sm:h-80 lg:h-96 2xl:h-[28rem] 3xl:h-[34rem]" @if (! $loop->first) loading="lazy" @endif decoding="async">
                                 </button>
-                                <div class="carousel-caption d-none d-md-block carousel-caption-custom">
-                                    <p class="h5">{{ $image['caption_title'] }}</p>
-                                    <p>{{ $image['caption_text'] }}</p>
-                                </div>
-                            </div>
+                                <figcaption class="absolute inset-x-[15%] bottom-12 hidden rounded-xl bg-surface px-4 py-3 text-center md:block">
+                                    <p class="text-lg font-semibold text-fg">{{ $image['caption_title'] }}</p>
+                                    <p class="text-sm text-muted">{{ $image['caption_text'] }}</p>
+                                </figcaption>
+                            </figure>
                         @endforeach
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#{{ $carouselId }}" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
+
+                    <button type="button" class="absolute inset-y-0 left-0 grid w-12 place-items-center text-2xl text-white opacity-70 drop-shadow transition hover:opacity-100 sm:w-16" @click="prev()" aria-label="Anterior">
+                        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#{{ $carouselId }}" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
+                    <button type="button" class="absolute inset-y-0 right-0 grid w-12 place-items-center text-2xl text-white opacity-70 drop-shadow transition hover:opacity-100 sm:w-16" @click="next()" aria-label="Siguiente">
+                        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                     </button>
+
+                    <div class="absolute inset-x-0 bottom-3 flex flex-wrap justify-center gap-1.5 px-12">
+                        @foreach ($carouselImages as $image)
+                            <button
+                                type="button"
+                                class="h-1 w-3 rounded-full transition sm:w-7"
+                                :class="index === {{ $loop->index }} ? 'bg-primary' : 'bg-muted/70'"
+                                :aria-current="index === {{ $loop->index }}"
+                                @click="go({{ $loop->index }})"
+                                aria-label="Imagen {{ $loop->iteration }}"
+                            ></button>
+                        @endforeach
+                    </div>
                 </div>
-                <div class="product-carousel-click-hint mt-3 text-center">
-                    <span class="badge badge-click-to-expand">
-                        <i class="fa-solid fa-magnifying-glass-plus me-2"></i>
+
+                <div class="mt-4 flex justify-center">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-highlight bg-gradient-brand px-4 py-3 text-xs font-bold tracking-wide text-white uppercase shadow-[0_18px_36px_rgba(59,130,246,0.24)] sm:text-sm">
+                        <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
                         Dar clic para ampliar imagen
                     </span>
                 </div>
 
-@once
-                <div class="modal fade" id="productImageModal" tabindex="-1" aria-labelledby="productImageModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-xl">
-                        <div class="modal-content" style="background: var(--mamba-surface); color: var(--mamba-text); border: 1px solid var(--mamba-border);">
-                            <div class="modal-header border-0 align-items-center" style="border-color: var(--mamba-border);">
-                                <div>
-                                    <h2 class="modal-title h5" id="productImageModalLabel" style="color: var(--mamba-text);"></h2>
-                                    <p class="mb-0 small modal-image-caption-text" style="color: var(--mamba-text-muted);"></p>
+                {{-- Lightbox --}}
+                <template x-teleport="body">
+                    <div
+                        x-show="lightbox"
+                        x-cloak
+                        x-transition.opacity
+                        x-trap.noscroll="lightbox"
+                        @keydown.escape.window="lightbox = false"
+                        @keydown.arrow-left.window="lightbox && prev()"
+                        @keydown.arrow-right.window="lightbox && next()"
+                        class="fixed inset-0 z-[2000] flex items-center justify-center bg-black/80 p-2 sm:p-6"
+                        role="dialog"
+                        aria-modal="true"
+                        :aria-label="current.caption_title"
+                        @click.self="lightbox = false"
+                    >
+                        <div class="flex max-h-full w-full max-w-7xl flex-col overflow-hidden rounded-2xl border border-glass bg-surface text-fg">
+                            <div class="flex items-start gap-3 p-4">
+                                <div class="min-w-0">
+                                    <h2 class="text-lg font-semibold" x-text="current.caption_title"></h2>
+                                    <p class="text-sm text-muted" x-text="current.caption_text"></p>
                                 </div>
-                                <div class="ms-auto d-flex align-items-center gap-2 modal-control-group">
-                                    <button type="button" class="btn btn-sm modal-image-prev" style="border-color: var(--mamba-secondary); color: var(--mamba-secondary);" aria-label="Anterior imagen">
-                                        <i class="fa-solid fa-chevron-left"></i>
+                                <div class="ms-auto flex shrink-0 items-center gap-2">
+                                    <button type="button" class="grid size-9 place-items-center rounded-lg border border-secondary text-secondary transition hover:bg-secondary hover:text-white" @click="prev()" aria-label="Anterior imagen">
+                                        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
                                     </button>
-                                    <button type="button" class="btn btn-sm modal-image-next" style="border-color: var(--mamba-secondary); color: var(--mamba-secondary);" aria-label="Siguiente imagen">
-                                        <i class="fa-solid fa-chevron-right"></i>
+                                    <button type="button" class="grid size-9 place-items-center rounded-lg border border-secondary text-secondary transition hover:bg-secondary hover:text-white" @click="next()" aria-label="Siguiente imagen">
+                                        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                                     </button>
-                                    <button type="button" class="btn-close" style="filter: invert(1);" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                    <button type="button" class="grid size-9 place-items-center rounded-lg text-xl text-fg hover:bg-hover" @click="lightbox = false" aria-label="Cerrar">
+                                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="modal-body p-0 d-flex justify-content-center align-items-center">
-                                <img src="" alt="" class="img-fluid w-100 modal-carousel-image">
+                            <div class="flex min-h-0 flex-1 items-center justify-center" @touchstart.passive="touchStart($event)" @touchend="touchEnd($event)">
+                                <img :src="current.src" :alt="current.alt" class="max-h-[calc(100svh-9rem)] w-auto max-w-full object-contain">
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <script>
-                    (function () {
-                        if (window.productImageModalHandlerAdded) return;
-                        window.productImageModalHandlerAdded = true;
-
-                        function updateModalDisplay() {
-                            const items = window.productImageModalItems || [];
-                            const index = window.productImageModalCurrentIndex || 0;
-                            const item = items[index];
-                            if (!item) return;
-
-                            const modalImg = document.querySelector('#productImageModal .modal-carousel-image');
-                            const modalTitle = document.querySelector('#productImageModalLabel');
-                            const modalText = document.querySelector('#productImageModal .modal-image-caption-text');
-
-                            if (!modalImg || !modalTitle || !modalText) return;
-
-                            modalImg.src = item.src || '';
-                            modalImg.alt = item.alt || '';
-                            modalTitle.textContent = item.title || '';
-                            modalText.textContent = item.text || '';
-                        }
-
-                        function setModalItemsFromButton(btn) {
-                            const carouselId = btn.dataset.bsCarouselId;
-                            const groupButtons = document.querySelectorAll(`[data-bs-carousel-id="${carouselId}"]`);
-                            const items = Array.from(groupButtons).map(button => ({
-                                src: button.dataset.bsImage || '',
-                                alt: button.dataset.bsAlt || '',
-                                title: button.dataset.bsTitle || '',
-                                text: button.dataset.bsText || ''
-                            }));
-
-                            window.productImageModalItems = items;
-                            window.productImageModalCurrentIndex = parseInt(btn.dataset.bsIndex || '0', 10);
-                            updateModalDisplay();
-                        }
-
-                        document.addEventListener('click', function (event) {
-                            const btn = event.target.closest('.carousel-image-button');
-                            if (btn) {
-                                setModalItemsFromButton(btn);
-                                return;
-                            }
-
-                            const actionBtn = event.target.closest('.modal-image-prev, .modal-image-next');
-                            if (!actionBtn) return;
-
-                            const items = window.productImageModalItems || [];
-                            if (!items.length) return;
-
-                            if (actionBtn.classList.contains('modal-image-prev')) {
-                                window.productImageModalCurrentIndex = (window.productImageModalCurrentIndex - 1 + items.length) % items.length;
-                            } else if (actionBtn.classList.contains('modal-image-next')) {
-                                window.productImageModalCurrentIndex = (window.productImageModalCurrentIndex + 1) % items.length;
-                            }
-
-                            updateModalDisplay();
-                        });
-                    })();
-                </script>
-                @endonce
+                </template>
             </div>
 
-            <!-- Description & Demo Column -->
-            <div class="col-lg-5">
-                <div class="ps-lg-4">
-                    {{ $slot }}
+            {{-- Description & demo --}}
+            <div class="lg:col-span-5 lg:ps-4">
+                {{ $slot }}
 
-                    <div class="d-flex flex-column gap-3 mb-5">
-                        @foreach ($features as $feature)
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="p-2 rounded-circle" style="background: var(--feature-bg); border: 1px solid var(--feature-border); color: var(--mamba-primary);">
-                                <i class="{{ $feature['icon'] }} fa-lg"></i>
+                <div class="mb-10 flex flex-col gap-4">
+                    @foreach ($features as $feature)
+                        <div class="flex items-center gap-4">
+                            <div class="grid size-11 shrink-0 place-items-center rounded-full border border-feature-border bg-feature text-primary">
+                                <i class="{{ $feature['icon'] }} fa-lg" aria-hidden="true"></i>
                             </div>
                             <div>
-                                <h6 class="mb-0 fw-bold" style="color: var(--mamba-text);">{{ $feature['title'] }}</h6>
-                                <small style="color: var(--mamba-text-muted);">{{ $feature['description'] }}</small>
+                                <h3 class="font-bold text-fg">{{ $feature['title'] }}</h3>
+                                <p class="text-sm text-muted">{{ $feature['description'] }}</p>
                             </div>
                         </div>
-                        @endforeach
-                    </div>
-
-                    <a href="{{ route('contact') }}" class="btn-cyber w-100 text-center">
-                        <i class="fa-solid fa-laptop-code me-2"></i> Solicitar Demo en Vivo
-                    </a>
-                    @if ($accessUrl)
-                        <a href="{{ $accessUrl }}" class="product-link mt-3" target="_blank" rel="noopener noreferrer">
-                            Ingresar al sistema <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-                            <span class="visually-hidden">(se abre en una pestaña nueva)</span>
-                        </a>
-                    @endif
+                    @endforeach
                 </div>
+
+                <a href="{{ route('contact') }}" class="btn-cyber w-full">
+                    <i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Solicitar Demo en Vivo
+                </a>
+                @if ($accessUrl)
+                    <a href="{{ $accessUrl }}" class="mt-4 inline-flex items-center gap-2 font-semibold text-secondary transition hover:text-primary" target="_blank" rel="noopener noreferrer">
+                        Ingresar al sistema <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        <span class="sr-only">(se abre en una pestaña nueva)</span>
+                    </a>
+                @endif
             </div>
         </div>
     </div>

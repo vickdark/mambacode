@@ -112,62 +112,21 @@
 
     <!-- Theme initialization (inline to prevent flash) -->
     <script>
-        (function() {
-            var stored = localStorage.getItem('theme');
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (e) {}
             var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-            var theme = stored || (prefersLight ? 'light' : 'dark');
-            document.documentElement.setAttribute('data-theme', theme);
+            document.documentElement.setAttribute('data-theme', stored || (prefersLight ? 'light' : 'dark'));
         })();
     </script>
-    
-    <!-- Scripts & Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/pages/landing/index.js'])
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="landing-page @yield('body_class')">
-    <!-- Background Animation -->
-    <div class="landing-bg"></div>
+<body x-data class="@yield('body_class', 'pt-20')">
+    <div class="landing-bg" aria-hidden="true"></div>
 
     @yield('content')
 
+    <x-theme-preference />
 </body>
-
-<script>
-// Smooth scroll for internal anchors, account for fixed navbar height
-// Use capture-phase listener for contact anchor to avoid broken handlers stopping navigation
-function smoothScrollToId(id){
-  const target = document.getElementById(id);
-  if(!target) return false;
-  const nav = document.querySelector('.landing-nav');
-  const navHeight = nav ? nav.getBoundingClientRect().height : 0;
-  const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 12;
-  window.scrollTo({ top, behavior: 'smooth' });
-  history.replaceState && history.replaceState(null, '', '#' + id);
-  return true;
-}
-
-// Capture-phase handler: runs before non-capture listeners and can stop them
-document.addEventListener('click', function(e){
-  const a = e.target.closest && e.target.closest('a[href^="#"]');
-  if(!a) return;
-  const href = a.getAttribute('href');
-  if(!href || href === '#') return;
-  const id = href.slice(1);
-  if(!id) return;
-
-  // If it's the contact anchor, intercept immediately and prevent other handlers
-  if(id === 'contacto'){
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    smoothScrollToId(id);
-    return;
-  }
-
-  // For other anchors, do a normal smooth scroll (non-capturing)
-  const target = document.getElementById(id);
-  if(target){
-    e.preventDefault();
-    smoothScrollToId(id);
-  }
-}, true);
-</script>
 </html>

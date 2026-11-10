@@ -1,101 +1,44 @@
-<form method="POST" action="{{ route('contact.send') }}" class="contact-form">
+<form method="POST" action="{{ route('contact.send') }}">
     @csrf
 
     {{-- Anti-spam: campo trampa (los humanos no lo ven) y marca de tiempo cifrada --}}
-    <div class="contact-form-hp" aria-hidden="true">
+    <div class="absolute -left-[9999px] size-px overflow-hidden" aria-hidden="true">
         <label for="contact_website">No llenes este campo</label>
         <input id="contact_website" type="text" name="website" value="" tabindex="-1" autocomplete="off">
     </div>
     <input type="hidden" name="form_started_at" value="{{ encrypt(now()->timestamp) }}">
-    <div class="card shadow-sm border-0">
-        <div class="card-body p-4">
-            <h2 class="card-title h5 mb-2">Envíanos un mensaje</h2>
-            <p class="text-muted small mb-4">Completa el formulario y nuestro equipo se pondrá en contacto contigo.</p>
 
-            <div class="row gy-3">
-                <div class="col-md-6">
-                    <label for="contact_name" class="form-label small mb-1">Nombre</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                        <input id="contact_name" type="text" name="name" class="form-control" required placeholder="Tu nombre" value="{{ old('name') }}">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <label for="contact_email" class="form-label small mb-1">Correo electrónico</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-                        <input id="contact_email" type="email" name="email" class="form-control" required placeholder="tu@empresa.com" value="{{ old('email') }}">
-                    </div>
-                </div>
+    <div class="rounded-2xl border border-card-border bg-card p-5 text-fg shadow-sm backdrop-blur-xl sm:p-9">
+        <h2 class="mb-2 text-xl font-semibold text-primary">Envíanos un mensaje</h2>
+        <p class="mb-6 text-sm text-muted">Completa el formulario y nuestro equipo se pondrá en contacto contigo.</p>
 
-                <div class="col-md-6">
-                    <label for="contact_company" class="form-label small mb-1">Empresa (opcional)</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa-solid fa-building"></i></span>
-                        <input id="contact_company" type="text" name="company" class="form-control" placeholder="Empresa (opcional)" value="{{ old('company') }}">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <label for="contact_role" class="form-label small mb-1">Cargo / Rol (opcional)</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa-solid fa-briefcase"></i></span>
-                        <input id="contact_role" type="text" name="role" class="form-control" placeholder="Cargo / Rol (opcional)" value="{{ old('role') }}">
-                    </div>
-                </div>
+        <div class="grid gap-5 md:grid-cols-2">
+            <x-form-field name="name" label="Nombre" icon="fa-user" required placeholder="Tu nombre" autocomplete="name" />
+            <x-form-field name="email" type="email" label="Correo electrónico" icon="fa-envelope" required placeholder="tu@empresa.com" autocomplete="email" />
+            <x-form-field name="company" label="Empresa (opcional)" icon="fa-building" placeholder="Empresa (opcional)" autocomplete="organization" />
+            <x-form-field name="role" label="Cargo / Rol (opcional)" icon="fa-briefcase" placeholder="Cargo / Rol (opcional)" autocomplete="organization-title" />
+            <x-form-field name="phone" type="tel" label="Teléfono (opcional)" icon="fa-phone" placeholder="Teléfono (opcional)" autocomplete="tel" />
+            <x-form-field name="subject" label="Asunto" icon="fa-tag" required placeholder="Asunto" />
 
-                <div class="col-md-6">
-                    <label for="contact_phone" class="form-label small mb-1">Teléfono (opcional)</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
-                        <input id="contact_phone" type="text" name="phone" class="form-control" placeholder="Teléfono (opcional)" value="{{ old('phone') }}">
-                    </div>
-                </div>
+            <x-form-field name="preferred_contact" type="select" label="Preferencia de contacto">
+                <option value="email" @selected(old('preferred_contact') == 'email')>Correo electrónico</option>
+                <option value="phone" @selected(old('preferred_contact') == 'phone')>Teléfono</option>
+                <option value="whatsapp" @selected(old('preferred_contact') == 'whatsapp')>WhatsApp</option>
+            </x-form-field>
 
-                <div class="col-md-6">
-                    <label for="contact_subject" class="form-label small mb-1">Asunto</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa-solid fa-tag"></i></span>
-                        <input id="contact_subject" type="text" name="subject" class="form-control" required placeholder="Asunto" value="{{ old('subject') }}">
-                    </div>
-                </div>
+            <x-form-field name="message" type="textarea" label="Mensaje" class="md:col-span-2" required placeholder="Cuéntanos tu proyecto o problema" />
 
-                <div class="col-md-6">
-                    <label for="contact_preferred_contact" class="form-label small mb-1">Preferencia de contacto</label>
-                    <select id="contact_preferred_contact" name="preferred_contact" class="form-select">
-                        <option value="email" {{ old('preferred_contact')=='email' ? 'selected' : '' }}>Correo electrónico</option>
-                        <option value="phone" {{ old('preferred_contact')=='phone' ? 'selected' : '' }}>Teléfono</option>
-                        <option value="whatsapp" {{ old('preferred_contact')=='whatsapp' ? 'selected' : '' }}>WhatsApp</option>
-                    </select>
-                </div>
-
-                <div class="col-12">
-                    <label for="contact_message" class="form-label small mb-1">Mensaje</label>
-                    <textarea id="contact_message" name="message" rows="6" class="form-control" required placeholder="Cuéntanos tu proyecto o problema">{{ old('message') }}</textarea>
-                </div>
-
-                <div class="col-12 d-flex flex-column align-items-start gap-3 justify-content-between mt-4">
-                    <div class="w-100">
-                        <div class="form-check">
-                            <input
-                                class="form-check-input"
-                                type="checkbox"
-                                name="data_consent"
-                                id="data_consent"
-                                value="1"
-                                required
-                            >
-                            <label class="form-check-label small" for="data_consent">
-                                Autorizo a Mambacode para recolectar y tratar mis datos personales con el fin de gestionar y responder mi solicitud, de acuerdo con su
-                                <a href="{{ route('privacy.policy') }}" target="_blank" rel="noopener noreferrer">Política de Tratamiento de Datos Personales</a>.
-                            </label>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-column align-items-start gap-2 w-100">
-                        <small class="text-muted">Respondemos en 24-48 horas hábiles.</small>
-                        <div>
-                            <button class="btn btn-primary px-4" type="submit">Enviar mensaje</button>
-                        </div>
-                    </div>
+            <div class="mt-4 flex flex-col gap-4 md:col-span-2">
+                <label class="flex items-start gap-3 text-sm" for="data_consent">
+                    <input class="mt-0.5 size-4 shrink-0 accent-primary" type="checkbox" name="data_consent" id="data_consent" value="1" required>
+                    <span>
+                        Autorizo a Mambacode para recolectar y tratar mis datos personales con el fin de gestionar y responder mi solicitud, de acuerdo con su
+                        <a href="{{ route('privacy.policy') }}" target="_blank" rel="noopener noreferrer" class="text-secondary underline">Política de Tratamiento de Datos Personales</a>.
+                    </span>
+                </label>
+                <small class="text-muted">Respondemos en 24-48 horas hábiles.</small>
+                <div>
+                    <button class="w-full rounded-lg bg-primary px-6 py-2.5 font-semibold text-white transition hover:brightness-105 sm:w-auto" type="submit">Enviar mensaje</button>
                 </div>
             </div>
         </div>

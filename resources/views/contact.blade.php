@@ -7,31 +7,29 @@
 @section('content')
     <x-landing.navigation />
 
-    <section class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <h1 class="mb-3 text-center">Contáctanos</h1>
-                <p class="lead text-center text-muted">Completa el formulario y nuestro equipo te responderá pronto.</p>
+    <section class="container-page py-12">
+        <div class="mx-auto max-w-4xl">
+            <h1 class="mb-3 text-center text-4xl font-bold">Contáctanos</h1>
+            <p class="mb-8 text-center text-lg text-muted sm:text-xl">Completa el formulario y nuestro equipo te responderá pronto.</p>
 
-                @if(session('success'))
-                    <div class="alert alert-success">{{ session('success') }}</div>
-                    @if(session('reference'))
-                        <div class="mt-2 small text-muted">Referencia de envío: <strong>{{ session('reference') }}</strong></div>
-                    @endif
+            @if (session('success'))
+                <div class="mb-4 rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-emerald-400 light:text-emerald-700" role="status">{{ session('success') }}</div>
+                @if (session('reference'))
+                    <div class="mb-4 text-sm text-muted">Referencia de envío: <strong>{{ session('reference') }}</strong></div>
                 @endif
+            @endif
 
-                @if($errors->any())
-                    <div class="alert alert-danger">
-                        <ul class="mb-0">
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+            @if ($errors->any())
+                <div class="mb-4 rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3 text-red-400 light:text-red-700" role="alert">
+                    <ul class="list-inside list-disc">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
-                @include('components.landing.contact-form')
-            </div>
+            @include('components.landing.contact-form')
         </div>
     </section>
 

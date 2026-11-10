@@ -1,157 +1,62 @@
-<!-- Recent Products Section -->
-<section class="products-section" id="productos">
-    <div class="container mb-5 text-center">
-        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-3">Portafolio</span>
-        <h2 class="hero-title fs-1 mb-3">Productos Recientes</h2>
-        <p class="text-muted mx-auto products-section-description">
-            Soluciones tecnológicas desarrolladas para potenciar sectores específicos.
-        </p>
-    </div>
+@php
+    $products = [
+        ['route' => 'products.transports', 'icon' => 'fa-taxi', 'title' => 'Transporte Privado', 'cta' => 'Explorar Solución', 'description' => 'Sistema de gestión integral para flotas de transporte. Control de conductores, asignación de rutas y monitoreo en tiempo real para optimizar tu logística.'],
+        ['route' => 'products.sales', 'icon' => 'fa-cash-register', 'title' => 'Sistema de Ventas', 'cta' => 'Conocer Más', 'description' => 'Punto de venta versátil con facturación, control de inventarios muti-almacén y reportes financieros detallados para escalar tu comercio.'],
+        ['route' => 'products.hospitality', 'icon' => 'fa-mug-saucer', 'title' => 'POS Cafeterías y Bares', 'cta' => 'Conocer Más', 'description' => 'Punto de venta para cafeterías, bares, licoreras y negocios relacionados. Una solución para acompañar la operación comercial de tu negocio.'],
+        ['route' => 'products.aloja360', 'icon' => 'fa-hotel', 'title' => 'Aloja360', 'cta' => 'Conocer Aloja360', 'badge' => 'En migración', 'description' => 'Administra alojamientos turísticos con herramientas para disponibilidad, tarifas, huéspedes, reservas y operación diaria.'],
+        ['route' => 'products.medicos', 'icon' => 'fa-heart-pulse', 'title' => 'Médicos Integrados', 'cta' => 'Conocer el sistema', 'badge' => 'En migración', 'description' => 'Conecta pacientes y profesionales de la salud con herramientas para citas, historia clínica, diagnósticos, recetas y pagos.'],
+        ['route' => 'products.itam', 'icon' => 'fa-server', 'title' => 'Gestión ITAM', 'cta' => 'Ver Detalles', 'description' => 'Estrategia integral para el ciclo de vida de tus activos de TI. Inventaria, despliega, mantén y retira hardware y software maximizando el valor.'],
+        ['route' => null, 'icon' => 'fa-dumbbell', 'title' => 'SysGym', 'badge' => 'Próximamente', 'description' => 'La solución definitiva para la administración de gimnasios. Gestión de membresías, control de accesos biométrico y seguimiento de progreso de clientes.'],
+        ['route' => null, 'icon' => 'fa-calendar-days', 'title' => 'Turnos y Reservas', 'badge' => 'Próximamente', 'description' => 'Sistema para gestionar turnos, reservas y agendas con notificaciones y asignación automática.'],
+        ['route' => null, 'icon' => 'fa-city', 'title' => 'Gestión Inmobiliaria', 'badge' => 'En Desarrollo', 'description' => 'Plataforma de gestión inmobiliaria para propiedades, contratos y operaciones, diseñada para crecer con tu cartera.'],
+    ];
+@endphp
 
-    <div class="products-container">
-        <!-- Product 0: Tu Producto (Personalizado) -->
-        <div class="product-card product-card-highlight animate__animated animate__fadeInUp" style="--product-animation-delay: 0.05s;" data-route="{{ route('products.custom') }}">
-            <span class="product-card-highlight-badge">Propuesta Estelar</span>
-            <div class="product-icon-custom">
-                <i class="fa-solid fa-briefcase fa-2x"></i>
+<section class="py-20 lg:py-32" id="productos">
+    <x-section-heading badge="Portafolio" title="Productos Recientes">
+        Soluciones tecnológicas desarrolladas para potenciar sectores específicos.
+    </x-section-heading>
+
+    <div class="container-page grid gap-6 md:grid-cols-2 lg:gap-8 2xl:grid-cols-3">
+        {{-- Highlighted: custom development --}}
+        <div x-glow x-reveal="0.05" class="group relative mx-auto w-full max-w-3xl rounded-[1.25rem] border border-secondary bg-popular p-8 shadow-[0_30px_80px_var(--shadow-color)] backdrop-blur-md md:col-span-full sm:p-12">
+            <span class="badge-warm mb-6 inline-flex tracking-wide uppercase">Propuesta Estelar</span>
+            <div x-gradient-icon class="mb-8 grid size-20 place-items-center rounded-full text-white transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[10deg] sm:size-[90px]">
+                <i class="fa-solid fa-briefcase fa-2x" aria-hidden="true"></i>
             </div>
-            <h3 class="product-title">Tu Producto</h3>
-            <p class="product-desc">
+            <h3 class="mb-4 text-2xl font-bold text-fg sm:text-3xl">Tu Producto</h3>
+            <p class="mb-8 text-base leading-relaxed text-muted sm:text-lg">
                 Desarrollamos a la medida soluciones personalizadas que se adaptan 100% a los procesos y objetivos de tu empresa o negocio.
             </p>
-            <a href="{{ route('products.custom') }}" class="product-link">
-                Contáctanos <i class="fa-solid fa-arrow-right-long"></i>
+            <a href="{{ route('products.custom') }}" class="static inline-flex items-center gap-2 font-semibold text-secondary transition after:absolute after:inset-0 after:z-10 hover:text-primary">
+                Contáctanos <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1" aria-hidden="true"></i>
             </a>
         </div>
 
-        <!-- Product 1: Private Transport -->
-        <!-- We make the whole card clickable by wrapping content or using JS, but strictly HTML we use an anchor tag as the card container or inside -->
-        <!-- Here we will use an anchor wrapper for the card to follow best UX practices or keep the button subtle inside -->
-        <div class="product-card animate__animated animate__fadeInUp" style="--product-animation-delay: 0.1s;" data-route="{{ route('products.transports') }}">
-            <div class="product-icon-custom">
-                <i class="fa-solid fa-taxi fa-2x"></i>
-            </div>
-            <h3 class="product-title">Transporte Privado</h3>
-            <p class="product-desc">
-                Sistema de gestión integral para flotas de transporte. Control de conductores, asignación de rutas y monitoreo en tiempo real para optimizar tu logística.
-            </p>
-            <a href="{{ route('products.transports') }}" class="product-link">
-                Explorar Solución <i class="fa-solid fa-arrow-right-long"></i>
-            </a>
-        </div>
+        @foreach ($products as $product)
+            <div x-glow x-reveal="{{ 0.1 * ($loop->index % 3 + 1) }}" @class([
+                'group relative flex h-full flex-col rounded-[1.25rem] border border-feature-border bg-feature p-7 backdrop-blur-md sm:p-10',
+                'opacity-80' => ! $product['route'],
+            ])>
+                @isset($product['badge'])
+                    <span class="badge-warm absolute top-5 right-5">{{ $product['badge'] }}</span>
+                @endisset
+                <div x-gradient-icon class="mb-6 grid size-16 place-items-center rounded-full text-white transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[10deg] sm:size-20">
+                    <i class="fa-solid {{ $product['icon'] }} fa-2x" aria-hidden="true"></i>
+                </div>
+                <h3 class="mb-4 text-2xl font-bold text-fg sm:text-[1.75rem]">{{ $product['title'] }}</h3>
+                <p class="mb-6 grow text-base leading-relaxed text-muted sm:text-lg">{{ $product['description'] }}</p>
 
-        <!-- Product 2: Sales System -->
-        <div class="product-card animate__animated animate__fadeInUp" style="--product-animation-delay: 0.2s;" data-route="{{ route('products.sales') }}">
-            <div class="product-icon-custom">
-                <i class="fa-solid fa-cash-register fa-2x"></i>
+                @if ($product['route'])
+                    <a href="{{ route($product['route']) }}" class="static mt-auto inline-flex w-fit items-center gap-2 font-semibold text-secondary transition after:absolute after:inset-0 after:z-10 hover:text-primary">
+                        {{ $product['cta'] }} <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1" aria-hidden="true"></i>
+                    </a>
+                @else
+                    <span class="mt-auto inline-flex w-fit items-center gap-2 font-semibold text-muted">
+                        En Desarrollo <i class="fa-solid fa-hammer" aria-hidden="true"></i>
+                    </span>
+                @endif
             </div>
-            <h3 class="product-title">Sistema de Ventas</h3>
-            <p class="product-desc">
-                Punto de venta versátil con facturación, control de inventarios muti-almacén y reportes financieros detallados para escalar tu comercio.
-            </p>
-            <a href="{{ route('products.sales') }}" class="product-link">
-                Conocer Más <i class="fa-solid fa-arrow-right-long"></i>
-            </a>
-        </div>
-
-        <div class="product-card animate__animated animate__fadeInUp" style="--product-animation-delay: 0.25s;" data-route="{{ route('products.hospitality') }}">
-            <div class="product-icon-custom">
-                <i class="fa-solid fa-mug-saucer fa-2x" aria-hidden="true"></i>
-            </div>
-            <h3 class="product-title">POS Cafeterías y Bares</h3>
-            <p class="product-desc">
-                Punto de venta para cafeterías, bares, licoreras y negocios relacionados. Una solución para acompañar la operación comercial de tu negocio.
-            </p>
-            <a href="{{ route('products.hospitality') }}" class="product-link">
-                Conocer Más <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-            </a>
-        </div>
-
-        <div class="product-card animate__animated animate__fadeInUp" style="--product-animation-delay: 0.28s;" data-route="{{ route('products.aloja360') }}">
-            <div class="product-badge">En migración</div>
-            <div class="product-icon-custom">
-                <i class="fa-solid fa-hotel fa-2x" aria-hidden="true"></i>
-            </div>
-            <h3 class="product-title">Aloja360</h3>
-            <p class="product-desc">
-                Administra alojamientos turísticos con herramientas para disponibilidad, tarifas, huéspedes, reservas y operación diaria.
-            </p>
-            <a href="{{ route('products.aloja360') }}" class="product-link">
-                Conocer Aloja360 <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-            </a>
-        </div>
-
-        <div class="product-card animate__animated animate__fadeInUp" style="--product-animation-delay: 0.3s;" data-route="{{ route('products.medicos') }}">
-            <div class="product-badge">En migración</div>
-            <div class="product-icon-custom">
-                <i class="fa-solid fa-heart-pulse fa-2x" aria-hidden="true"></i>
-            </div>
-            <h3 class="product-title">Médicos Integrados</h3>
-            <p class="product-desc">
-                Conecta pacientes y profesionales de la salud con herramientas para citas, historia clínica, diagnósticos, recetas y pagos.
-            </p>
-            <a href="{{ route('products.medicos') }}" class="product-link">
-                Conocer el sistema <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-            </a>
-        </div>
-
-        <!-- Product 3: ITAM Management -->
-        <div class="product-card animate__animated animate__fadeInUp" style="--product-animation-delay: 0.3s;" data-route="{{ route('products.itam') }}">
-            <div class="product-icon-custom">
-                <i class="fa-solid fa-server fa-2x"></i>
-            </div>
-            <h3 class="product-title">Gestión ITAM</h3>
-            <p class="product-desc">
-                Estrategia integral para el ciclo de vida de tus activos de TI. Inventaria, despliega, mantén y retira hardware y software maximizando el valor.
-            </p>
-            <a href="{{ route('products.itam') }}" class="product-link">
-                Ver Detalles <i class="fa-solid fa-arrow-right-long"></i>
-            </a>
-        </div>
-        
-        <!-- Product 4: SysGym (Coming Soon) -->
-        <div class="product-card animate__animated animate__fadeInUp product-card-coming-soon" style="--product-animation-delay: 0.4s;">
-            <div class="product-badge">Próximamente</div>
-            <div class="product-icon-custom">
-                <i class="fa-solid fa-dumbbell fa-2x"></i>
-            </div>
-            <h3 class="product-title">SysGym</h3>
-            <p class="product-desc">
-                La solución definitiva para la administración de gimnasios. Gestión de membresías, control de accesos biométrico y seguimiento de progreso de clientes.
-            </p>
-            <span class="product-link text-muted product-link-disabled">
-                En Desarrollo <i class="fa-solid fa-hammer"></i>
-            </span>
-        </div>
-
-        <!-- Product 5: Turnos y Reservas (Coming Soon) -->
-        <div class="product-card animate__animated animate__fadeInUp product-card-coming-soon" style="--product-animation-delay: 0.45s;">
-            <div class="product-badge">Próximamente</div>
-            <div class="product-icon-custom">
-                <i class="fa-solid fa-calendar-days fa-2x"></i>
-            </div>
-            <h3 class="product-title">Turnos y Reservas</h3>
-            <p class="product-desc">
-                Sistema para gestionar turnos, reservas y agendas con notificaciones y asignación automática.
-            </p>
-            <span class="product-link text-muted product-link-disabled">
-                En Desarrollo <i class="fa-solid fa-hammer"></i>
-            </span>
-        </div>
-
-        <!-- Product 6: Gestión Inmobiliaria (En Desarrollo) -->
-        <div class="product-card animate__animated animate__fadeInUp product-card-coming-soon" style="--product-animation-delay: 0.5s;">
-            <div class="product-badge">En Desarrollo</div>
-            <div class="product-icon-custom">
-                <i class="fa-solid fa-house-building fa-2x"></i>
-            </div>
-            <h3 class="product-title">Gestión Inmobiliaria</h3>
-            <p class="product-desc">
-                Plataforma de gestión inmobiliaria para propiedades, contratos y operaciones, diseñada para crecer con tu cartera.
-            </p>
-            <span class="product-link text-muted product-link-disabled">
-                En Desarrollo <i class="fa-solid fa-hammer"></i>
-            </span>
-        </div>
+        @endforeach
     </div>
 </section>

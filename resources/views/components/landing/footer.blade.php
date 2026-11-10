@@ -1,50 +1,69 @@
-<!-- Footer -->
-<footer class="landing-footer" id="contacto">
-    <div class="container">
-        <div class="row text-center justify-content-center">
-            <div class="col-md-3 mb-4 mb-md-0">
-                <div class="d-flex align-items-center gap-2 mb-3 justify-content-center">
-                    <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code Icon" loading="lazy" decoding="async" class="landing-logo-mobile">
-                    <span class="fw-bold" style="color: var(--mamba-text);">Mamba<span style="color: var(--mamba-secondary)">Code</span></span>
-                </div>
-                <p style="color: var(--mamba-text-muted);">Soluciones tecnológicas de alto nivel para empresas modernas.</p>
-            </div>
+@php
+    [$quote, $author] = array_pad(explode(' - ', \Illuminate\Foundation\Inspiring::quotes()->random()), 2, '');
 
-            <div class="col-md-6 mb-4 mb-md-0">
-                <h2 class="h5 fw-bold mb-3" style="color: var(--mamba-text);">Contacto</h2>
-                <ul class="list-unstyled" style="color: var(--mamba-text);">
-                    <li class="mb-2"><i class="fa-solid fa-envelope me-2" style="color: var(--mamba-secondary);"></i>lbarriosmunoz1012@gmail.com</li>
-                    <li class="mb-2"><i class="fa-solid fa-envelope me-2" style="color: var(--mamba-secondary);"></i>victormanjarres3mayo@gmail.com</li>
-                    <li class="mb-2"><i class="fa-solid fa-phone me-2" style="color: var(--mamba-secondary);"></i> +57 323 505 9939</li>
-                    <li class="mb-2"><i class="fa-solid fa-phone me-2" style="color: var(--mamba-secondary);"></i> +57 312 335 5193</li>
-                    <li class="mb-2"><i class="fa-solid fa-file-contract me-2" style="color: var(--mamba-secondary);"></i><a href="{{ route('privacy.policy') }}" style="color: var(--mamba-secondary);" target="_blank" rel="noopener">Política de Tratamiento de Datos</a></li>
-                </ul>
-            </div>
+    $contacts = [
+        ['icon' => 'fa-envelope', 'text' => 'lbarriosmunoz1012@gmail.com', 'href' => 'mailto:lbarriosmunoz1012@gmail.com'],
+        ['icon' => 'fa-envelope', 'text' => 'victormanjarres3mayo@gmail.com', 'href' => 'mailto:victormanjarres3mayo@gmail.com'],
+        ['icon' => 'fa-phone', 'text' => '+57 323 505 9939', 'href' => 'tel:+573235059939'],
+        ['icon' => 'fa-phone', 'text' => '+57 312 335 5193', 'href' => 'tel:+573123355193'],
+    ];
+@endphp
 
-            <div class="col-md-3 mb-4 mb-md-0">
-                <div class="text-center">
-                    @php
-                        $fullQuote = \Illuminate\Foundation\Inspiring::quotes()->random();
-                        $parts = explode(' - ', $fullQuote);
-                        $quote = $parts[0] ?? '';
-                        $author = $parts[1] ?? '';
-                    @endphp
-                    <p class="fst-italic mt-3 text-justify" style="color: var(--mamba-text-muted);">"{{ $quote }}"<br>- {{ $author }}</p>
-                </div>
-            </div>
+<footer class="mt-16 border-t border-subtle bg-footer px-4 py-16 text-center text-sm text-muted" id="contacto">
+    <div class="container-page grid gap-10 md:grid-cols-4">
+        <div>
+            <x-brand class="mb-3 justify-center" />
+            <p>Soluciones tecnológicas de alto nivel para empresas modernas.</p>
         </div>
 
-        <div class="mt-5 pt-4 text-center" style="border-top: 1px solid var(--footer-border); color: var(--mamba-text-muted);">
-            &copy; {{ date('Y') }} Mamba Code. Todos los derechos reservados.
+        <div class="md:col-span-2">
+            <h2 class="mb-4 text-lg font-bold text-fg">Contacto</h2>
+            <ul class="space-y-2 text-fg">
+                @foreach ($contacts as $contact)
+                    <li>
+                        <a href="{{ $contact['href'] }}" class="break-all transition hover:text-secondary">
+                            <i class="fa-solid {{ $contact['icon'] }} me-2 text-secondary" aria-hidden="true"></i>{{ $contact['text'] }}
+                        </a>
+                    </li>
+                @endforeach
+                <li>
+                    <a href="{{ route('privacy.policy') }}" class="text-secondary hover:underline" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-contract me-2" aria-hidden="true"></i>Política de Tratamiento de Datos
+                    </a>
+                </li>
+            </ul>
         </div>
+
+        <p class="mx-auto max-w-xs italic md:mt-3">"{{ $quote }}"<br>- {{ $author }}</p>
+    </div>
+
+    <div class="container-page mt-12 border-t border-subtle pt-6">
+        &copy; {{ date('Y') }} Mamba Code. Todos los derechos reservados.
     </div>
 </footer>
 
-<!-- WhatsApp Button -->
-<a href="https://wa.me/573235059939" class="whatsapp-button" target="_blank" title="Contactar por WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-</a>
-<!-- Back to Top Button -->
-<a href="#inicio" class="back-to-top" id="backToTop" title="Volver arriba">
-    <i class="fa-solid fa-arrow-up"></i>
-</a>
+{{-- Floating actions: WhatsApp grows while the top of the page is in view --}}
+<div x-data="{ y: window.scrollY }" @scroll.window.throttle.50ms="y = window.scrollY">
+    <a
+        href="https://wa.me/573235059939"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Contactar por WhatsApp"
+        aria-label="Contactar por WhatsApp"
+        class="fixed right-5 z-[1000] grid place-items-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:bg-[#1DA851]"
+        :class="y < window.innerHeight / 2 ? 'bottom-5 size-16 text-[2rem]' : 'bottom-[5.5rem] size-[50px] text-2xl'"
+    >
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <a
+        href="#inicio"
+        title="Volver arriba"
+        aria-label="Volver arriba"
+        class="group fixed right-5 bottom-7 z-[999] grid size-[55px] place-items-center rounded-[18px] border border-btn-border bg-btn text-xl text-fg shadow-[0_10px_40px_var(--shadow-color)] backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-primary hover:text-white"
+        :class="y > 100 ? 'visible opacity-100 scale-100' : 'invisible opacity-0 translate-y-8 scale-75'"
+        @click.prevent="window.scrollTo({ top: 0 })"
+    >
+        <i class="fa-solid fa-arrow-up transition-transform group-hover:-translate-y-1" aria-hidden="true"></i>
+    </a>
+</div>

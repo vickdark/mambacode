@@ -9,10 +9,10 @@
 @section('content')
     <x-landing.navigation />
 
-    <section class="container py-5 text-center">
-        <h1 class="mb-3" style="color: var(--mamba-text);">Tu Producto - Desarrollo a Medida</h1>
-        <p class="lead" style="color: var(--mamba-text-muted);">Diseñamos y desarrollamos soluciones personalizadas que encajan 100% con tus procesos y objetivos. Cuéntanos tu idea y la convertimos en software real.</p>
-        <a href="{{ route('contact') }}" class="btn-cyber mt-4">Contactar equipo</a>
+    <section class="container-page py-16 text-center sm:py-24">
+        <h1 class="mb-4 text-3xl font-bold text-fg sm:text-5xl">Tu Producto - Desarrollo a Medida</h1>
+        <p class="mx-auto max-w-3xl text-lg text-muted sm:text-xl">Diseñamos y desarrollamos soluciones personalizadas que encajan 100% con tus procesos y objetivos. Cuéntanos tu idea y la convertimos en software real.</p>
+        <a href="{{ route('contact') }}" class="btn-cyber mt-8">Contactar equipo</a>
     </section>
 
     <x-landing.footer />

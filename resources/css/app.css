@@ -1,29 +1,110 @@
-/* Main Application Styles
- * Modular Architecture
- */
+@import "tailwindcss";
 
-/* Libraries */
-@import "bootstrap/dist/css/bootstrap.min.css";
-/* Fontawesome - Load only necessary icon families for ~75% smaller bundle */
+/* Fontawesome webfonts (no JS SVG replacement, so Alpine can bind to <i> tags) */
 @import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
 @import "@fortawesome/fontawesome-free/css/solid.min.css";
 @import "@fortawesome/fontawesome-free/css/brands.min.css";
 @import "@fortawesome/fontawesome-free/css/regular.min.css";
-@import "animate.css/animate.min.css";
 @import "@fontsource/inter/latin-300.css";
 @import "@fontsource/inter/latin-400.css";
 @import "@fontsource/inter/latin-600.css";
 @import "@fontsource/inter/latin-700.css";
 @import "@fontsource/inter/latin-800.css";
 
-/* App Modules */
-@import "./app/_variables.css";
-@import "./app/_base.css";
-@import "./app/_footer.css";
-@import "./app/_utilities.css";
+@import "./theme.css";
+@import "./components.css";
 
-/* Page modules are bundled with the main stylesheet to avoid extra CSS requests. */
-@import "./pages/landing/index.css";
-@import "./pages/products/index.css";
-@import "./pages/access.css";
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
 
+@theme inline {
+    --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+
+    /* sm 640 · md 768 (tablet) · lg 1024 · xl 1280 (13-14") · 2xl 1536 (15") · 3xl 1920 (large) */
+    --breakpoint-3xl: 120rem;
+
+    --color-bg: var(--mamba-bg);
+    --color-surface: var(--mamba-surface);
+    --color-elevated: var(--mamba-surface-elevated);
+    --color-primary: var(--mamba-primary);
+    --color-secondary: var(--mamba-secondary);
+    --color-accent: var(--mamba-accent);
+    --color-fg: var(--mamba-text);
+    --color-muted: var(--mamba-text-muted);
+    --color-inverse: var(--mamba-text-inverse);
+    --color-glass: var(--glass-border);
+    --color-highlight: var(--glass-highlight);
+    --color-subtle: var(--border-subtle);
+    --color-card: var(--card-bg);
+    --color-card-border: var(--card-border);
+    --color-feature: var(--feature-bg);
+    --color-feature-border: var(--feature-border);
+    --color-hover: var(--hover-bg);
+    --color-btn: var(--btn-secondary-bg);
+    --color-btn-border: var(--btn-secondary-border);
+    --color-input: var(--input-bg);
+    --color-input-border: var(--input-border);
+    --color-stats: var(--stats-bg);
+    --color-hero-card: var(--hero-card-bg);
+    --color-footer: var(--footer-bg);
+    --color-nav: var(--nav-bg);
+    --color-nav-scrolled: var(--nav-bg-scrolled);
+    --color-offcanvas: var(--offcanvas-bg);
+    --color-dropdown: var(--dropdown-bg);
+    --color-badge: var(--badge-text);
+
+    --shadow-soft: 0 20px 40px var(--shadow-color);
+    --shadow-hero: 0 24px 70px var(--hero-card-shadow);
+}
+
+/* Page container that keeps growing on 15" and large screens */
+@utility container-page {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
+    max-width: 80rem;
+
+    @variant sm { padding-inline: 1.5rem; }
+    @variant lg { padding-inline: 2rem; }
+    @variant 2xl { max-width: 88rem; }
+    @variant 3xl { max-width: 104rem; }
+}
+
+@utility bg-gradient-brand {
+    background: var(--btn-primary-bg);
+}
+
+@utility bg-popular {
+    background: var(--popular-bg);
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-bg font-sans text-fg antialiased transition-colors duration-300;
+        overflow-x: hidden;
+    }
+
+    [id] {
+        scroll-margin-top: 6rem;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+
+    :focus-visible {
+        outline: 3px solid var(--mamba-secondary);
+        outline-offset: 4px;
+    }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, var(--mamba-primary), var(--mamba-secondary));
+        border-radius: 5px;
+        border: 2px solid var(--scrollbar-track);
+    }
+}
