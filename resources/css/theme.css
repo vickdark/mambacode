@@ -40,6 +40,8 @@
     --status-ok: #34d399;
     --status-warn: #fbbf24;
     --badge-text: #fbbf24;
+    --hero-ribbons-opacity: 0.35;
+    --hero-code-opacity: 0.35;
 }
 
 [data-theme="light"] {
@@ -80,4 +82,6 @@
     --status-ok: #047857;
     --status-warn: #92400e;
     --badge-text: #92400e;
+    --hero-ribbons-opacity: 0.25;
+    --hero-code-opacity: 0.4;
 }

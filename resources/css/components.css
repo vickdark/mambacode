@@ -5,7 +5,6 @@
     --animate-fade-down: fade-down 0.7s ease-out both;
     --animate-fade-left: fade-left 0.7s ease-out both;
     --animate-float: float 6s ease-in-out infinite;
-    --animate-dot-drift: dot-drift 12s linear infinite;
     --animate-pulse-dot: pulse-dot 2.4s ease-out infinite;
 
     @keyframes fade-up {
@@ -23,9 +22,17 @@
     @keyframes float {
         50% { translate: 0 -14px; }
     }
-    /* Moves a dotted layer by one grid cell (see bg-dot-grid), so the loop is seamless and stays on the compositor */
-    @keyframes dot-drift {
-        to { translate: 28px 28px; }
+    @keyframes ribbon-a {
+        from { translate: -160px 0; }
+        to { translate: 160px 0; }
+    }
+    @keyframes ribbon-b {
+        from { translate: 200px 0; }
+        to { translate: -200px 0; }
+    }
+    /* Code columns hold their lines twice, so moving up by half loops seamlessly */
+    @keyframes code-scroll {
+        to { translate: 0 -50%; }
     }
     @keyframes pulse-dot {
         0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--mamba-primary) 60%, transparent); }
@@ -57,6 +64,95 @@
     /* Small status label with a dot: "● disponible" */
     .status {
         @apply inline-flex items-center gap-1.5 font-mono text-xs lowercase;
+    }
+
+    /*
+     * Hero backgrounds in the logo's colors (magenta #c1529d, purple #9d4f9c, blue #74afdf, indigo #6368ac).
+     * An inline script in the hero picks one per page load via data-bg; without JS the ribbons show.
+     * Both fade out toward the copy: from the left on desktop, from the top on stacked layouts.
+     */
+    .hero-bg {
+        @apply pointer-events-none absolute inset-0 overflow-hidden;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 30%, #000 70%);
+        mask-image: linear-gradient(to bottom, transparent 30%, #000 70%);
+
+        @variant lg {
+            -webkit-mask-image: linear-gradient(to right, transparent 10%, #000 55%);
+            mask-image: linear-gradient(to right, transparent 10%, #000 55%);
+        }
+    }
+    [data-bg="code"] .hero-ribbons,
+    :not([data-bg="code"]) > .hero-code {
+        display: none;
+    }
+
+    /* 1 · Diagonal ribbons echoing the isotipo's strokes, sliding back and forth */
+    .hero-ribbons {
+        opacity: var(--hero-ribbons-opacity);
+    }
+    .hero-ribbons > div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 2400px;
+        height: 1200px;
+        margin: -600px 0 0 -1200px;
+        rotate: -38deg;
+    }
+    .hero-ribbons span {
+        position: absolute;
+        will-change: translate;
+        animation: ribbon-a 14s ease-in-out infinite alternate;
+    }
+    .hero-ribbons span:nth-child(1) {
+        top: 260px; left: 700px; width: 1400px; height: 120px; border-radius: 28px;
+        background: linear-gradient(90deg, transparent, #9d4f9c 35%, #c1529d 70%, transparent);
+    }
+    .hero-ribbons span:nth-child(2) {
+        top: 430px; left: 500px; width: 1500px; height: 84px; border-radius: 22px;
+        background: linear-gradient(90deg, transparent, #6368ac 30%, #74afdf 75%, transparent);
+        animation-name: ribbon-b;
+        animation-duration: 17s;
+    }
+    .hero-ribbons span:nth-child(3) {
+        top: 560px; left: 850px; width: 1200px; height: 150px; border-radius: 34px; opacity: 0.8;
+        background: linear-gradient(90deg, transparent, #c1529d 30%, #6368ac 80%, transparent);
+        animation-duration: 20s;
+        animation-direction: alternate-reverse;
+    }
+    .hero-ribbons span:nth-child(4) {
+        top: 760px; left: 600px; width: 1300px; height: 70px; border-radius: 18px; opacity: 0.7;
+        background: linear-gradient(90deg, transparent, #74afdf 40%, #9d4f9c 85%, transparent);
+        animation-name: ribbon-b;
+        animation-duration: 23s;
+    }
+
+    /* 4 · Faint columns of code drifting upward */
+    .hero-code {
+        display: flex;
+        gap: 2.25rem;
+        padding-inline-start: 1.5rem;
+        /* Fainter when stacked: the code runs behind the logo there */
+        opacity: calc(var(--hero-code-opacity) * 0.55);
+
+        /* Also keep a soft clearing around the logo, which sits at the center of this box */
+        @variant lg {
+            left: 44%;
+            opacity: var(--hero-code-opacity);
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 30%), radial-gradient(ellipse 34% 42% at 50% 50%, transparent 35%, #000 100%);
+            -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(to right, transparent, #000 30%), radial-gradient(ellipse 34% 42% at 50% 50%, transparent 35%, #000 100%);
+            mask-composite: intersect;
+        }
+    }
+    .hero-code > div {
+        flex: none;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        line-height: 2;
+        white-space: pre;
+        will-change: translate;
+        animation: code-scroll 40s linear infinite;
     }
 
     /* Elements marked x-reveal start hidden only once JS is running */

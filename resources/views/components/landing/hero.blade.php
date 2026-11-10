@@ -1,6 +1,86 @@
+@php
+    // Decorative Laravel code for the "code" background; each column repeats its snippet so it covers tall screens.
+    $codeColumns = [
+        ['color' => '#c1529d', 'duration' => 38, 'lines' => [
+            'public function store(VentaRequest $request)',
+            '{',
+            '    $venta = Venta::create($request->validated());',
+            '    $venta->items()->createMany($request->items);',
+            '',
+            '    Inventario::descontar($venta);',
+            '    event(new VentaRegistrada($venta));',
+            '',
+            '    return new VentaResource($venta);',
+            '}',
+            '',
+        ]],
+        ['color' => '#74afdf', 'duration' => 46, 'lines' => [
+            'public function asignar(Viaje $viaje, Conductor $conductor)',
+            '{',
+            '    $vehiculo = $conductor->vehiculoDisponible();',
+            '',
+            '    $viaje->update([',
+            "        'conductor_id' => \$conductor->id,",
+            "        'vehiculo_id' => \$vehiculo->id,",
+            "        'estado' => 'en_ruta',",
+            '    ]);',
+            '',
+            '    RastrearVehiculo::dispatch($vehiculo);',
+            '',
+            '    return new ViajeResource($viaje);',
+            '}',
+            '',
+        ]],
+        ['color' => '#9d4f9c', 'duration' => 34, 'lines' => [
+            '$reservas = Reserva::query()',
+            "    ->with('huesped', 'habitacion')",
+            "    ->whereDate('llegada', '>=', today())",
+            "    ->where('estado', 'activa')",
+            '    ->latest()',
+            '    ->paginate(20);',
+            '',
+        ]],
+        ['color' => '#74afdf', 'duration' => 50, 'lines' => [
+            'class EnviarRecordatorioCita implements ShouldQueue',
+            '{',
+            '    public function handle(): void',
+            '    {',
+            '        $this->cita->paciente->notify(',
+            '            new RecordatorioCita($this->cita)',
+            '        );',
+            '    }',
+            '}',
+            '',
+        ]],
+        ['color' => '#c1529d', 'duration' => 42, 'lines' => [
+            'php artisan make:model Activo -mfc',
+            'php artisan migrate --force',
+            'php artisan queue:work',
+            '',
+            "Schema::create('activos', function (Blueprint \$table) {",
+            '    $table->id();',
+            "    \$table->foreignId('usuario_id')->constrained();",
+            "    \$table->string('serial')->unique();",
+            '    $table->timestamps();',
+            '});',
+            '',
+        ]],
+    ];
+@endphp
+
 <section class="relative overflow-hidden border-b border-glass" id="inicio">
-    {{-- Slowly drifting dot grid; one cell larger than the section on the top/left so the loop never shows an edge --}}
-    <div class="bg-dot-grid pointer-events-none absolute -top-7 -left-7 right-0 bottom-0 animate-dot-drift will-change-transform" aria-hidden="true"></div>
+    {{-- Picks one of the two backgrounds per page load, before first paint (pages are cached, so this can't be server-side) --}}
+    <script>document.currentScript.parentElement.dataset.bg = Math.random() < 0.5 ? 'ribbons' : 'code';</script>
+
+    <div class="hero-bg hero-ribbons" aria-hidden="true"><div><span></span><span></span><span></span><span></span></div></div>
+
+    <div class="hero-bg hero-code" aria-hidden="true">
+        @foreach ($codeColumns as $column)
+            @php($block = implode("\n", array_merge(...array_fill(0, 5, $column['lines']))))
+            <div style="color: {{ $column['color'] }}; animation-duration: {{ $column['duration'] }}s; animation-delay: -{{ $loop->index * 7 }}s">{{ $block }}
+{{ $block }}</div>
+        @endforeach
+    </div>
 
     {{-- From lg up the hero fills the screen below the 4.5rem navbar, so nothing needs scrolling --}}
     <div class="container-page relative flex flex-col items-center gap-14 py-14 sm:py-20 lg:min-h-[calc(100svh-4.5rem)] lg:flex-row lg:gap-12 lg:py-10 xl:gap-16 2xl:py-14">
@@ -26,11 +106,7 @@
 
         <div class="flex w-full min-w-0 animate-fade-left flex-col items-center [animation-delay:0.3s] lg:flex-[1_1_56%]">
             <figure class="flex flex-col items-center">
-                {{-- Floats continuously (translate) and tilts toward the mouse on desktop (transform, see tilt.js) --}}
-                <div
-                    x-data="tilt"
-                    class="animate-float transition-transform duration-300 ease-out will-change-transform [transform:perspective(900px)_rotateX(var(--tilt-x,0deg))_rotateY(var(--tilt-y,0deg))_translate(var(--shift-x,0px),var(--shift-y,0px))]"
-                >
+                <div class="animate-float will-change-transform">
                     {{-- The PNG has wide transparent margins, so scale the mark up inside its box --}}
                     <x-responsive-img
                         src="img/mambacodelg-removebg.png"
