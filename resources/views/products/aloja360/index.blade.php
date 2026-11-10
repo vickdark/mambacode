@@ -11,6 +11,7 @@
 
     <x-products.showcase
         id="aloja360"
+        product="Aloja360"
         icon="fa-hotel"
         eyebrow="Gestión de alojamientos"
         title="Cada estancia,"
@@ -20,7 +21,7 @@
         :access-url="config('products.aloja360.url')"
         access-label="Abrir Aloja360"
         secondary-label="Solicitar información"
-        :image="asset('img/products/aloja360/cover.png')"
+        image="img/products/aloja360/cover.png"
         image-alt="Panel de gestión de reservas de Aloja360"
         capabilities-eyebrow="Una operación conectada"
         capabilities-title="Todo lo que sucede en tu alojamiento."

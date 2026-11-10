@@ -19,7 +19,7 @@
     <meta name="keywords" content="{{ $seoKeywords }}">
     <meta name="author" content="Mamba Code">
     <meta name="robots" content="@yield('meta_robots', 'index, follow')">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#0a0c11">
     <meta name="image" content="{{ $seoImage }}">
     <link rel="canonical" href="{{ $canonicalUrl }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
@@ -122,9 +122,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body x-data class="@yield('body_class', 'pt-20')">
-    <div class="landing-bg" aria-hidden="true"></div>
-
+<body x-data class="@yield('body_class', 'pt-[4.5rem]')">
     @yield('content')
 
     <x-theme-preference />

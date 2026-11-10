@@ -12,7 +12,7 @@
         ['icon' => 'fa-wine-bottle', 'title' => 'Licoreras y más', 'text' => 'Para comercios de bebidas y negocios relacionados que buscan una solución de punto de venta.', 'detail' => 'Licoreras · Tiendas de bebidas'],
     ];
 
-    $primaryButton = 'inline-flex min-h-[3.2rem] items-center justify-center gap-3 rounded-xl bg-gradient-brand px-5 py-3 text-center text-sm font-bold text-white transition hover:shadow-[0_6px_24px_rgba(130,87,229,0.3)]';
+    $primaryButton = 'inline-flex min-h-[3.2rem] items-center justify-center gap-3 rounded-xl bg-primary px-5 py-3 text-center text-sm font-bold text-on-accent transition hover:shadow-[0_6px_24px_rgba(130,87,229,0.3)]';
     $orbitIcon = 'absolute grid aspect-square w-1/5 place-items-center rounded-[25%] border border-highlight bg-elevated text-[clamp(1.4rem,2.5vw,2rem)] shadow-[0_10px_25px_var(--shadow-color)]';
 @endphp
 
@@ -31,14 +31,14 @@
                         <span class="inline-flex items-center gap-2.5 text-xs font-bold tracking-wider text-secondary uppercase">
                             <i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Un POS para tu negocio
                         </span>
-                        <h1 id="hospitality-title" class="mt-5 mb-6 text-[clamp(2.2rem,10.8vw,3.3rem)] leading-[1.08] font-extrabold tracking-[-0.055em] sm:text-[clamp(2.6rem,4.6vw,4.5rem)]">
+                        <h1 id="hospitality-title" class="mt-5 mb-6 text-[clamp(2.2rem,10.8vw,3.3rem)] leading-[1.08] font-bold tracking-[-0.055em] sm:text-[clamp(2.6rem,4.6vw,4.5rem)]">
                             POS para<br>cafeterías <span class="text-primary">y bares.</span>
                         </h1>
                         <p class="mb-3 text-xl font-semibold">Del primer café al último brindis.</p>
                         <p class="max-w-xl leading-loose text-muted">Una solución de punto de venta para cafeterías, bares, licoreras y negocios relacionados. Conoce cómo llevar la tecnología de Mamba Code a tu operación.</p>
 
                         <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                            <a href="{{ route('contact') }}" class="{{ $primaryButton }}">
+                            <a href="{{ route('contact', ['asunto' => 'POS Cafeterías y Bares']) }}" class="{{ $primaryButton }}">
                                 Hablemos de tu negocio <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                             </a>
                             <a href="{{ route('access.index') }}" class="inline-flex min-h-[3.2rem] items-center justify-center gap-3 rounded-xl border border-btn-border bg-btn px-5 py-3 text-sm font-bold text-fg transition hover:border-secondary hover:text-secondary">
@@ -54,7 +54,7 @@
                         <div class="relative mx-auto my-6 aspect-[1.15] w-full">
                             <div class="absolute top-1/2 left-1/2 aspect-square w-[94%] -translate-1/2 rounded-full border border-dashed border-glass"></div>
                             <div class="absolute top-1/2 left-1/2 aspect-square w-[65%] -translate-1/2 rounded-full border border-glass"></div>
-                            <div class="absolute top-1/2 left-1/2 grid aspect-square w-[36%] -translate-1/2 place-items-center rounded-[26%] border border-white/20 bg-linear-145 from-[#8257e5] to-[#3b82f6] text-[clamp(2rem,4vw,3.5rem)] text-white shadow-[0_18px_50px_rgba(130,87,229,0.25)]">
+                            <div class="absolute top-1/2 left-1/2 grid aspect-square w-[36%] -translate-1/2 place-items-center rounded-[26%] bg-primary text-[clamp(2rem,4vw,3.5rem)] text-on-accent shadow-hero">
                                 <i class="fa-solid fa-cash-register"></i>
                             </div>
                             <span class="{{ $orbitIcon }} top-[7%] left-[10%] -rotate-8 text-primary"><i class="fa-solid fa-mug-hot"></i></span>
@@ -74,7 +74,7 @@
             <div class="container-page">
                 <div class="mb-10 max-w-2xl">
                     <span class="text-xs font-bold tracking-wider text-secondary uppercase">Tu sector, tu forma de vender</span>
-                    <h2 id="hospitality-sectors-title" class="mt-3 mb-4 text-[clamp(1.8rem,3vw,2.5rem)] leading-tight font-extrabold tracking-tight">Cada negocio tiene su ritmo.</h2>
+                    <h2 id="hospitality-sectors-title" class="mt-3 mb-4 text-[clamp(1.8rem,3vw,2.5rem)] leading-tight font-bold tracking-tight">Cada negocio tiene su ritmo.</h2>
                     <p class="leading-loose text-muted">Empecemos por conocer el tuyo. Explora una solución POS para el día a día de tu establecimiento.</p>
                 </div>
 
@@ -98,10 +98,10 @@
                 <div class="flex flex-col items-start justify-between gap-6 rounded-3xl border border-card-border bg-popular p-7 sm:p-12 lg:flex-row lg:items-center lg:gap-10">
                     <div class="max-w-2xl">
                         <span class="text-xs font-bold tracking-wider text-secondary uppercase">Demos el siguiente paso</span>
-                        <h2 id="hospitality-contact-title" class="mt-3 mb-4 text-[clamp(1.8rem,3vw,2.5rem)] leading-tight font-extrabold tracking-tight">Hablemos de tu negocio.</h2>
+                        <h2 id="hospitality-contact-title" class="mt-3 mb-4 text-[clamp(1.8rem,3vw,2.5rem)] leading-tight font-bold tracking-tight">Hablemos de tu negocio.</h2>
                         <p class="leading-loose text-muted">Cuéntanos qué vendes y cómo trabaja tu equipo. Revisemos tus necesidades y preparemos una propuesta con el alcance y la inversión para tu establecimiento.</p>
                     </div>
-                    <a href="{{ route('contact') }}" class="{{ $primaryButton }} w-full shrink-0 sm:w-auto">Solicitar información <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a href="{{ route('contact', ['asunto' => 'POS Cafeterías y Bares']) }}" class="{{ $primaryButton }} w-full shrink-0 sm:w-auto">Solicitar información <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
         </section>

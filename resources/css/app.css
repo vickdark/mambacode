@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
-/* Fontawesome webfonts (no JS SVG replacement, so Alpine can bind to <i> tags) */
+/* Fontawesome solid webfont only; WhatsApp uses an inline SVG instead of the brands font */
 @import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
 @import "@fortawesome/fontawesome-free/css/solid.min.css";
-@import "@fortawesome/fontawesome-free/css/brands.min.css";
-@import "@fortawesome/fontawesome-free/css/regular.min.css";
-@import "@fontsource/inter/latin-300.css";
 @import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
 @import "@fontsource/inter/latin-600.css";
-@import "@fontsource/inter/latin-700.css";
-@import "@fontsource/inter/latin-800.css";
+@import "@fontsource/space-grotesk/latin-500.css";
+@import "@fontsource/space-grotesk/latin-600.css";
+@import "@fontsource/space-grotesk/latin-700.css";
+@import "@fontsource/jetbrains-mono/latin-400.css";
 
 @import "./theme.css";
 @import "./components.css";
@@ -18,6 +18,8 @@
 
 @theme inline {
     --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+    --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
     /* sm 640 · md 768 (tablet) · lg 1024 · xl 1280 (13-14") · 2xl 1536 (15") · 3xl 1920 (large) */
     --breakpoint-3xl: 120rem;
@@ -28,8 +30,10 @@
     --color-primary: var(--mamba-primary);
     --color-secondary: var(--mamba-secondary);
     --color-accent: var(--mamba-accent);
+    --color-on-accent: var(--mamba-on-accent);
     --color-fg: var(--mamba-text);
     --color-muted: var(--mamba-text-muted);
+    --color-faint: var(--mamba-text-faint);
     --color-inverse: var(--mamba-text-inverse);
     --color-glass: var(--glass-border);
     --color-highlight: var(--glass-highlight);
@@ -51,9 +55,11 @@
     --color-offcanvas: var(--offcanvas-bg);
     --color-dropdown: var(--dropdown-bg);
     --color-badge: var(--badge-text);
+    --color-ok: var(--status-ok);
+    --color-warn: var(--status-warn);
 
     --shadow-soft: 0 20px 40px var(--shadow-color);
-    --shadow-hero: 0 24px 70px var(--hero-card-shadow);
+    --shadow-hero: 0 40px 80px -40px var(--hero-card-shadow);
 }
 
 /* Page container that keeps growing on 15" and large screens */
@@ -69,12 +75,14 @@
     @variant 3xl { max-width: 104rem; }
 }
 
-@utility bg-gradient-brand {
-    background: var(--btn-primary-bg);
-}
-
 @utility bg-popular {
     background: var(--popular-bg);
+}
+
+/* Subtle dotted backdrop used behind the hero */
+@utility bg-dot-grid {
+    background-image: radial-gradient(var(--dot-grid) 1px, transparent 1px);
+    background-size: 28px 28px;
 }
 
 @layer base {
@@ -87,6 +95,10 @@
         overflow-x: hidden;
     }
 
+    h1, h2, h3 {
+        font-family: var(--font-display);
+    }
+
     [id] {
         scroll-margin-top: 6rem;
     }
@@ -96,14 +108,14 @@
     }
 
     :focus-visible {
-        outline: 3px solid var(--mamba-secondary);
+        outline: 3px solid var(--mamba-primary);
         outline-offset: 4px;
     }
 
     ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
     ::-webkit-scrollbar-thumb {
-        background: linear-gradient(to bottom, var(--mamba-primary), var(--mamba-secondary));
+        background: var(--glass-highlight);
         border-radius: 5px;
         border: 2px solid var(--scrollbar-track);
     }

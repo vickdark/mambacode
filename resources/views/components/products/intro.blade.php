@@ -1,10 +1,24 @@
 @props(['title', 'subtitle', 'badge', 'features', 'carouselImages', 'accessUrl' => null])
 
+@php
+    // Pages pass asset() URLs; local slides need the public path for srcset, and the lightbox gets the largest WebP.
+    // External URLs (e.g. placeholder images) are left untouched.
+    $carouselImages = array_map(function (array $image) {
+        if (! str_starts_with($image['src'], asset(''))) {
+            return [...$image, 'path' => null];
+        }
+
+        $path = ltrim(parse_url($image['src'], PHP_URL_PATH), '/');
+
+        return [...$image, 'path' => $path, 'src' => \App\Support\ResponsiveImage::largest($path)];
+    }, $carouselImages);
+@endphp
+
 <section class="mt-8 py-12 lg:mt-12" id="intro">
     <div class="container-page">
         <div class="mb-10 text-center lg:mb-14">
             <span class="mb-3 inline-block rounded-full bg-primary/10 px-3 py-2 text-sm font-semibold text-primary">{{ $badge }}</span>
-            <h1 class="text-gradient mb-4 text-4xl font-extrabold tracking-tight sm:text-5xl xl:text-6xl">{{ $title }}</h1>
+            <h1 class="mb-4 text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl">{{ $title }}</h1>
             <p class="mx-auto max-w-2xl text-lg text-muted sm:text-xl">{{ $subtitle }}</p>
         </div>
 
@@ -28,7 +42,12 @@
                         @foreach ($carouselImages as $image)
                             <figure class="relative w-full shrink-0" aria-roledescription="diapositiva" aria-label="{{ $loop->iteration }} de {{ $loop->count }}">
                                 <button type="button" class="block w-full cursor-zoom-in" @click="open({{ $loop->index }})" aria-label="Ampliar: {{ $image['alt'] }}">
-                                    <img src="{{ $image['src'] }}" alt="{{ $image['alt'] }}" class="h-56 w-full object-cover sm:h-80 lg:h-96 2xl:h-[28rem] 3xl:h-[34rem]" @if (! $loop->first) loading="lazy" @endif decoding="async">
+                                    @php($slideClass = 'h-56 w-full object-cover sm:h-80 lg:h-96 2xl:h-[28rem] 3xl:h-[34rem]')
+                                    @if ($image['path'])
+                                        <x-responsive-img :src="$image['path']" :alt="$image['alt']" sizes="(min-width: 1024px) 58vw, 100vw" :loading="$loop->first ? 'eager' : 'lazy'" :class="$slideClass" />
+                                    @else
+                                        <img src="{{ $image['src'] }}" alt="{{ $image['alt'] }}" @if (! $loop->first) loading="lazy" @endif decoding="async" class="{{ $slideClass }}">
+                                    @endif
                                 </button>
                                 <figcaption class="absolute inset-x-[15%] bottom-12 hidden rounded-xl bg-surface px-4 py-3 text-center md:block">
                                     <p class="text-lg font-semibold text-fg">{{ $image['caption_title'] }}</p>
@@ -60,7 +79,7 @@
                 </div>
 
                 <div class="mt-4 flex justify-center">
-                    <span class="inline-flex items-center gap-2 rounded-full border border-highlight bg-gradient-brand px-4 py-3 text-xs font-bold tracking-wide text-white uppercase shadow-[0_18px_36px_rgba(59,130,246,0.24)] sm:text-sm">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-highlight bg-primary px-4 py-3 text-xs font-bold tracking-wide text-on-accent uppercase shadow-[0_18px_36px_rgba(59,130,246,0.24)] sm:text-sm">
                         <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
                         Dar clic para ampliar imagen
                     </span>
@@ -89,10 +108,10 @@
                                     <p class="text-sm text-muted" x-text="current.caption_text"></p>
                                 </div>
                                 <div class="ms-auto flex shrink-0 items-center gap-2">
-                                    <button type="button" class="grid size-9 place-items-center rounded-lg border border-secondary text-secondary transition hover:bg-secondary hover:text-white" @click="prev()" aria-label="Anterior imagen">
+                                    <button type="button" class="grid size-9 place-items-center rounded-lg border border-secondary text-secondary transition hover:bg-secondary hover:text-on-accent" @click="prev()" aria-label="Anterior imagen">
                                         <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
                                     </button>
-                                    <button type="button" class="grid size-9 place-items-center rounded-lg border border-secondary text-secondary transition hover:bg-secondary hover:text-white" @click="next()" aria-label="Siguiente imagen">
+                                    <button type="button" class="grid size-9 place-items-center rounded-lg border border-secondary text-secondary transition hover:bg-secondary hover:text-on-accent" @click="next()" aria-label="Siguiente imagen">
                                         <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                                     </button>
                                     <button type="button" class="grid size-9 place-items-center rounded-lg text-xl text-fg hover:bg-hover" @click="lightbox = false" aria-label="Cerrar">
@@ -126,7 +145,7 @@
                     @endforeach
                 </div>
 
-                <a href="{{ route('contact') }}" class="btn-cyber w-full">
+                <a href="{{ route('contact', ['asunto' => 'Demo: ' . $title]) }}" class="btn-primary w-full">
                     <i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Solicitar Demo en Vivo
                 </a>
                 @if ($accessUrl)

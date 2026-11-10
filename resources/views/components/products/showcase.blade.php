@@ -1,5 +1,6 @@
 @props([
     'id',
+    'product',
     'icon',
     'eyebrow',
     'title',
@@ -33,7 +34,7 @@
                     <span class="inline-flex items-center gap-2.5 text-xs font-bold tracking-widest text-secondary uppercase">
                         <i class="fa-solid {{ $icon }}" aria-hidden="true"></i> {{ $eyebrow }}
                     </span>
-                    <h1 id="{{ $id }}-title" class="mt-5 mb-6 text-[clamp(2.4rem,4.5vw,4.5rem)] leading-[1.08] font-extrabold tracking-[-0.055em]">
+                    <h1 id="{{ $id }}-title" class="mt-5 mb-6 text-[clamp(2.4rem,4.5vw,4.5rem)] leading-[1.08] font-bold tracking-[-0.055em]">
                         {{ $title }}<br><span class="text-primary">{{ $highlight }}</span>
                     </h1>
                     <p class="mb-3 text-lg leading-relaxed font-semibold">{{ $lead }}</p>
@@ -43,18 +44,18 @@
                     </p>
 
                     <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                        <a href="{{ $accessUrl }}" class="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-gradient-brand px-5 py-3 text-sm font-bold text-white transition hover:shadow-soft" target="_blank" rel="noopener noreferrer">
+                        <a href="{{ $accessUrl }}" class="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-on-accent transition hover:shadow-soft" target="_blank" rel="noopener noreferrer">
                             {{ $accessLabel }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
                             <span class="sr-only">(se abre en una pestaña nueva)</span>
                         </a>
-                        <a href="{{ route('contact') }}" class="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border border-btn-border bg-btn px-5 py-3 text-sm font-bold text-fg transition hover:border-secondary hover:text-secondary">
+                        <a href="{{ route('contact', ['asunto' => $product]) }}" class="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border border-btn-border bg-btn px-5 py-3 text-sm font-bold text-fg transition hover:border-secondary hover:text-secondary">
                             {{ $secondaryLabel }} <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
 
                 <div class="max-w-3xl overflow-hidden rounded-3xl border border-card-border bg-surface shadow-hero lg:max-w-none">
-                    <img src="{{ $image }}" alt="{{ $imageAlt }}" width="1503" height="765" class="block h-auto w-full">
+                    <x-responsive-img :src="$image" :alt="$imageAlt" sizes="(min-width: 1024px) 50vw, 100vw" fetchpriority="high" class="block h-auto w-full" />
                 </div>
             </div>
         </div>
@@ -85,7 +86,7 @@
                     <h2 class="mb-2 text-2xl font-bold tracking-tight">{{ $footerTitle }}</h2>
                     <p class="leading-loose text-muted">{{ $footerText }}</p>
                 </div>
-                <a href="{{ route('contact') }}" class="inline-flex min-h-12 w-full shrink-0 items-center justify-center gap-3 rounded-xl bg-gradient-brand px-5 py-3 text-sm font-bold text-white transition hover:shadow-soft sm:w-auto">
+                <a href="{{ route('contact', ['asunto' => $product]) }}" class="inline-flex min-h-12 w-full shrink-0 items-center justify-center gap-3 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-on-accent transition hover:shadow-soft sm:w-auto">
                     {{ $footerLabel }} <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>

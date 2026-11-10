@@ -1,18 +1,14 @@
 @props(['size' => 'sm'])
 
-<span {{ $attributes->class('inline-flex min-w-0 items-center gap-2') }}>
+<span {{ $attributes->class('inline-flex min-w-0 items-center gap-3') }}>
     <img
-        src="{{ asset('img/mambacode.jpeg') }}"
-        alt="Mamba Code"
+        src="{{ \App\Support\ResponsiveImage::largest('img/mambacodelg-removebg.png') }}"
+        alt=""
         width="40"
         height="40"
-        loading="lazy"
         decoding="async"
-        @class([
-            'aspect-square shrink-0 rounded-md object-cover',
-            'size-8' => $size === 'sm',
-            'size-10 shadow-[0_0_15px_rgba(130,87,229,0.2)]' => $size === 'lg',
-        ])
+        {{-- The PNG has wide transparent margins, so scale the mark up inside its box --}}
+        @class(['shrink-0 scale-[1.7] object-contain', 'size-8' => $size === 'sm', 'size-10' => $size === 'lg'])
     >
-    <span @class(['truncate font-bold text-fg', 'text-2xl' => $size === 'lg'])>Mamba<span class="text-secondary">Code</span></span>
+    <span @class(['truncate font-display font-bold text-fg', 'text-lg' => $size === 'sm', 'text-xl' => $size === 'lg'])>mamba<span class="text-primary">code</span></span>
 </span>

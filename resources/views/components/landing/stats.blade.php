@@ -1,22 +1,24 @@
 @php
     $stats = [
-        ['target' => 360, 'suffix' => '°', 'label' => 'Control Total'],
-        ['target' => 99.9, 'suffix' => '%', 'label' => 'Uptime Garantizado'],
-        ['target' => 24, 'suffix' => '/7', 'label' => 'Soporte Técnico'],
-        ['target' => 10, 'suffix' => 'x', 'label' => 'Más Rápido'],
+        ['target' => 360, 'suffix' => '°', 'label' => 'control total'],
+        ['target' => 99.9, 'suffix' => '%', 'label' => 'uptime garantizado'],
+        ['target' => 24, 'suffix' => '/7', 'label' => 'soporte técnico'],
+        ['target' => 10, 'suffix' => 'x', 'label' => 'más rápido'],
     ];
 @endphp
 
-<section class="border-y border-glass bg-stats py-12 sm:py-16" x-reveal="0.2">
-    <div class="container-page grid grid-cols-2 gap-y-8 text-center md:grid-cols-4">
+{{-- 1px gaps over a border-colored backdrop draw the dividers in both the 2- and 4-column layouts --}}
+<section class="border-b border-glass bg-glass" aria-label="Cifras">
+    <div class="mx-auto grid max-w-[104rem] grid-cols-2 gap-px md:grid-cols-4">
         @foreach ($stats as $stat)
             <div
+                class="bg-bg px-5 py-7 sm:px-8 sm:py-9"
                 x-data="counter({{ $stat['target'] }}, @js($stat['suffix']))"
                 x-intersect:enter.half="start()"
                 x-intersect:leave="reset()"
             >
-                <span class="text-gradient block text-4xl font-extrabold sm:text-5xl 2xl:text-6xl" x-text="display">{{ $stat['target'] . $stat['suffix'] }}</span>
-                <span class="text-xs font-semibold tracking-wider text-secondary uppercase sm:text-sm">{{ $stat['label'] }}</span>
+                <span class="block font-display text-4xl font-semibold tracking-[-0.03em] text-fg sm:text-5xl" x-text="display">{{ $stat['target'] . $stat['suffix'] }}</span>
+                <span class="font-mono text-xs text-muted uppercase">{{ $stat['label'] }}</span>
             </div>
         @endforeach
     </div>

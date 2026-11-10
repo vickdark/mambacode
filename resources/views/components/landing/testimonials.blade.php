@@ -1,25 +1,24 @@
 @php
-    $values = [
+    $steps = [
         ['title' => 'Soluciones a la medida', 'text' => 'Resolvemos problemas reales con software construido para tus procesos, datos y clientes. No usamos plantillas: tu proyecto crece con tu negocio.'],
         ['title' => 'Entrega clara', 'text' => 'Priorizamos comunicación frecuente, plazos definidos y entregables con valor inmediato para que cada fase sea útil desde el primer día.'],
         ['title' => 'Soporte estratégico', 'text' => 'Acompañamos tu solución en producción con mejoras, ajustes y optimización continua para que tu tecnología no solo funcione, sino que evolucione.'],
     ];
 @endphp
 
-<section class="container-page mb-12 py-12 lg:py-20" id="testimonios">
-    <div class="mb-10 text-center lg:mb-14">
-        <span class="mb-4 inline-flex text-xs tracking-[0.18em] text-secondary uppercase">Qué hacemos mejor</span>
-        <h2 class="text-gradient mb-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Nuestro valor en MambaCode</h2>
-        <p class="mx-auto max-w-2xl leading-loose text-muted">No se trata de llenar espacios o soluciones genéricas: se trata de construir software que convierte tu idea en resultados reales, con claridad, control y cuidado técnico.</p>
-    </div>
+<section class="border-t border-glass" id="proceso">
+    <div class="container-page py-20 lg:py-28">
+        <span class="eyebrow">/ cómo trabajamos</span>
+        <h2 class="section-title mt-3.5 mb-10 max-w-3xl lg:mb-12">Claridad, control y cuidado técnico en cada fase</h2>
 
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        @foreach ($values as $value)
-            <div x-reveal="{{ 0.1 * $loop->iteration }}" class="h-full min-h-64 rounded-3xl border border-card-border bg-card p-7 shadow-[0_24px_60px_var(--shadow-color)] backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-highlight hover:bg-hover sm:p-10 lg:p-7 xl:p-10">
-                <div class="mb-6 inline-grid size-11 place-items-center rounded-full bg-glass font-bold text-fg">{{ $loop->iteration }}</div>
-                <h3 class="mb-4 text-xl font-bold text-fg sm:text-2xl">{{ $value['title'] }}</h3>
-                <p class="leading-relaxed text-muted">{{ $value['text'] }}</p>
-            </div>
-        @endforeach
+        <div class="grid gap-4 md:grid-cols-3">
+            @foreach ($steps as $step)
+                <div x-reveal="{{ 0.08 * $loop->iteration }}" class="rounded-[1.1rem] border border-glass bg-surface p-7">
+                    <span class="grid size-10 place-items-center rounded-xl border border-highlight font-mono text-sm text-primary">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
+                    <h3 class="mt-5 mb-2.5 text-[1.3rem] font-semibold text-fg">{{ $step['title'] }}</h3>
+                    <p class="leading-relaxed text-muted">{{ $step['text'] }}</p>
+                </div>
+            @endforeach
+        </div>
     </div>
 </section>

@@ -10,7 +10,7 @@ class PagesRenderTest extends TestCase
     public static function pages(): array
     {
         return [
-            'home' => ['home', 'Productos Recientes'],
+            'home' => ['home', 'Productos en producción'],
             'transports' => ['products.transports', 'Sistema de Transporte Privado'],
             'sales' => ['products.sales', 'Vende más, gestiona mejor'],
             'hospitality' => ['products.hospitality', 'Cada negocio tiene su ritmo.'],
@@ -41,5 +41,16 @@ class PagesRenderTest extends TestCase
             ->assertSee('name="website"', false)
             ->assertSee('name="form_started_at"', false)
             ->assertSee('name="data_consent"', false);
+    }
+
+    public function test_contact_subject_is_prefilled_from_the_query_string(): void
+    {
+        $this->get(route('contact', ['asunto' => 'Plan Pro POS']))
+            ->assertOk()
+            ->assertSee('value="Plan Pro POS"', false);
+
+        $this->get(route('contact', ['asunto' => '<script>x</script>']))
+            ->assertOk()
+            ->assertDontSee('<script>x</script>', false);
     }
 }

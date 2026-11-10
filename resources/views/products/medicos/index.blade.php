@@ -11,6 +11,7 @@
 
     <x-products.showcase
         id="medicos"
+        product="Médicos Integrados"
         icon="fa-heart-pulse"
         eyebrow="Atención médica integrada"
         title="Tu salud y tu historial,"
@@ -20,7 +21,7 @@
         :access-url="config('products.medicos.url')"
         access-label="Abrir Médicos Integrados"
         secondary-label="Contactar a Mamba Code"
-        :image="asset('img/products/medicos/cover.png')"
+        image="img/products/medicos/cover.png"
         image-alt="Vista de la plataforma Médicos Integrados con citas y datos de atención"
         capabilities-eyebrow="Acompañamiento en cada consulta"
         capabilities-title="La información de salud, más accesible."

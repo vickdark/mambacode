@@ -1,159 +1,79 @@
-/* The few effects that need pseudo-elements or keyframes; everything else lives in Tailwind utilities. */
+/* Shared button, label and animation styles; everything else lives in Tailwind utilities. */
 
 @theme {
     --animate-fade-up: fade-up 0.7s ease-out both;
     --animate-fade-down: fade-down 0.7s ease-out both;
     --animate-fade-left: fade-left 0.7s ease-out both;
     --animate-float: float 6s ease-in-out infinite;
-    --animate-shine: shine 6s linear infinite;
+    --animate-dot-drift: dot-drift 12s linear infinite;
+    --animate-pulse-dot: pulse-dot 2.4s ease-out infinite;
 
     @keyframes fade-up {
-        from { opacity: 0; transform: translateY(2rem); }
+        from { opacity: 0; transform: translateY(1.5rem); }
         to { opacity: 1; transform: none; }
     }
     @keyframes fade-down {
-        from { opacity: 0; transform: translateY(-2rem); }
+        from { opacity: 0; transform: translateY(-1.5rem); }
         to { opacity: 1; transform: none; }
     }
     @keyframes fade-left {
-        from { opacity: 0; transform: translateX(2rem); }
+        from { opacity: 0; transform: translateX(1.5rem); }
         to { opacity: 1; transform: none; }
     }
     @keyframes float {
-        50% { transform: translateY(-20px); }
+        50% { translate: 0 -14px; }
     }
-    @keyframes shine {
-        to { background-position: 200% center; }
+    /* Moves a dotted layer by one grid cell (see bg-dot-grid), so the loop is seamless and stays on the compositor */
+    @keyframes dot-drift {
+        to { translate: 28px 28px; }
     }
-    @keyframes bg-float {
-        33% { transform: translate(50px, 50px) scale(1.1); }
-        66% { transform: translate(-30px, 80px) scale(0.95); }
-        100% { transform: translate(20px, -40px) scale(1.05); }
+    @keyframes pulse-dot {
+        0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--mamba-primary) 60%, transparent); }
+        70%, 100% { box-shadow: 0 0 0 8px transparent; }
     }
 }
 
 @layer components {
-    /* Animated blurred blobs behind every page */
-    .landing-bg {
-        @apply pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-bg;
-    }
-    .landing-bg::before,
-    .landing-bg::after {
-        content: "";
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(90px);
-        opacity: 0.25;
-        animation: bg-float 15s ease-in-out infinite alternate;
-    }
-    .landing-bg::before {
-        width: 60vw;
-        height: 60vw;
-        top: -10%;
-        left: -10%;
-        background: radial-gradient(circle, var(--mamba-primary), transparent 60%);
-        animation-delay: -5s;
-    }
-    .landing-bg::after {
-        width: 50vw;
-        height: 50vw;
-        bottom: -10%;
-        right: -10%;
-        background: radial-gradient(circle, var(--mamba-accent), transparent 60%);
+    /* Primary call to action */
+    .btn-primary {
+        @apply inline-flex min-h-13 items-center justify-center gap-2.5 rounded-xl bg-primary px-6 text-base font-semibold text-on-accent transition hover:brightness-110;
     }
 
-    /* Gradient-bordered pill button */
-    .btn-cyber {
-        @apply relative z-0 inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-base font-bold text-white no-underline transition-all duration-300 sm:px-10 sm:py-4 sm:text-lg;
-    }
-    .btn-cyber::before,
-    .btn-cyber::after {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        border-radius: inherit;
-        transition: all 0.3s ease;
-    }
-    .btn-cyber::before {
-        inset: 0;
-        background: var(--btn-primary-bg);
-    }
-    .btn-cyber::after {
-        inset: 2px;
-        background: var(--mamba-surface);
-    }
-    .btn-cyber:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(130, 87, 229, 0.4);
-    }
-    .btn-cyber:hover::after {
-        background: var(--mamba-surface-elevated);
-    }
-    [data-theme="light"] .btn-cyber::after {
-        background: transparent;
-    }
-    [data-theme="light"] .btn-cyber:hover::after {
-        background: rgba(124, 58, 237, 0.1);
+    /* Secondary, outlined action */
+    .btn-secondary {
+        @apply inline-flex min-h-13 items-center justify-center gap-2.5 rounded-xl border border-btn-border bg-btn px-6 text-base font-semibold text-fg transition hover:border-primary hover:text-primary;
     }
 
-    /* Card with a border glow and spotlight that follow the cursor (see x-glow) */
-    .glow-card {
-        @apply relative transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-soft;
-    }
-    .glow-card::before,
-    .glow-card::after {
-        content: "";
-        position: absolute;
-        pointer-events: none;
-        opacity: var(--magic-opacity, 0);
-        transition: opacity 0.3s ease;
-    }
-    .glow-card::before {
-        inset: -2px;
-        z-index: 2;
-        padding: 2px;
-        border-radius: calc(var(--glow-radius, 1.25rem) + 2px);
-        background: radial-gradient(500px circle at var(--mouse-x) var(--mouse-y), var(--mamba-secondary), var(--mamba-primary), transparent 100%);
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-    }
-    .glow-card::after {
-        inset: 0;
-        z-index: 1;
-        border-radius: var(--glow-radius, 1.25rem);
-        background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), var(--glass-highlight), transparent 80%);
-    }
-    .glow-card > * {
-        position: relative;
-        z-index: 3;
+    /* Monospace section label, e.g. "/ servicios" */
+    .eyebrow {
+        @apply font-mono text-[13px] text-primary;
     }
 
-    /* Gradient headline text */
-    .text-gradient {
-        background: linear-gradient(135deg, var(--mamba-text) 0%, var(--mamba-text-muted) 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    .text-shine {
-        @apply inline-block animate-shine;
-        background: linear-gradient(90deg, #a855f7 0%, #3b82f6 50%, #0ea5e9 100%);
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+    /* Headings shared by every section */
+    .section-title {
+        @apply font-display text-[clamp(1.9rem,3.6vw,2.9rem)] leading-[1.05] font-bold tracking-[-0.03em] text-fg;
     }
 
-    /* Status badge used on product cards */
-    .badge-warm {
-        @apply rounded-full border border-amber-400/40 bg-linear-to-br from-amber-400/25 to-orange-500/20 px-4 py-2 text-sm font-semibold text-badge shadow-lg shadow-amber-400/20 backdrop-blur-sm;
+    /* Small status label with a dot: "● disponible" */
+    .status {
+        @apply inline-flex items-center gap-1.5 font-mono text-xs lowercase;
     }
 
     /* Elements marked x-reveal start hidden only once JS is running */
     [data-reveal="pending"] {
         opacity: 0;
+    }
+}
+
+/* Cross-fade between pages (browsers without the View Transitions API simply navigate) */
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 0.25s;
     }
 }
 

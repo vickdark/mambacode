@@ -1,48 +1,60 @@
-@php
-    $cards = [
-        ['icon' => 'fa-microchip', 'title' => 'Análisis y Consultoría', 'text' => 'Estudiamos profundamente tu lógica de negocio para diseñar la solución tecnológica ideal, construyendo desde cero la infraestructura que necesitas.'],
-        ['icon' => 'fa-headset', 'title' => 'Soporte y Disponibilidad', 'text' => 'Disponibilidad garantizada y servicio de soporte técnico experto 24/7 para asegurar la continuidad de tu ecosistema tecnológico.'],
-    ];
-@endphp
+<section class="relative overflow-hidden border-b border-glass" id="inicio">
+    {{-- Slowly drifting dot grid; one cell larger than the section on the top/left so the loop never shows an edge --}}
+    <div class="bg-dot-grid pointer-events-none absolute -top-7 -left-7 right-0 bottom-0 animate-dot-drift will-change-transform" aria-hidden="true"></div>
 
-<header class="relative z-[1] flex min-h-screen animate-fade-up flex-col justify-center overflow-hidden py-16 text-center md:py-24 md:text-start" id="inicio">
-    {{-- three.js particle network --}}
-    <div x-data="heroNetwork" class="absolute inset-0 z-0 opacity-(--hero-net-opacity)" aria-hidden="true"></div>
-    {{-- Dark gradient overlay for logo / text readability --}}
-    <div class="pointer-events-none absolute inset-0 z-[1] bg-linear-to-b from-slate-900/30 to-slate-900/80" aria-hidden="true"></div>
-
-    <div class="container-page relative z-[2] grid items-center lg:grid-cols-2">
-        <div class="mb-12 text-center lg:mb-0 lg:text-start">
-            <div class="mb-6 animate-fade-down">
-                <img src="{{ asset('img/mambacode-complete-removebg-preview.png') }}" alt="Mamba Code Logo" width="500" height="500" class="mx-auto block size-[120px] rounded-[32px] object-cover md:size-[150px] lg:mx-0 lg:size-80">
-            </div>
-            <h1 class="text-gradient mb-6 text-[2.2rem] leading-[1.2] font-extrabold tracking-[-2px] md:text-[2.5rem] md:leading-[1.1] lg:text-[3.5rem]">
-                Desarrollo de Software a Medida,<br>
-                <span class="text-shine">Análisis de Negocio y Automatización de Procesos</span>
+    {{-- From lg up the hero fills the screen below the 4.5rem navbar, so nothing needs scrolling --}}
+    <div class="container-page relative flex flex-col items-center gap-14 py-14 sm:py-20 lg:min-h-[calc(100svh-4.5rem)] lg:flex-row lg:gap-12 lg:py-10 xl:gap-16 2xl:py-14">
+        {{-- Staggered entrance: pill, title, copy, buttons, then the logo --}}
+        <div class="w-full min-w-0 lg:flex-[1_1_44%]">
+            <span class="inline-flex animate-fade-up items-center gap-2.5 rounded-full border border-highlight bg-surface px-3.5 py-1.5 font-mono text-xs text-muted">
+                <span class="size-[7px] animate-pulse-dot rounded-full bg-primary"></span>
+                desarrollo de software a medida · colombia
+            </span>
+            <h1 class="mt-6 mb-5 animate-fade-up [animation-delay:0.08s] text-[clamp(2.4rem,4.4vw,3.9rem)] leading-[1.03] font-bold tracking-[-0.04em] text-fg lg:mt-5 3xl:text-[4.5rem]">
+                Software a medida, análisis de negocio y <span class="text-primary">automatización de procesos.</span>
             </h1>
-            <p class="mb-6 px-4 text-base leading-relaxed text-fg md:px-0 md:text-xl">
+            <p class="mb-8 max-w-xl animate-fade-up text-lg leading-relaxed text-muted [animation-delay:0.16s] lg:mb-7">
                 Analizamos tu lógica de negocio, automatizamos procesos y escalamos infraestructura. Soluciones digitales con soporte 24/7 garantizado.
             </p>
-            <div class="flex flex-wrap justify-center gap-4 lg:justify-start">
-                <a href="#caracteristicas" class="btn-cyber px-6! py-4! text-[1.1rem]!">Explorar Soluciones</a>
-                <a href="#contacto" class="inline-block rounded-full border-2 border-secondary px-6 py-4 leading-normal font-semibold text-secondary transition duration-300 hover:-translate-y-[3px] hover:bg-secondary hover:text-white hover:shadow-[0_8px_20px_rgba(59,130,246,0.3)]">Agendar Consultoría</a>
+            <div class="flex animate-fade-up flex-col gap-3 [animation-delay:0.24s] sm:flex-row">
+                <a href="#servicios" class="btn-primary">
+                    Explorar soluciones <i class="fa-solid fa-arrow-right text-sm" aria-hidden="true"></i>
+                </a>
+                <a href="{{ route('contact') }}" class="btn-secondary">Agendar consultoría</a>
             </div>
         </div>
 
-        <div class="mt-12 flex flex-col gap-6 md:mt-0 md:gap-10 md:ps-8">
-            @foreach ($cards as $card)
-                <div class="animate-fade-left" style="animation-delay: {{ 0.1 + $loop->index * 0.2 }}s">
-                    <div class="animate-float will-change-transform {{ $loop->odd ? '' : 'md:ms-12 [animation-delay:-3s]' }}">
-                        <div x-glow class="group z-10 cursor-pointer rounded-3xl border border-card-border bg-hero-card p-[1.8rem] text-start shadow-[0_25px_50px_-12px_var(--hero-card-shadow)] backdrop-blur-xl [--glow-radius:1.5rem] md:p-10">
-                            <div x-gradient-icon class="mb-6 grid size-[70px] place-items-center rounded-full text-white shadow-soft transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[10deg]">
-                                <i class="fa-solid {{ $card['icon'] }} fa-2x" aria-hidden="true"></i>
-                            </div>
-                            <h3 class="mb-4 text-[1.3rem] font-bold text-fg md:text-[calc(1.3rem+0.6vw)] xl:text-[1.75rem]">{{ $card['title'] }}</h3>
-                            <p @class(['text-[0.9rem] leading-relaxed text-muted md:text-base', 'mb-4' => $loop->first])>{{ $card['text'] }}</p>
-                        </div>
-                    </div>
+        <div class="flex w-full min-w-0 animate-fade-left flex-col items-center [animation-delay:0.3s] lg:flex-[1_1_56%]">
+            <figure class="flex flex-col items-center">
+                {{-- Floats continuously (translate) and tilts toward the mouse on desktop (transform, see tilt.js) --}}
+                <div
+                    x-data="tilt"
+                    class="animate-float transition-transform duration-300 ease-out will-change-transform [transform:perspective(900px)_rotateX(var(--tilt-x,0deg))_rotateY(var(--tilt-y,0deg))_translate(var(--shift-x,0px),var(--shift-y,0px))]"
+                >
+                    {{-- The PNG has wide transparent margins, so scale the mark up inside its box --}}
+                    <x-responsive-img
+                        src="img/mambacodelg-removebg.png"
+                        alt="Logo de Mamba Code"
+                        sizes="400px"
+                        fetchpriority="high"
+                        class="size-36 scale-[1.6] object-contain sm:size-44 lg:size-52 2xl:size-60"
+                    />
                 </div>
-            @endforeach
+                <figcaption class="mt-1 text-center">
+                    <span class="block font-display text-[clamp(1.9rem,3.6vw,3rem)] leading-none font-bold tracking-[-0.03em] text-fg">mamba<span class="text-primary">code</span></span>
+                    <span class="mt-2.5 block font-mono text-xs tracking-[0.2em] text-muted uppercase sm:text-[13px]">soluciones tecnológicas</span>
+                </figcaption>
+            </figure>
+
+            <div class="mt-8 flex items-center gap-3 rounded-2xl border border-highlight bg-surface px-4 py-3 shadow-soft">
+                <span class="grid size-10 place-items-center rounded-xl border border-highlight bg-bg text-primary">
+                    <i class="fa-solid fa-headset" aria-hidden="true"></i>
+                </span>
+                <span class="flex flex-col">
+                    <strong class="font-display text-[15px] font-semibold text-fg">Soporte 24/7</strong>
+                    <span class="font-mono text-xs text-muted">continuidad garantizada</span>
+                </span>
+            </div>
         </div>
     </div>
-</header>
+</section>
