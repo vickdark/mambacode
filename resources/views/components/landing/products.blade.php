@@ -34,6 +34,9 @@
     ];
 
     $upcoming = ['SysGym', 'Turnos y Reservas', 'Gestión Inmobiliaria'];
+
+    // Cards cycle through the logo tones (see .icon-tile in components.css); the grid continues after the featured pair
+    $tones = ['tone-magenta', 'tone-sky', 'tone-purple', 'tone-indigo'];
 @endphp
 
 <section class="border-t border-glass bg-elevated" id="productos">
@@ -49,10 +52,10 @@
         {{-- Featured products: text beside a screenshot, alternating sides on desktop --}}
         <div class="flex flex-col gap-4">
             @foreach ($featured as $product)
-                <a href="{{ route($product['route']) }}" x-reveal class="group grid overflow-hidden rounded-[1.25rem] border border-glass bg-surface transition-colors duration-300 hover:border-highlight {{ $loop->even ? 'lg:grid-cols-[3fr_2fr]' : 'lg:grid-cols-[2fr_3fr]' }}">
+                <a href="{{ route($product['route']) }}" x-reveal class="group {{ $tones[$loop->index % count($tones)] }} grid overflow-hidden rounded-[1.25rem] border border-glass bg-surface transition-colors duration-300 hover:border-highlight {{ $loop->even ? 'lg:grid-cols-[3fr_2fr]' : 'lg:grid-cols-[2fr_3fr]' }}">
                     <div @class(['flex flex-col p-7 sm:p-9', 'lg:order-2' => $loop->even])>
                         <div class="mb-5 flex items-center justify-between">
-                            <span class="grid size-12 place-items-center rounded-xl border border-highlight bg-bg text-lg text-primary"><i class="fa-solid {{ $product['icon'] }}" aria-hidden="true"></i></span>
+                            <span class="icon-tile"><i class="fa-solid {{ $product['icon'] }}" aria-hidden="true"></i></span>
                             <span class="status text-ok">● disponible</span>
                         </div>
                         <h3 class="mb-3 text-2xl font-bold tracking-tight text-fg sm:text-3xl">{{ $product['title'] }}</h3>
@@ -60,7 +63,7 @@
                         <ul class="mb-7 space-y-3">
                             @foreach ($product['highlights'] as $highlight)
                                 <li class="flex items-center gap-3 text-[15px] text-fg">
-                                    <i class="fa-solid {{ $highlight['icon'] }} w-4 text-center text-sm text-primary" aria-hidden="true"></i>
+                                    <i class="fa-solid {{ $highlight['icon'] }} w-4 text-center text-sm text-(--tone)" aria-hidden="true"></i>
                                     {{ $highlight['text'] }}
                                 </li>
                             @endforeach
@@ -83,9 +86,9 @@
         {{-- Rest of the portfolio --}}
         <div class="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             @foreach ($products as $product)
-                <a href="{{ route($product['route']) }}" x-reveal="{{ 0.06 * $loop->index }}" class="group flex flex-col rounded-[1.1rem] border border-glass bg-surface p-7 transition-colors duration-300 hover:border-highlight">
+                <a href="{{ route($product['route']) }}" x-reveal="{{ 0.06 * $loop->index }}" class="group {{ $tones[($loop->index + count($featured)) % count($tones)] }} flex flex-col rounded-[1.1rem] border border-glass bg-surface p-7 transition-colors duration-300 hover:border-highlight">
                     <div class="mb-6 flex items-start justify-between">
-                        <span class="grid size-12 place-items-center rounded-xl border border-highlight bg-bg text-lg text-primary transition-colors duration-300 group-hover:border-primary">
+                        <span class="icon-tile">
                             <i class="fa-solid {{ $product['icon'] }}" aria-hidden="true"></i>
                         </span>
                         @if ($product['status'])

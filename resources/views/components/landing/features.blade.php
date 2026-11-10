@@ -7,6 +7,9 @@
         ['icon' => 'fa-server', 'title' => 'Infraestructura escalable', 'description' => 'Arquitecturas cloud robustas diseñadas para crecer contigo, garantizando rendimiento y disponibilidad global.'],
         ['icon' => 'fa-chart-line', 'title' => 'Estrategia digital', 'description' => 'Te acompañamos en la transformación digital, asegurando que cada implementación tecnológica tenga un retorno real.'],
     ];
+
+    // Cards cycle through the logo tones (see .icon-tile in components.css)
+    $tones = ['tone-magenta', 'tone-sky', 'tone-purple', 'tone-indigo'];
 @endphp
 
 <section class="container-page py-20 lg:py-28" id="servicios">
@@ -20,12 +23,12 @@
 
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         @foreach ($services as $service)
-            <article x-reveal="{{ 0.06 * ($loop->index % 3) }}" class="group relative flex flex-col overflow-hidden rounded-[1.1rem] border border-glass bg-surface p-7 transition-colors duration-300 hover:border-highlight">
-                {{-- Accent line that draws in on hover --}}
-                <span class="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100" aria-hidden="true"></span>
+            <article x-reveal="{{ 0.06 * ($loop->index % 3) }}" class="group {{ $tones[$loop->index % count($tones)] }} relative flex flex-col overflow-hidden rounded-[1.1rem] border border-glass bg-surface p-7 transition-colors duration-300 hover:border-highlight">
+                {{-- Accent line in the card's tone that draws in on hover --}}
+                <span class="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-(--tone) transition-transform duration-500 group-hover:scale-x-100" aria-hidden="true"></span>
 
                 <div class="mb-6 flex items-start justify-between">
-                    <span class="grid size-12 place-items-center rounded-xl border border-highlight bg-bg text-lg text-primary transition-colors duration-300 group-hover:border-primary">
+                    <span class="icon-tile">
                         <i class="fa-solid {{ $service['icon'] }}" aria-hidden="true"></i>
                     </span>
                     <span class="font-mono text-xs text-faint">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>

@@ -61,15 +61,32 @@
         @apply font-display text-[clamp(1.9rem,3.6vw,2.9rem)] leading-[1.05] font-bold tracking-[-0.03em] text-fg;
     }
 
+    /*
+     * Icon tile tinted with one of the logo tones: <span class="icon-tile tone-sky">.
+     * Lists cycle through tone-magenta, tone-sky, tone-purple, tone-indigo.
+     */
+    .icon-tile {
+        @apply grid size-12 shrink-0 place-items-center rounded-xl border text-lg transition-colors duration-300;
+        color: var(--tone, var(--mamba-primary));
+        border-color: color-mix(in srgb, var(--tone, var(--mamba-primary)) 35%, transparent);
+        background: color-mix(in srgb, var(--tone, var(--mamba-primary)) 10%, var(--mamba-bg));
+    }
+    .group:hover .icon-tile {
+        border-color: var(--tone, var(--mamba-primary));
+    }
+    .tone-magenta { --tone: var(--tone-magenta); }
+    .tone-sky { --tone: var(--tone-sky); }
+    .tone-purple { --tone: var(--tone-purple); }
+    .tone-indigo { --tone: var(--tone-indigo); }
+
     /* Small status label with a dot: "● disponible" */
     .status {
         @apply inline-flex items-center gap-1.5 font-mono text-xs lowercase;
     }
 
     /*
-     * Hero backgrounds in the logo's colors (magenta #c1529d, purple #9d4f9c, blue #74afdf, indigo #6368ac).
-     * An inline script in the hero picks one per page load via data-bg; without JS the ribbons show.
-     * Both fade out toward the copy: from the left on desktop, from the top on stacked layouts.
+     * Backgrounds in the logo's colors (magenta #c1529d, purple #9d4f9c, blue #74afdf, indigo #6368ac).
+     * The hero's fades out toward the copy: from the left on desktop, from the top on stacked layouts.
      */
     .hero-bg {
         @apply pointer-events-none absolute inset-0 overflow-hidden;
@@ -81,12 +98,7 @@
             mask-image: linear-gradient(to right, transparent 10%, #000 55%);
         }
     }
-    [data-bg="code"] .hero-ribbons,
-    :not([data-bg="code"]) > .hero-code {
-        display: none;
-    }
-
-    /* 1 · Diagonal ribbons echoing the isotipo's strokes, sliding back and forth */
+    /* Hero: diagonal ribbons echoing the isotipo's strokes, sliding back and forth */
     .hero-ribbons {
         opacity: var(--hero-ribbons-opacity);
     }
@@ -127,25 +139,28 @@
         animation-duration: 23s;
     }
 
-    /* 4 · Faint columns of code drifting upward */
-    .hero-code {
-        display: flex;
-        gap: 2.25rem;
-        padding-inline-start: 1.5rem;
-        /* Fainter when stacked: the code runs behind the logo there */
-        opacity: calc(var(--hero-code-opacity) * 0.55);
+    /* Closing CTA (x-code-rain): faint columns of Laravel code drifting upward, fading out toward the heading */
+    .code-rain {
+        @apply pointer-events-none absolute inset-0 flex gap-9 overflow-hidden ps-6;
+        /* Fainter when stacked: the heading spans the full width there */
+        opacity: calc(var(--code-rain-opacity) * 0.5);
+        -webkit-mask-image: linear-gradient(to right, transparent 35%, #000 85%), linear-gradient(to bottom, transparent, #000 25%, #000 75%, transparent);
+        -webkit-mask-composite: source-in;
+        mask-image: linear-gradient(to right, transparent 35%, #000 85%), linear-gradient(to bottom, transparent, #000 25%, #000 75%, transparent);
+        mask-composite: intersect;
 
-        /* Also keep a soft clearing around the logo, which sits at the center of this box */
         @variant lg {
-            left: 44%;
-            opacity: var(--hero-code-opacity);
-            -webkit-mask-image: linear-gradient(to right, transparent, #000 30%), radial-gradient(ellipse 34% 42% at 50% 50%, transparent 35%, #000 100%);
-            -webkit-mask-composite: source-in;
-            mask-image: linear-gradient(to right, transparent, #000 30%), radial-gradient(ellipse 34% 42% at 50% 50%, transparent 35%, #000 100%);
-            mask-composite: intersect;
+            opacity: var(--code-rain-opacity);
         }
     }
-    .hero-code > div {
+    /* Quieter variant behind a heading: extends a little past it and fades out on every edge */
+    .code-rain.code-rain-soft {
+        inset: -3.5rem -1.5rem -1rem;
+        opacity: calc(var(--code-rain-opacity) * 0.45);
+        -webkit-mask-image: radial-gradient(ellipse 75% 65% at 40% 45%, #000 20%, transparent 100%);
+        mask-image: radial-gradient(ellipse 75% 65% at 40% 45%, #000 20%, transparent 100%);
+    }
+    .code-rain > div {
         flex: none;
         font-family: var(--font-mono);
         font-size: 13px;
