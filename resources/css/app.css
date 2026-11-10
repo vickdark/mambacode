@@ -1,29 +1,122 @@
-/* Main Application Styles
- * Modular Architecture
- */
+@import "tailwindcss";
 
-/* Libraries */
-@import "bootstrap/dist/css/bootstrap.min.css";
-/* Fontawesome - Load only necessary icon families for ~75% smaller bundle */
+/* Fontawesome solid webfont only; WhatsApp uses an inline SVG instead of the brands font */
 @import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
 @import "@fortawesome/fontawesome-free/css/solid.min.css";
-@import "@fortawesome/fontawesome-free/css/brands.min.css";
-@import "@fortawesome/fontawesome-free/css/regular.min.css";
-@import "animate.css/animate.min.css";
-@import "@fontsource/inter/latin-300.css";
 @import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
 @import "@fontsource/inter/latin-600.css";
-@import "@fontsource/inter/latin-700.css";
-@import "@fontsource/inter/latin-800.css";
+@import "@fontsource/space-grotesk/latin-500.css";
+@import "@fontsource/space-grotesk/latin-600.css";
+@import "@fontsource/space-grotesk/latin-700.css";
+@import "@fontsource/jetbrains-mono/latin-400.css";
 
-/* App Modules */
-@import "./app/_variables.css";
-@import "./app/_base.css";
-@import "./app/_footer.css";
-@import "./app/_utilities.css";
+@import "./theme.css";
+@import "./components.css";
 
-/* Page modules are bundled with the main stylesheet to avoid extra CSS requests. */
-@import "./pages/landing/index.css";
-@import "./pages/products/index.css";
-@import "./pages/access.css";
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
 
+@theme inline {
+    --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+    --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+    /* sm 640 · md 768 (tablet) · lg 1024 · xl 1280 (13-14") · 2xl 1536 (15") · 3xl 1920 (large) */
+    --breakpoint-3xl: 120rem;
+
+    --color-bg: var(--mamba-bg);
+    --color-surface: var(--mamba-surface);
+    --color-elevated: var(--mamba-surface-elevated);
+    --color-primary: var(--mamba-primary);
+    --color-secondary: var(--mamba-secondary);
+    --color-accent: var(--mamba-accent);
+    --color-on-accent: var(--mamba-on-accent);
+    --color-fg: var(--mamba-text);
+    --color-muted: var(--mamba-text-muted);
+    --color-faint: var(--mamba-text-faint);
+    --color-inverse: var(--mamba-text-inverse);
+    --color-glass: var(--glass-border);
+    --color-highlight: var(--glass-highlight);
+    --color-subtle: var(--border-subtle);
+    --color-card: var(--card-bg);
+    --color-card-border: var(--card-border);
+    --color-feature: var(--feature-bg);
+    --color-feature-border: var(--feature-border);
+    --color-hover: var(--hover-bg);
+    --color-btn: var(--btn-secondary-bg);
+    --color-btn-border: var(--btn-secondary-border);
+    --color-input: var(--input-bg);
+    --color-input-border: var(--input-border);
+    --color-stats: var(--stats-bg);
+    --color-hero-card: var(--hero-card-bg);
+    --color-footer: var(--footer-bg);
+    --color-nav: var(--nav-bg);
+    --color-nav-scrolled: var(--nav-bg-scrolled);
+    --color-offcanvas: var(--offcanvas-bg);
+    --color-dropdown: var(--dropdown-bg);
+    --color-badge: var(--badge-text);
+    --color-ok: var(--status-ok);
+    --color-warn: var(--status-warn);
+
+    --shadow-soft: 0 20px 40px var(--shadow-color);
+    --shadow-hero: 0 40px 80px -40px var(--hero-card-shadow);
+}
+
+/* Page container that keeps growing on 15" and large screens */
+@utility container-page {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
+    max-width: 80rem;
+
+    @variant sm { padding-inline: 1.5rem; }
+    @variant lg { padding-inline: 2rem; }
+    @variant 2xl { max-width: 88rem; }
+    @variant 3xl { max-width: 104rem; }
+}
+
+@utility bg-popular {
+    background: var(--popular-bg);
+}
+
+/* Subtle dotted backdrop used behind the hero */
+@utility bg-dot-grid {
+    background-image: radial-gradient(var(--dot-grid) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-bg font-sans text-fg antialiased transition-colors duration-300;
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+        font-family: var(--font-display);
+    }
+
+    [id] {
+        scroll-margin-top: 6rem;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+
+    :focus-visible {
+        outline: 3px solid var(--mamba-primary);
+        outline-offset: 4px;
+    }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+    ::-webkit-scrollbar-thumb {
+        background: var(--glass-highlight);
+        border-radius: 5px;
+        border: 2px solid var(--scrollbar-track);
+    }
+}

@@ -1,0 +1,83 @@
+/* Design tokens. Dark is the default; [data-theme="light"] overrides them.
+ * Tailwind utilities read these through the @theme mapping in app.css. */
+:root {
+    --mamba-bg: #0a0c11;
+    --mamba-surface: #11141b;
+    --mamba-surface-elevated: #0d1016;
+    --mamba-primary: #a78bfa;
+    --mamba-secondary: #a78bfa;
+    --mamba-accent: #f472b6;
+    --mamba-on-accent: #0a0c11;
+    --mamba-text: #e9ecf2;
+    --mamba-text-muted: #98a2b3;
+    --mamba-text-faint: #6b7487;
+    --mamba-text-inverse: #0a0c11;
+    --glass-border: #1f2430;
+    --glass-highlight: #2a3040;
+    --border-subtle: #1f2430;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --input-bg: #0a0c11;
+    --input-border: #2a3040;
+    --card-bg: #11141b;
+    --card-border: #1f2430;
+    --nav-bg: rgba(10, 12, 17, 0.85);
+    --nav-bg-scrolled: rgba(10, 12, 17, 0.92);
+    --offcanvas-bg: #0a0c11;
+    --dropdown-bg: #11141b;
+    --btn-primary-bg: var(--mamba-primary);
+    --btn-secondary-bg: #11141b;
+    --btn-secondary-border: #2a3040;
+    --hover-bg: rgba(167, 139, 250, 0.08);
+    --hero-card-bg: #11141b;
+    --hero-card-shadow: rgba(0, 0, 0, 0.8);
+    --stats-bg: transparent;
+    --popular-bg: rgba(167, 139, 250, 0.08);
+    --feature-bg: #11141b;
+    --feature-border: #1f2430;
+    --footer-bg: #0d1016;
+    --dot-grid: #1f2430;
+    --scrollbar-track: #0a0c11;
+    --status-ok: #34d399;
+    --status-warn: #fbbf24;
+    --badge-text: #fbbf24;
+}
+
+[data-theme="light"] {
+    --mamba-bg: #ffffff;
+    --mamba-surface: #ffffff;
+    --mamba-surface-elevated: #f6f7f9;
+    --mamba-primary: #6d28d9;
+    --mamba-secondary: #6d28d9;
+    --mamba-accent: #be185d;
+    --mamba-on-accent: #ffffff;
+    --mamba-text: #0b1020;
+    --mamba-text-muted: #4b5565;
+    --mamba-text-faint: #5f6878;
+    --mamba-text-inverse: #ffffff;
+    --glass-border: #e4e7ec;
+    --glass-highlight: #d0d5dd;
+    --border-subtle: #e4e7ec;
+    --shadow-color: rgba(11, 16, 32, 0.12);
+    --input-bg: #ffffff;
+    --input-border: #d0d5dd;
+    --card-bg: #ffffff;
+    --card-border: #e4e7ec;
+    --nav-bg: rgba(255, 255, 255, 0.9);
+    --nav-bg-scrolled: rgba(255, 255, 255, 0.96);
+    --offcanvas-bg: #ffffff;
+    --dropdown-bg: #ffffff;
+    --btn-secondary-bg: #ffffff;
+    --btn-secondary-border: #d0d5dd;
+    --hover-bg: rgba(109, 40, 217, 0.06);
+    --hero-card-bg: #ffffff;
+    --hero-card-shadow: rgba(11, 16, 32, 0.25);
+    --popular-bg: #f5f0ff;
+    --feature-bg: #ffffff;
+    --feature-border: #e4e7ec;
+    --footer-bg: #f6f7f9;
+    --dot-grid: #e4e7ec;
+    --scrollbar-track: #f6f7f9;
+    --status-ok: #047857;
+    --status-warn: #92400e;
+    --badge-text: #92400e;
+}

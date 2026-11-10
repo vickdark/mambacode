@@ -1,0 +1,89 @@
+/* Shared button, label and animation styles; everything else lives in Tailwind utilities. */
+
+@theme {
+    --animate-fade-up: fade-up 0.7s ease-out both;
+    --animate-fade-down: fade-down 0.7s ease-out both;
+    --animate-fade-left: fade-left 0.7s ease-out both;
+    --animate-float: float 6s ease-in-out infinite;
+    --animate-dot-drift: dot-drift 12s linear infinite;
+    --animate-pulse-dot: pulse-dot 2.4s ease-out infinite;
+
+    @keyframes fade-up {
+        from { opacity: 0; transform: translateY(1.5rem); }
+        to { opacity: 1; transform: none; }
+    }
+    @keyframes fade-down {
+        from { opacity: 0; transform: translateY(-1.5rem); }
+        to { opacity: 1; transform: none; }
+    }
+    @keyframes fade-left {
+        from { opacity: 0; transform: translateX(1.5rem); }
+        to { opacity: 1; transform: none; }
+    }
+    @keyframes float {
+        50% { translate: 0 -14px; }
+    }
+    /* Moves a dotted layer by one grid cell (see bg-dot-grid), so the loop is seamless and stays on the compositor */
+    @keyframes dot-drift {
+        to { translate: 28px 28px; }
+    }
+    @keyframes pulse-dot {
+        0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--mamba-primary) 60%, transparent); }
+        70%, 100% { box-shadow: 0 0 0 8px transparent; }
+    }
+}
+
+@layer components {
+    /* Primary call to action */
+    .btn-primary {
+        @apply inline-flex min-h-13 items-center justify-center gap-2.5 rounded-xl bg-primary px-6 text-base font-semibold text-on-accent transition hover:brightness-110;
+    }
+
+    /* Secondary, outlined action */
+    .btn-secondary {
+        @apply inline-flex min-h-13 items-center justify-center gap-2.5 rounded-xl border border-btn-border bg-btn px-6 text-base font-semibold text-fg transition hover:border-primary hover:text-primary;
+    }
+
+    /* Monospace section label, e.g. "/ servicios" */
+    .eyebrow {
+        @apply font-mono text-[13px] text-primary;
+    }
+
+    /* Headings shared by every section */
+    .section-title {
+        @apply font-display text-[clamp(1.9rem,3.6vw,2.9rem)] leading-[1.05] font-bold tracking-[-0.03em] text-fg;
+    }
+
+    /* Small status label with a dot: "● disponible" */
+    .status {
+        @apply inline-flex items-center gap-1.5 font-mono text-xs lowercase;
+    }
+
+    /* Elements marked x-reveal start hidden only once JS is running */
+    [data-reveal="pending"] {
+        opacity: 0;
+    }
+}
+
+/* Cross-fade between pages (browsers without the View Transitions API simply navigate) */
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 0.25s;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

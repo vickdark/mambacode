@@ -95,9 +95,9 @@
     :features="$features"
     :access-url="config('products.sales.url')"
 >
-    <h3 class="fw-bold mb-4" style="color: var(--mamba-text);">Vende más, gestiona mejor</h3>
+    <h2 class="mb-4 text-2xl font-bold text-fg sm:text-3xl">Vende más, gestiona mejor</h2>
     
-    <p class="mb-4" style="color: var(--mamba-text-muted); line-height: 1.8;">
+    <p class="mb-6 leading-loose text-muted">
         Optimiza cada aspecto de tu operación comercial, desde la gestión de inventario hasta la facturación electrónica y el análisis de ventas, todo en una plataforma robusta y fácil de usar.
     </p>
 </x-products.intro>

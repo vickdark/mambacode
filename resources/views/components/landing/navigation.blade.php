@@ -1,113 +1,145 @@
-<!-- Navigation -->
-<nav class="landing-nav animate__animated animate__fadeInDown">
-    <div class="container d-flex justify-content-between align-items-center">
-        <!-- Mobile Menu Toggle (Left on mobile) -->
-        <button class="mobile-menu-toggle d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+@php
+    $onHome = request()->routeIs('home');
+    $onProduct = request()->routeIs('products.*');
+    $onAccess = request()->routeIs('access.index');
+    $home = $onHome ? '' : route('home');
+    $quoteLabel = request()->routeIs('products.hospitality') ? 'Cotización' : 'Precios';
 
-        <!-- Logo -->
-        <a href="{{ route('home') }}#inicio" class="d-flex align-items-center gap-3 navbar-logo-container text-decoration-none">
-            <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code Logo - Consultoría y Software" width="1280" height="1280" class="landing-logo">
-            <span class="fs-4 fw-bold d-none d-md-block" style="color: var(--mamba-text);">Mamba<span style="color: var(--mamba-secondary)">Code</span></span>
-        </a>
-        
-<!-- Desktop Navigation (Hidden on mobile) -->
-            <div class="nav-links d-none d-md-flex">
-                <a href="{{ route('home') }}#inicio" class="nav-link-item active" title="Volver al inicio">Inicio</a>
-                <a href="{{ request()->routeIs('home') ? route('home') . '#caracteristicas' : '#features' }}" class="nav-link-item" title="{{ request()->routeIs('home') ? 'Conoce nuestros servicios' : 'Conoce nuestras funcionalidades' }}">{{ request()->routeIs('home') ? 'Servicios' : 'Funcionalidades' }}</a>
-                <div class="dropdown">
-                    <a class="nav-link-item dropdown-toggle" href="#" role="button" id="portfolioDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Conoce nuestro portafolio">
-                        Portafolio
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="portfolioDropdown">
-                        <li><a class="dropdown-item" href="{{ route('products.sales') }}">Sistema de Ventas POS</a></li>
-                        <li><a class="dropdown-item" href="{{ route('products.hospitality') }}">POS Cafeterías y Bares</a></li>
-                        <li><a class="dropdown-item" href="{{ route('products.itam') }}">Gestión de Activos ITAM</a></li>
-                        <!-- <li><a class="dropdown-item" href="{{ route('products.gym') }}">SysGym - Software Fitness</a></li> -->
-                        <li><a class="dropdown-item" href="{{ route('products.transports') }}">Sistema de Transporte Privado</a></li>
-                    </ul>
-                </div>
-                @if (request()->routeIs('products.*'))
-                    <a href="#pricing" class="nav-link-item" title="{{ request()->routeIs('products.hospitality') ? 'Solicita una cotización' : 'Conoce nuestros precios' }}">{{ request()->routeIs('products.hospitality') ? 'Cotización' : 'Precios' }}</a>
-                @endif
-                @if (!request()->routeIs('products.*'))
-                    <a href="{{ route('home') }}#testimonios" class="nav-link-item" title="Qué opinan nuestros clientes">Testimonios</a>
-                @endif
-                <a href="{{ request()->routeIs('home') ? route('home') : '' }}#contacto" class="nav-link-item" title="Ponte en contacto con nuestro equipo técnico">Contacto</a>
-                <a href="{{ route('access.index') }}" class="nav-link-item" title="Portal de accesos" aria-label="Acceso Admin: portal de productos">
-                    <i class="fa-solid fa-fingerprint" aria-hidden="true"></i>
-                </a>
-                <!-- Theme Toggle -->
-                <button class="nav-link-item theme-toggle" id="themeToggle" type="button" aria-label="Cambiar tema" title="Cambiar tema">
-                    <i class="fa-solid fa-sun theme-icon-light" style="display: none;"></i>
-                    <i class="fa-solid fa-moon theme-icon-dark"></i>
-                </button>
+    $portfolio = [
+        ['route' => 'products.sales', 'label' => 'Sistema de Ventas POS'],
+        ['route' => 'products.hospitality', 'label' => 'POS Cafeterías y Bares'],
+        ['route' => 'products.transports', 'label' => 'Transporte Privado'],
+        ['route' => 'products.aloja360', 'label' => 'Aloja360'],
+        ['route' => 'products.medicos', 'label' => 'Médicos Integrados'],
+        ['route' => 'products.itam', 'label' => 'Gestión de Activos ITAM'],
+    ];
+
+    $links = array_values(array_filter([
+        $onProduct
+            ? ['href' => '#features', 'section' => 'features', 'label' => 'Funcionalidades']
+            : ['href' => $home . '#servicios', 'section' => 'servicios', 'label' => 'Servicios'],
+        ['portfolio' => true],
+        $onProduct ? ['href' => '#pricing', 'section' => 'pricing', 'label' => $quoteLabel] : null,
+        $onProduct ? null : ['href' => $home . '#proceso', 'section' => 'proceso', 'label' => 'Cómo trabajamos'],
+        ['href' => route('contact'), 'section' => 'formulario', 'label' => 'Contacto'],
+    ]));
+
+    $linkClass = 'py-2 text-sm font-medium transition hover:text-fg';
+@endphp
+
+<div x-data="navbar" @scroll.window.throttle.50ms="onScroll()" @keydown.escape.window="menuOpen = false">
+    <header
+        class="fixed inset-x-0 top-0 z-[999] border-b backdrop-blur-xl transition-colors duration-300 [view-transition-name:site-header]"
+        :class="scrolled ? 'border-glass bg-nav-scrolled' : 'border-glass bg-nav'"
+    >
+        <div class="container-page flex h-[4.5rem] items-center justify-between gap-6">
+            <a href="{{ route('home') }}" aria-label="Mamba Code, inicio">
+                <x-brand size="lg" />
+            </a>
+
+            {{-- Desktop --}}
+            <nav class="hidden items-center gap-7 lg:flex" aria-label="Principal">
+                @foreach ($links as $link)
+                    @isset($link['portfolio'])
+                        <div class="relative" x-data="{ open: false }" @click.outside="open = false" @keydown.escape="open = false">
+                            <button type="button" class="{{ $linkClass }} flex items-center gap-1.5 text-muted" :class="open && 'text-fg'" @click="open = !open" :aria-expanded="open" aria-haspopup="true">
+                                Portafolio <i class="fa-solid fa-chevron-down text-[10px] transition-transform" :class="open && 'rotate-180'" aria-hidden="true"></i>
+                            </button>
+                            <ul
+                                x-show="open"
+                                x-cloak
+                                x-transition.origin.top.left
+                                class="absolute top-full left-0 mt-3 w-64 rounded-xl border border-glass bg-dropdown p-1.5 shadow-soft"
+                            >
+                                @foreach ($portfolio as $item)
+                                    <li><a href="{{ route($item['route']) }}" class="block rounded-lg px-4 py-2.5 text-sm text-fg transition hover:bg-hover">{{ $item['label'] }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @else
+                        <a href="{{ $link['href'] }}" class="{{ $linkClass }}" :class="isActive('{{ $link['section'] }}') ? 'text-fg' : 'text-muted'">{{ $link['label'] }}</a>
+                    @endisset
+                @endforeach
+            </nav>
+
+            <div class="hidden items-center gap-2 lg:flex">
+                <x-theme-toggle class="size-11 border-0! bg-transparent!" />
+                <a
+                    href="{{ route('access.index') }}"
+                    @if ($onAccess) aria-current="page" @endif
+                    @class([
+                        'inline-flex min-h-11 items-center rounded-xl border px-4 text-sm font-medium transition hover:border-primary hover:text-primary',
+                        'border-primary text-primary' => $onAccess,
+                        'border-btn-border text-fg' => ! $onAccess,
+                    ])
+                >Portal de accesos</a>
             </div>
-    </div>
-    
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress-container">
-        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
-    </div>
-</nav>
 
-<!-- Mobile Navigation Sidebar (Bootstrap Offcanvas) -->
-<div class="offcanvas offcanvas-start mobile-sidebar d-md-none" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
-    <div class="offcanvas-header border-bottom">
-        <div class="d-flex align-items-center gap-2" id="mobileSidebarLabel">
-            <img src="{{ asset('img/mambacode.jpeg') }}" alt="Mamba Code" loading="lazy" decoding="async" class="landing-logo-mobile">
-            <span class="fw-bold" style="color: var(--mamba-text);">Mamba<span style="color: var(--mamba-secondary)">Code</span></span>
-        </div>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <div class="nav flex-column">
-            <a href="{{ route('home') }}#inicio" class="nav-link-item mb-3">
-                <i class="fa-solid fa-home me-2"></i> Inicio
-            </a>
-            <a href="{{ request()->routeIs('home') ? route('home') . '#caracteristicas' : '#features' }}" class="nav-link-item mb-3">
-                <i class="fa-solid fa-star me-2"></i> {{ request()->routeIs('home') ? 'Servicios' : 'Funcionalidades' }}
-            </a>
-            <li class="nav-item mb-3">
-                    <a class="nav-link-item d-flex align-items-center text-decoration-none" style="color: var(--mamba-text);" data-bs-toggle="collapse" href="#portfolioMobileCollapse" role="button" aria-expanded="false" aria-controls="portfolioMobileCollapse">
-                        <i class="fa-solid fa-briefcase me-2"></i> Portafolio <i class="fa-solid fa-chevron-down ms-auto"></i>
-                    </a>
-                    <div class="collapse mt-2" id="portfolioMobileCollapse">
-                        <ul class="nav flex-column">
-                            <li class="nav-item"><a class="nav-link py-1" style="color: var(--mamba-text);" href="{{ route('products.sales') }}"><i class="fa-regular fa-circle me-2"></i> Sistema de Ventas POS</a></li>
-                            <li class="nav-item"><a class="nav-link py-1" style="color: var(--mamba-text);" href="{{ route('products.hospitality') }}"><i class="fa-regular fa-circle me-2"></i> POS Cafeterías y Bares</a></li>
-                            <li class="nav-item"><a class="nav-link py-1" style="color: var(--mamba-text);" href="{{ route('products.itam') }}"><i class="fa-regular fa-circle me-2"></i> Gestión de Activos ITAM</a></li>
-                            <!-- <li class="nav-item"><a class="nav-link py-1" style="color: var(--mamba-text);" href="{{ route('products.gym') }}"><i class="fa-regular fa-circle me-2"></i> SysGym - Software Fitness</a></li> -->
-                            <li class="nav-item"><a class="nav-link text-white py-1" href="{{ route('products.transports') }}"><i class="fa-regular fa-circle me-2"></i> Sistema de Transporte Privado</a></li>
-                        </ul>
-                    </div>
-                </li>
-            @if (request()->routeIs('products.*'))
-                <a href="#pricing" class="nav-link-item mb-3">
-                    <i class="fa-solid fa-tag me-2"></i> {{ request()->routeIs('products.hospitality') ? 'Cotización' : 'Precios' }}
-                </a>
-            @endif
-            @if (!request()->routeIs('products.*'))
-                <a href="{{ route('home') }}#testimonios" class="nav-link-item mb-3">
-                    <i class="fa-solid fa-comments me-2"></i> Testimonios
-                </a>
-            @endif
-            <a href="{{ request()->routeIs('home') ? route('home') : '' }}#contacto" class="nav-link-item mb-3">
-                <i class="fa-solid fa-envelope me-2"></i> Contacto
-            </a>
-            <div class="dropdown-divider my-2 opacity-10"></div>
-            <a href="{{ route('access.index') }}" class="nav-link-item">
-                <i class="fa-solid fa-fingerprint me-2"></i> Acceso Admin
-            </a>
-            <!-- Theme Toggle Mobile -->
-            <button class="nav-link-item theme-toggle d-flex align-items-center justify-content-between" id="themeToggleMobile" type="button" aria-label="Cambiar tema">
-                <span><i class="fa-solid fa-moon me-2"></i> Tema</span>
-                <span class="theme-icon-mobile">
-                    <i class="fa-solid fa-sun theme-icon-light" style="display: none;"></i>
-                    <i class="fa-solid fa-moon theme-icon-dark"></i>
-                </span>
+            {{-- Mobile / tablet --}}
+            <button
+                type="button"
+                class="grid size-11 place-items-center rounded-lg text-xl text-fg transition hover:bg-hover lg:hidden"
+                @click="menuOpen = true"
+                :aria-expanded="menuOpen"
+                aria-controls="mobile-sidebar"
+                aria-label="Abrir menú"
+            >
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
             </button>
         </div>
+
+        {{-- Reading progress --}}
+        <div class="absolute inset-x-0 -bottom-px h-px">
+            <div class="h-full bg-primary transition-[width] duration-100" :style="`width: ${progress}%`"></div>
+        </div>
+    </header>
+
+    <div x-show="menuOpen" x-cloak class="fixed inset-0 z-[1000] lg:hidden">
+        <div x-show="menuOpen" x-transition.opacity class="absolute inset-0 bg-black/60" @click="menuOpen = false"></div>
+
+        <aside
+            id="mobile-sidebar"
+            x-show="menuOpen"
+            x-transition:enter="transition duration-300 ease-out"
+            x-transition:enter-start="translate-x-full"
+            x-transition:leave="transition duration-200 ease-in"
+            x-transition:leave-end="translate-x-full"
+            x-trap.noscroll="menuOpen"
+            class="absolute inset-y-0 right-0 flex w-[min(88vw,340px)] flex-col border-l border-glass bg-offcanvas"
+            aria-label="Menú móvil"
+        >
+            <div class="flex h-[4.5rem] items-center justify-between border-b border-glass px-4">
+                <x-brand />
+                <button type="button" class="grid size-11 place-items-center rounded-lg text-xl text-fg hover:bg-hover" @click="menuOpen = false" aria-label="Cerrar menú">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <nav class="flex flex-1 flex-col gap-1 overflow-y-auto p-3" @click="$event.target.closest('a') && (menuOpen = false)">
+                <a href="{{ route('home') }}" class="flex min-h-12 items-center rounded-lg px-4 text-fg transition hover:bg-hover">Inicio</a>
+                @foreach ($links as $link)
+                    @isset($link['portfolio'])
+                        <div x-data="{ open: false }">
+                            <button type="button" class="flex min-h-12 w-full items-center rounded-lg px-4 text-fg transition hover:bg-hover" @click="open = !open" :aria-expanded="open">
+                                Portafolio
+                                <i class="fa-solid fa-chevron-down ms-auto text-xs transition-transform" :class="open && 'rotate-180'" aria-hidden="true"></i>
+                            </button>
+                            <ul x-show="open" x-collapse class="ms-4 border-s border-glass ps-2">
+                                @foreach ($portfolio as $item)
+                                    <li><a href="{{ route($item['route']) }}" class="flex min-h-11 items-center rounded-lg px-4 text-sm text-muted transition hover:bg-hover hover:text-fg">{{ $item['label'] }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @else
+                        <a href="{{ $link['href'] }}" class="flex min-h-12 items-center rounded-lg px-4 text-fg transition hover:bg-hover">{{ $link['label'] }}</a>
+                    @endisset
+                @endforeach
+
+                <hr class="my-2 border-glass">
+
+                <a href="{{ route('access.index') }}" class="flex min-h-12 items-center rounded-lg px-4 text-fg transition hover:bg-hover">Portal de accesos</a>
+                <x-theme-toggle label="Tema" class="mt-2 min-h-12 w-full px-4" />
+            </nav>
+        </aside>
     </div>
 </div>

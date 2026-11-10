@@ -1,10 +1,8 @@
-<!-- CTA Section -->
-<section class="py-5 text-center" style="background: var(--feature-bg); border-top: 1px solid var(--feature-border); border-bottom: 1px solid var(--feature-border);">
-    <div class="container py-5">
-        <h2 class="hero-title fs-1 mb-4" style="color: var(--mamba-text);">¿Listo para evolucionar tu infraestructura?</h2>
-        <p class="fs-5 mb-5" style="color: var(--mamba-text-muted);">Implementa soluciones de software de alto impacto y escala tu ecosistema tecnológico hoy mismo.</p>
-        <a href="{{ route('contact') }}" class="btn-cyber">
-            Solicitar Consultoría Técnica
+<section class="border-t border-glass bg-footer">
+    <div class="container-page flex flex-col items-start justify-between gap-8 pt-20 pb-14 lg:flex-row lg:items-end lg:pt-28">
+        <h2 class="max-w-3xl text-[clamp(2.2rem,5vw,4rem)] leading-none font-bold tracking-[-0.04em] text-fg">¿Listo para evolucionar tu <span class="text-primary">infraestructura?</span></h2>
+        <a href="{{ route('contact') }}" class="btn-primary min-h-14 shrink-0 px-7">
+            Solicitar consultoría técnica <i class="fa-solid fa-arrow-right text-sm" aria-hidden="true"></i>
         </a>
     </div>
 </section>

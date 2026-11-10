@@ -118,9 +118,9 @@
     :carouselImages="$carouselImages"
     :features="$features"
 >
-    <h3 class="fw-bold mb-4" style="color: var(--mamba-text);">Tu inventario bajo control</h3>
+    <h2 class="mb-4 text-2xl font-bold text-fg sm:text-3xl">Tu inventario bajo control</h2>
     
-    <p class="mb-4" style="color: var(--mamba-text-muted); line-height: 1.8;">
+    <p class="mb-6 leading-loose text-muted">
         Desde laptops hasta licencias de software en la nube. Nuestra plataforma ITAM automatiza el descubrimiento, seguimiento y gestión del ciclo de vida de cada activo, asegurando eficiencia financiera y operativa.
     </p>
 </x-products.intro>

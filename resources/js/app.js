@@ -1,15 +1,27 @@
-import './bootstrap';
-import * as bootstrap from 'bootstrap';
-window.bootstrap = bootstrap;
-// Import FontAwesome JS to generate SVGs
-import '@fortawesome/fontawesome-free/js/all.js'; 
 import Alpine from 'alpinejs';
-import Swal from 'sweetalert2';
+import intersect from '@alpinejs/intersect';
+import collapse from '@alpinejs/collapse';
+import focus from '@alpinejs/focus';
 
-// Global Assignments
+import registerTheme from './components/theme';
+import reveal from './components/reveal';
+import navbar from './components/navbar';
+import counter from './components/counter';
+import carousel from './components/carousel';
+import tilt from './components/tilt';
+
+Alpine.plugin(intersect);
+Alpine.plugin(collapse);
+Alpine.plugin(focus);
+
+registerTheme(Alpine);
+
+Alpine.directive('reveal', reveal);
+
+Alpine.data('navbar', navbar);
+Alpine.data('counter', counter);
+Alpine.data('carousel', carousel);
+Alpine.data('tilt', tilt);
+
 window.Alpine = Alpine;
-window.Swal = Swal;
-
-// Initialize
 Alpine.start();
-
