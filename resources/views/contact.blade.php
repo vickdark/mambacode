@@ -4,19 +4,6 @@
 @section('meta_description', 'Contáctanos y nuestro equipo de Mamba Code te responderá pronto. Solicita una consultoría, una demo en vivo o cuéntanos tu proyecto de software a medida.')
 @section('meta_keywords', 'contacto Mamba Code, cotizar software, consultoría tecnológica, desarrollo a medida, Colombia')
 
-@php
-    $channels = [
-        ['icon' => 'fa-envelope', 'label' => 'Correo', 'items' => [
-            ['text' => 'lbarriosmunoz1012@gmail.com', 'href' => 'mailto:lbarriosmunoz1012@gmail.com'],
-            ['text' => 'victormanjarres3mayo@gmail.com', 'href' => 'mailto:victormanjarres3mayo@gmail.com'],
-        ]],
-        ['icon' => 'fa-phone', 'label' => 'Teléfono', 'items' => [
-            ['text' => '+57 323 505 9939', 'href' => 'tel:+573235059939'],
-            ['text' => '+57 312 335 5193', 'href' => 'tel:+573123355193'],
-        ]],
-    ];
-@endphp
-
 @section('content')
     <x-landing.navigation />
 
@@ -45,19 +32,15 @@
                     <i class="fa-solid fa-arrow-right text-sm text-muted transition-transform group-hover:translate-x-1" aria-hidden="true"></i>
                 </a>
 
-                <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                    @foreach ($channels as $channel)
-                        <div class="rounded-[1.1rem] border border-glass bg-surface p-5">
-                            <span class="mb-3 flex items-center gap-2.5 font-mono text-xs text-faint uppercase">
-                                <i class="fa-solid {{ $channel['icon'] }} text-primary" aria-hidden="true"></i> {{ $channel['label'] }}
-                            </span>
-                            <ul class="space-y-1.5">
-                                @foreach ($channel['items'] as $item)
-                                    <li><a href="{{ $item['href'] }}" class="break-all text-fg transition hover:text-primary">{{ $item['text'] }}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endforeach
+                <div class="rounded-[1.1rem] border border-glass bg-surface p-5">
+                    <span class="mb-3 flex items-center gap-2.5 font-mono text-xs text-faint uppercase">
+                        <i class="fa-solid fa-envelope text-primary" aria-hidden="true"></i> Correo
+                    </span>
+                    <ul class="space-y-1.5">
+                        @foreach (config('mail.contact_emails') as $email)
+                            <li><a href="mailto:{{ $email }}" class="break-all text-fg transition hover:text-primary">{{ $email }}</a></li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
 

@@ -1,11 +1,3 @@
-@php
-    $contacts = [
-        ['text' => 'lbarriosmunoz1012@gmail.com', 'href' => 'mailto:lbarriosmunoz1012@gmail.com'],
-        ['text' => 'victormanjarres3mayo@gmail.com', 'href' => 'mailto:victormanjarres3mayo@gmail.com'],
-        ['text' => '+57 323 505 9939', 'href' => 'tel:+573235059939'],
-        ['text' => '+57 312 335 5193', 'href' => 'tel:+573123355193'],
-    ];
-@endphp
 
 <footer class="bg-footer text-sm text-muted" id="contacto">
     <div class="container-page grid gap-10 border-t border-glass py-12 md:grid-cols-3">
@@ -17,8 +9,8 @@
         <div>
             <h2 class="mb-3 font-mono text-xs text-faint uppercase">Contacto</h2>
             <ul class="space-y-2 font-mono text-[13px]">
-                @foreach ($contacts as $contact)
-                    <li><a href="{{ $contact['href'] }}" class="break-all transition hover:text-primary">{{ $contact['text'] }}</a></li>
+                @foreach (config('mail.contact_emails') as $email)
+                    <li><a href="mailto:{{ $email }}" class="break-all transition hover:text-primary">{{ $email }}</a></li>
                 @endforeach
             </ul>
         </div>

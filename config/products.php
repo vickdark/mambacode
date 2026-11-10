@@ -18,7 +18,7 @@ return [
         'icon' => 'fa-solid fa-cash-register',
         'route' => 'products.sales',
         'cover' => 'img/products/sales/cover.png',
-        'url' => env('SALES_ACCESS_URL', env('SALES_LOGIN_URL', 'https://licorera-pos.mambacode.dev/login')),
+        'url' => env('SALES_ACCESS_URL', env('SALES_LOGIN_URL', 'https://pos.mambacode.dev/login')),
         'access_label' => 'Abrir sistema de ventas',
     ],
     'transports' => [
